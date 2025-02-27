@@ -197,8 +197,8 @@ public class userDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-        attendeesForm atf = new attendeesForm();
-        atf.setVisible(true);
+        userDashboard ds = new userDashboard();
+        ds.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel4MouseClicked
 
