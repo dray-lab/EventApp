@@ -6,8 +6,12 @@
 package eventapp;
 
 import config.dbConnector;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -223,34 +227,56 @@ public class registerForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    //changed
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+// Check if any field is empty
+    if (fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() || un.getText().isEmpty() || pass.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "All fields are required!");
+        return;
+    }
 
-        if(un.getText().isEmpty() || un.getText().isEmpty() || em.getText().isEmpty() || un.getText().isEmpty() || pass.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "All fields are required!");
+    // Check password length
+    if (pass.getText().length() < 8) {
+        JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long.");
+        pass.setText("");
+        return;
+    }
 
-        }else if(pass.getText().length()<8){
-            JOptionPane.showMessageDialog(null, "Password character should be 8 above");
-            pass.setText("");
+    // Check for duplicate username before inserting
+    if (duplicateCheck()) {
+        JOptionPane.showMessageDialog(null, "Duplicate username exists!");
+        return;
+    }
 
-        }else if(duplicateCheck()){
-            System.out.println("Duplicate Exit");
-        }
+    // Establish database connection
+    dbConnector dbc = new dbConnector();
+    Connection conn = (Connection) dbc.getConnection();
 
-        dbConnector dbc = new dbConnector();
-        if(dbc.insertData("INSERT INTO tbl_registeruser(u_fname, u_lname, u_email, u_username, u_password, u_type, u_status)"
-            + "VALUES('"+fn.getText()+"','"+ln.getText()+"', '"+em.getText()+"', '"+un.getText()+"', '"+pass.getText()+"', '"+at.getSelectedItem()+"','Pending')"))
+    if (conn != null) {
+        String sql = "INSERT INTO tbl_registeruser (u_fname, u_lname, i_email, u_username, u_password, u_type, u_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    {
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, fn.getText());
+            pstmt.setString(2, ln.getText());
+            pstmt.setString(3, em.getText());
+            pstmt.setString(4, un.getText());
+            pstmt.setString(5, pass.getText()); // Ideally, hash the password before storing it
+            pstmt.setString(6, at.getSelectedItem().toString());
+            pstmt.setString(7, "Pending");
 
-        JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-        loginForm lfr = new loginForm();
-        lfr.setVisible(true);
-        this.dispose();
-
-        }else{
-            JOptionPane.showMessageDialog(null, "Connetion Error!");
-        }
-
+            int rowsInserted = pstmt.executeUpdate();
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+                new loginForm().setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Insertion failed. Try again!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(registerForm.class.getName()).log(Level.SEVERE, null, ex);
+        }    } else {
+        JOptionPane.showMessageDialog(null, "Connection Error! Unable to connect to the database.");
+    }
     }//GEN-LAST:event_jButton3ActionPerformed
  
     /**

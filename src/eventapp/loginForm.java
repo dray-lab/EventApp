@@ -7,6 +7,8 @@ package eventapp;
 
 import organizer.adminDashboard;
 import config.dbConnector;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -170,31 +172,50 @@ public class loginForm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    //changed
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        if(loginAcc(user.getText(), pass.getText())){
-        if(!status.equals("Active")){
-            JOptionPane.showMessageDialog(null,"In-Active Account, Contact the Organzer!");
-        }else{
-         if(type.equals("Organizer")){
-             JOptionPane.showMessageDialog(null,"Login Successfully!");
-            adminDashboard ads = new adminDashboard();
-            ads.setVisible(true);
-            this.dispose();
-        }else if(type.equals("Attendees")){
-            JOptionPane.showMessageDialog(null,"Login Successfully!");
-            userDashboard usd = new userDashboard();
-            usd.setVisible(true);
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null,"No account type found, Contact the Organzer!");
+        String u_username = user.getText();
+        String u_password = new String(pass.getPassword());
+
+        if (u_username.isEmpty() || u_password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter both email and password.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
-        } 
-        }else{
-            JOptionPane.showMessageDialog(null,"Login failed!");
+
+        String sql = "SELECT * FROM tbl_registeruser WHERE u_username = ? AND u_password = ?";
+
+        dbConnector db = new dbConnector(); // Create an instance of dbConnector
+
+        try (Connection conn = (Connection) db.getConnection();  // Get connection from dbConnector
+             PreparedStatement pst = conn.prepareStatement(sql)) {
+
+            pst.setString(1, u_username);
+            pst.setString(2, u_password);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                JOptionPane.showMessageDialog(this, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+                String u_type = rs.getString("u_type");
+
+                if (u_type.equals("Admin")) {
+                    adminDashboard admin = new adminDashboard();
+                    admin.setVisible(true);
+                } else {
+                    userDashboard user = new userDashboard();
+                    user.setVisible(true);
+                }
+
+                this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Incorrect username or password.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

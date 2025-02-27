@@ -19,6 +19,7 @@ import java.sql.Statement;
 public class dbConnector {
     
     private Connection connect;
+    private Connection connection;
 
        // constructor to connect to our database
         public dbConnector(){
@@ -56,8 +57,9 @@ public class dbConnector {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    //changed
     public Object getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return connect;
     }
     
 }
