@@ -6,16 +6,21 @@
 
 package organizer;
 
+import config.Session;
 import config.dbConnector;
+import eventapp.loginForm;
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
  *
  * @author user
  */
-public class attendeesForm extends javax.swing.JFrame {
+public final class attendeesForm extends javax.swing.JFrame {
 
     /** Creates new form adminDasboard */
     public attendeesForm() {
@@ -23,12 +28,15 @@ public class attendeesForm extends javax.swing.JFrame {
         displayData();
     }
     
+    Color navcolor = new Color(51,0,102);
+    Color hovercolor = new Color(255,255,255);
+    
     public void displayData(){
         try{
             dbConnector dbc = new dbConnector();
-            try (ResultSet rs = dbc.getData("SELECT u_id, u_fname, u_lname, u_email FROM tbl_registeruser")) {
-                attendeesTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }
+            ResultSet rs = dbc.getData("SELECT * FROM tbl_registeruser"); 
+            attendeesTable.setModel(DbUtils.resultSetToTableModel(rs));
+            rs.close();
         }catch(SQLException ex){
             System.out.println("Errors: "+ex.getMessage());
 
@@ -51,11 +59,20 @@ public class attendeesForm extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        acc_id = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        p_edit = new javax.swing.JLabel();
+        p_add = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         attendeesTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -103,35 +120,63 @@ public class attendeesForm extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 40));
 
         jPanel3.setBackground(new java.awt.Color(51, 0, 102));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/att.png"))); // NOI18N
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 130));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("ATTENDEES");
+        acc_id.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        acc_id.setForeground(new java.awt.Color(204, 204, 255));
+        acc_id.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        acc_id.setText("ID");
+        jPanel3.add(acc_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 352, 140, 28));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addGap(0, 227, Short.MAX_VALUE))
-        );
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Current User");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 140, 27));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("ATTENDEES");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 120, -1));
+
+        p_edit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        p_edit.setForeground(new java.awt.Color(0, 0, 51));
+        p_edit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        p_edit.setText("EDIT");
+        p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_editMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                p_editMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                p_editMouseExited(evt);
+            }
+        });
+        jPanel3.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 140, 29));
+
+        p_add.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        p_add.setForeground(new java.awt.Color(0, 0, 51));
+        p_add.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        p_add.setText("ADD");
+        p_add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_addMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                p_addMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                p_addMouseExited(evt);
+            }
+        });
+        jPanel3.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 140, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 380));
 
@@ -167,6 +212,64 @@ public class attendeesForm extends javax.swing.JFrame {
      ds.setVisible(true);
      this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+    }//GEN-LAST:event_formWindowActivated
+
+    private void p_addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseEntered
+        p_add.setBackground(hovercolor);
+    }//GEN-LAST:event_p_addMouseEntered
+
+    private void p_addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseExited
+        p_add.setBackground(navcolor);
+    }//GEN-LAST:event_p_addMouseExited
+
+    private void p_editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseEntered
+        p_add.setBackground(hovercolor);
+    }//GEN-LAST:event_p_editMouseEntered
+
+    private void p_editMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseExited
+        p_add.setBackground(navcolor);
+    }//GEN-LAST:event_p_editMouseExited
+
+    private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
+        createuserForm crf = new createuserForm();
+        crf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_p_addMouseClicked
+
+    private void p_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseClicked
+       int rowIndex = attendeesTable.getSelectedRow();
+       
+       if(rowIndex < 0){
+           JOptionPane.showMessageDialog(null, "Please select an Item!");
+       }else{ 
+           try{
+           dbConnector dbc = new dbConnector();
+           TableModel tbl = attendeesTable.getModel();
+           ResultSet rs = dbc.getData("SELECT * FROM tbl_registeruser WHERE u_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
+           if(rs.next()){
+               createuserForm crf = new createuserForm();
+               crf.uid.setText(""+rs.getInt("u_id"));
+               crf.fn1.setText(""+rs.getString("u_fname"));
+               crf.ln1.setText(""+rs.getString("u_lname"));
+               crf.em1.setText(""+rs.getString("u_email"));
+               crf.un1.setText(""+rs.getString("u_username"));
+               crf.pass1.setText(""+rs.getString("u_password"));
+               crf.at2.setSelectedItem(""+rs.getString("u_type"));
+               crf.us1.setSelectedItem(""+rs.getString("u_status"));
+               crf.add.setEnabled(false);
+               crf.update.setEnabled(true);
+               crf.setVisible(true);
+               this.dispose();
+           }
+           }catch(SQLException ex){
+                   System.out.println(""+ex);   
+           
+           }
+       }
+    }//GEN-LAST:event_p_editMouseClicked
 
     /**
      * @param args the command line arguments
@@ -207,15 +310,23 @@ public class attendeesForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel acc_id;
     private javax.swing.JTable attendeesTable;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel p_add;
+    private javax.swing.JLabel p_edit;
     // End of variables declaration//GEN-END:variables
+
+    private String getUid() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

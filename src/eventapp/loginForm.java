@@ -5,6 +5,7 @@
  */
 package eventapp;
 
+import config.Session;
 import organizer.adminDashboard;
 import config.dbConnector;
 import java.sql.Connection;
@@ -13,7 +14,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import organizer.attendeesForm;
 import user.userDashboard;
+
 
 /**
  *
@@ -33,12 +36,21 @@ public class loginForm extends javax.swing.JFrame {
     
     public static boolean loginAcc(String username, String password){
         dbConnector connector = new dbConnector();
+        
         try{
             String query = "SELECT * FROM tbl_user WHERE u_username =" + username + "AND u_password =" + password + "";
             ResultSet resultSet = connector.getData(query);
             if(resultSet.next()){
                 status = resultSet.getString("u_status");
                 type = resultSet.getString("u_type");
+                Session sess = Session.getInstance();
+                sess.setUid(resultSet.getInt("u_id"));
+                sess.setFname(resultSet.getString("u_fname"));
+                sess.setLname(resultSet.getString("u_lname"));
+                sess.setEmail(resultSet.getString("u_email"));
+                sess.setUsername(resultSet.getString("u_username"));
+                sess.setType(resultSet.getString("u_type"));
+                sess.setStatus(resultSet.getString("u_status"));
                 return true;
             }else{
                 return false;
@@ -203,8 +215,8 @@ public class loginForm extends javax.swing.JFrame {
                     adminDashboard admin = new adminDashboard();
                     admin.setVisible(true);
                 } else {
-                    userDashboard user = new userDashboard();
-                    user.setVisible(true);
+                    attendeesForm att = new attendeesForm();
+                    att.setVisible(true);
                 }
 
                 this.dispose();
