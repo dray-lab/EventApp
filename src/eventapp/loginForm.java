@@ -205,12 +205,20 @@ public class loginForm extends javax.swing.JFrame {
             pst.setString(2, u_password);
             ResultSet rs = pst.executeQuery();
 
-            if (rs.next()) {
+            if(rs.next()){
+            String u_status = rs.getString("u_status");
+        
+        
+            if (u_status.equalsIgnoreCase("Pending")) {
+                JOptionPane.showMessageDialog(this, "Account Pending. Please contact the Admin.", "Access Denied", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
 
                 JOptionPane.showMessageDialog(this, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
 
                 String u_type = rs.getString("u_type");
-
+              
                 if (u_type.equals("Admin")) {
                     adminDashboard admin = new adminDashboard();
                     admin.setVisible(true);
