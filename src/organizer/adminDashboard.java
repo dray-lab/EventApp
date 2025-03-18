@@ -59,6 +59,11 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 0, 102));
         jLabel7.setText("LOGOUT");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 0, 102));
@@ -189,6 +194,23 @@ public class adminDashboard extends javax.swing.JFrame {
     }
     acc_name.setText("" + sess.getFname());
     }//GEN-LAST:event_formWindowActivated
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+         Session.getInstance().setUid(0);
+    Session.getInstance().setFname(null);
+    Session.getInstance().setLname(null);
+    Session.getInstance().setEmail(null);
+    Session.getInstance().setUsername(null);
+    Session.getInstance().setStatus(null);
+    Session.getInstance().setType(null);
+
+    // Open the login form
+    loginForm login = new loginForm();
+    login.setVisible(true);
+
+    // Close the current form
+    this.dispose();
+    }//GEN-LAST:event_jLabel7MouseClicked
 
     /**
      * @param args the command line arguments

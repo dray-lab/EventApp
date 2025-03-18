@@ -150,6 +150,11 @@ public class accountDetails extends javax.swing.JFrame {
         pass.setForeground(new java.awt.Color(255, 255, 255));
         pass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pass.setText("Change Password");
+        pass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passMouseClicked(evt);
+            }
+        });
         jPanel3.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, 20));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 380));
@@ -308,6 +313,12 @@ public class accountDetails extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Connection Error! Unable to connect to the database.");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void passMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passMouseClicked
+     changePass cp = new changePass();
+     cp.setVisible(true);
+     this.dispose();
+    }//GEN-LAST:event_passMouseClicked
 
     /**
      * @param args the command line arguments

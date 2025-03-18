@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package config;
 
-/**
- *
- * @author user
- */
 public class Session {
     
     private static Session instance;
@@ -18,22 +9,23 @@ public class Session {
     private String email;
     private String username;
     private String status;
-    
-    private Session(){
-        //Private cons. prevents instance
+    private String type; // Added this field for setType()
+
+    private Session() {
+        // Private constructor prevents instance
     }
 
     public static synchronized Session getInstance() {
-        if(instance == null){
-           instance = new Session();
-    }
+        if (instance == null) {
+            instance = new Session();
+        }
         return instance;
     }
 
     public static boolean isInstanceEmpty() {
         return instance == null;
     }
-    
+
     public int getUid() {
         return uid;
     }
@@ -80,11 +72,13 @@ public class Session {
 
     public void setStatus(String status) {
         this.status = status;
-        
-    
     }
 
-    public void setType(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getType() {
+        return type; // Getter for type
+    }
+
+    public void setType(String type) {
+        this.type = type; // Now properly implemented
     }
 }
