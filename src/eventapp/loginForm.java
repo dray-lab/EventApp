@@ -8,13 +8,15 @@ package eventapp;
 import config.Session;
 import organizer.adminDashboard;
 import config.dbConnector;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
-import organizer.attendeesForm;
+import user.attendeesForm;
 import user.userDashboard;
 
 
@@ -38,9 +40,15 @@ public class loginForm extends javax.swing.JFrame {
         dbConnector connector = new dbConnector();
         
         try{
-            String query = "SELECT * FROM tbl_user WHERE u_username =" + username + "AND u_password =" + password + "";
+           String query = "SELECT * FROM tbl_registeruser WHERE u_username = '" + username + "'";
             ResultSet resultSet = connector.getData(query);
             if(resultSet.next()){
+                
+                
+                String hashedPass = resultSet.getString("u_password");
+                String rehashedPass = passwordHasher.hashPassword(password);
+
+                if(hashedPass.equals(rehashedPass)){
                 status = resultSet.getString("u_status");
                 type = resultSet.getString("u_type");
                 Session sess = Session.getInstance();
@@ -52,14 +60,20 @@ public class loginForm extends javax.swing.JFrame {
                 sess.setType(resultSet.getString("u_type"));
                 sess.setStatus(resultSet.getString("u_status"));
                 return true;
+            
+            }else{
+                return false;
+                }
+               
             }else{
                 return false;
             }
-        }catch (SQLException ex) {
+        }catch (SQLException | NoSuchAlgorithmException ex) {
             return false;
             
         }
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -215,8 +229,8 @@ public class loginForm extends javax.swing.JFrame {
                     adminDashboard admin = new adminDashboard();
                     admin.setVisible(true);
                 } else {
-                    attendeesForm att = new attendeesForm();
-                    att.setVisible(true);
+                    userDashboard usd = new userDashboard();
+                    usd.setVisible(true);
                 }
 
                 this.dispose();

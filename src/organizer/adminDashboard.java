@@ -6,6 +6,7 @@
 
 package organizer;
 
+import user.attendeesForm;
 import config.Session;
 import eventapp.loginForm;
 import javax.swing.JOptionPane;
@@ -179,14 +180,14 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        Session sess = Session.getInstance();
-        if(sess.getUid() == 0){
+         Session sess = Session.getInstance();
+    if (sess.getUid() == 0) {
+        // If uid == 0, it means the user is not logged in
         JOptionPane.showMessageDialog(null, "No account, Login First!");
-        loginForm lf = new loginForm();
-        lf.setVisible(true);
+        new loginForm().setVisible(true);
         this.dispose();
-        }
-        acc_name.setText(""+sess.getFname());
+    }
+    acc_name.setText("" + sess.getFname());
     }//GEN-LAST:event_formWindowActivated
 
     /**

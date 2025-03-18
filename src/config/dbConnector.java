@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -65,5 +66,22 @@ public class dbConnector {
     public ResultSet getData() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    //Function to update data
+        public void updateData(String sql){
+            try{
+                PreparedStatement pst = connect.prepareStatement(sql);
+                    int rowsUpdated = pst.executeUpdate();
+                        if(rowsUpdated > 0){
+                            JOptionPane.showMessageDialog(null, "Data Updated Successfully!");
+                        }else{
+                            System.out.println("Data Update Failed!");
+                        }
+                        pst.close();
+            }catch(SQLException ex){
+                System.out.println("Connection Error: "+ex);
+            }
+        
+        }
     
 }

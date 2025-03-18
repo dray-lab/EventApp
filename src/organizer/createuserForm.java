@@ -5,6 +5,7 @@
  */
 package organizer;
 
+import user.attendeesForm;
 import config.dbConnector;
 import eventapp.registerForm;
 import static eventapp.registerForm.email;
@@ -34,6 +35,38 @@ public class createuserForm extends javax.swing.JFrame {
         
         try{
         String query = "SELECT * FROM tbl_user WHERE u_username = '"+ un1.getText() +"'OR u_email ='"+ em1.getText()+"";
+            ResultSet resultSet = dbc.getData(query);
+            
+            if(resultSet.next()){
+               email = resultSet.getString("u_email");
+               if(email.equals(em1.getText())){
+               JOptionPane.showMessageDialog(null, "Email is already Used!");   
+               em1.setText("");
+               }
+               
+               usname = resultSet.getString("u_username");
+               if(usname.equals(un1.getText())){
+               JOptionPane.showMessageDialog(null, "Username is already Used!");   
+               un1.setText("");
+               
+               } 
+               return true;
+        }else{
+                return false;
+        }
+        }catch(SQLException ex){
+            System.out.println(""+ex);
+            return false;
+        
+        }
+    }
+    
+    public boolean updateCheck(){
+        
+        dbConnector dbc = new dbConnector();
+        
+        try{
+        String query = "SELECT * FROM tbl_user WHERE( u_username = '"+ un1.getText() +"'OR u_email ='"+ em1.getText()+"') AND u_id != '"+uid.getText()+"'";
             ResultSet resultSet = dbc.getData(query);
             
             if(resultSet.next()){
@@ -308,11 +341,40 @@ public class createuserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        // TODO add your handling code here:
+       boolean duplicateCheck = false;
+        if(fn1.getText().isEmpty() || ln1.getText().isEmpty() || em1.getText().isEmpty() || un1.getText().isEmpty() || pass1.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null, "All fields are required!");
+        }else if(pass1.getText().length() < 8){
+        JOptionPane.showMessageDialog(null, "Password characer should be 8 above!");
+        pass1.setText("");
+        }else if(duplicateCheck){
+            boolean Duplicate = false;
+            System.out.println("Duplicate Exist");
+        }else{
+        dbConnector dbc = new dbConnector();
+        dbc.updateData("UPDATE tbl_registeruser SET u_fname = '"+fn1.getText()+"', u_lname = '"+ln1.getText()+"', u_email = '"+em1.getText()+"', u_username = '"+un1.getText()+"', u_password = '"+pass1.getText()+"', u_type = '"+at2.getSelectedItem()+"', u_status '"+us1.getSelectedItem()+"'WHERE u_id = '"+uid.getText()+"'");
+        
+        }
     }//GEN-LAST:event_addActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-        // TODO add your handling code here:
+        boolean duplicateCheck = false;
+        if(fn1.getText().isEmpty() || ln1.getText().isEmpty() || em1.getText().isEmpty() || un1.getText().isEmpty() || pass1.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null, "All fields are required!");
+        }else if(pass1.getText().length() < 8){
+        JOptionPane.showMessageDialog(null, "Password characer should be 8 above!");
+        pass1.setText("");
+        }else if(duplicateCheck){
+            boolean Duplicate = false;
+            System.out.println("Duplicate Exist");
+        }else{
+        dbConnector dbc = new dbConnector();
+        dbc.updateData("UPDATE tbl_registeruser SET u_fname = '"+fn1.getText()+"', u_lname = '"+ln1.getText()+"', u_email = '"+em1.getText()+"', u_username = '"+un1.getText()+"', u_password = '"+pass1.getText()+"', u_type = '"+at2.getSelectedItem()+"', u_status '"+us1.getSelectedItem()+"'WHERE u_id = '"+uid.getText()+"'");
+       
+        attendeesForm att = new attendeesForm();
+        att.setVisible(true);
+        this.dispose();
+        }
     }//GEN-LAST:event_updateActionPerformed
 
     /**

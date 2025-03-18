@@ -6,6 +6,8 @@
 package eventapp;
 
 import config.dbConnector;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -93,7 +95,7 @@ public class registerForm extends javax.swing.JFrame {
         fn = new javax.swing.JTextField();
         ln = new javax.swing.JTextField();
         em = new javax.swing.JTextField();
-        pass = new javax.swing.JTextField();
+        pass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -170,7 +172,7 @@ public class registerForm extends javax.swing.JFrame {
         jLabel12.setText("First name");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 70, 20));
 
-        at.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User", " " }));
+        at.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         at.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 atActionPerformed(evt);
@@ -198,6 +200,12 @@ public class registerForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 290, 30));
+
+        pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passActionPerformed(evt);
+            }
+        });
         jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 290, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -235,32 +243,31 @@ public class registerForm extends javax.swing.JFrame {
         return;
     }
 
-    // Check password length
     if (pass.getText().length() < 8) {
         JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long.");
         pass.setText("");
         return;
     }
 
-    // Check for duplicate username before inserting
     if (duplicateCheck()) {
         JOptionPane.showMessageDialog(null, "Duplicate username exists!");
         return;
     }
 
-    // Establish database connection
     dbConnector dbc = new dbConnector();
     Connection conn = (Connection) dbc.getConnection();
 
     if (conn != null) {
-        String sql = "INSERT INTO tbl_registeruser (u_fname, u_lname, i_email, u_username, u_password, u_type, u_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        try {
+            String sql = "INSERT INTO tbl_registeruser (u_fname, u_lname, u_email, u_username, u_password, u_type, u_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String hashedPassword = passwordHasher.hashPassword(pass.getText());
 
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, fn.getText());
             pstmt.setString(2, ln.getText());
-            pstmt.setString(3, em.getText());
+            pstmt.setString(3, em.getText()); // Fixed email column reference
             pstmt.setString(4, un.getText());
-            pstmt.setString(5, pass.getText()); // Ideally, hash the password before storing it
+            pstmt.setString(5, hashedPassword); // Store hashed password
             pstmt.setString(6, at.getSelectedItem().toString());
             pstmt.setString(7, "Pending");
 
@@ -272,12 +279,20 @@ public class registerForm extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Insertion failed. Try again!");
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(registerForm.class.getName()).log(Level.SEVERE, null, ex);
-        }    } else {
+
+            pstmt.close();
+            conn.close();
+        } catch (SQLException | NoSuchAlgorithmException ex) {
+            ex.printStackTrace(); // Print error details for debugging
+        }
+    } else {
         JOptionPane.showMessageDialog(null, "Connection Error! Unable to connect to the database.");
     }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passActionPerformed
  
     /**
      * @param args the command line arguments
@@ -333,7 +348,7 @@ public class registerForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField ln;
-    private javax.swing.JTextField pass;
+    private javax.swing.JPasswordField pass;
     private javax.swing.JTextField un;
     // End of variables declaration//GEN-END:variables
 }
