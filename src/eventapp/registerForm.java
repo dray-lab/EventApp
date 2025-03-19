@@ -61,9 +61,7 @@ public class registerForm extends javax.swing.JFrame {
             return false;
         
         }
-    
-    
-    
+
     }
     
     
@@ -96,6 +94,7 @@ public class registerForm extends javax.swing.JFrame {
         ln = new javax.swing.JTextField();
         em = new javax.swing.JTextField();
         pass = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,7 +102,7 @@ public class registerForm extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel2.setForeground(new java.awt.Color(51, 0, 102));
         jLabel2.setText("Password");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 100, 20));
 
@@ -118,22 +117,22 @@ public class registerForm extends javax.swing.JFrame {
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, 100, 30));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 0, 102));
         jLabel8.setText("Accont Type :");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 70, 20));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel9.setForeground(new java.awt.Color(51, 0, 102));
         jLabel9.setText("Last name");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, 70, 20));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel10.setForeground(new java.awt.Color(51, 0, 102));
         jLabel10.setText("Email");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 70, 20));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel11.setForeground(new java.awt.Color(51, 0, 102));
         jLabel11.setText("Username");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 70, 20));
 
@@ -168,7 +167,7 @@ public class registerForm extends javax.swing.JFrame {
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 100, 30));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel12.setForeground(new java.awt.Color(51, 0, 102));
         jLabel12.setText("First name");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 70, 20));
 
@@ -208,11 +207,14 @@ public class registerForm extends javax.swing.JFrame {
         });
         jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 290, 30));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 380, 420));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,20 +240,42 @@ public class registerForm extends javax.swing.JFrame {
     //changed
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 // Check if any field is empty
-    if (fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() || un.getText().isEmpty() || pass.getText().isEmpty()) {
+    if (fn.getText().trim().isEmpty() || ln.getText().trim().isEmpty() || 
+        em.getText().trim().isEmpty() || un.getText().trim().isEmpty() || 
+        pass.getText().trim().isEmpty()) {
         JOptionPane.showMessageDialog(null, "All fields are required!");
         return;
     }
 
+    // Validate first name and last name (only letters allowed)
+    if (!fn.getText().matches("[a-zA-Z ]+") || !ln.getText().matches("[a-zA-Z ]+")) {
+        JOptionPane.showMessageDialog(null, "First Name and Last Name should contain only letters.");
+        return;
+    }
+
+    // Validate email format
+    String emailPattern = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+    if (!em.getText().matches(emailPattern)) {
+        JOptionPane.showMessageDialog(null, "Enter a valid email address!");
+        return;
+    }
+
+    // Validate username (no spaces allowed)
+    if (un.getText().contains(" ")) {
+        JOptionPane.showMessageDialog(null, "Username must not contain spaces.");
+        return;
+    }
+
+    // Validate password length
     if (pass.getText().length() < 8) {
         JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long.");
         pass.setText("");
         return;
     }
 
+    // Check for duplicate email or username
     if (duplicateCheck()) {
-        JOptionPane.showMessageDialog(null, "Duplicate username exists!");
-        return;
+        return; // Error message is already shown in duplicateCheck()
     }
 
     dbConnector dbc = new dbConnector();
@@ -263,21 +287,21 @@ public class registerForm extends javax.swing.JFrame {
             String hashedPassword = passwordHasher.hashPassword(pass.getText());
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, fn.getText());
-            pstmt.setString(2, ln.getText());
-            pstmt.setString(3, em.getText()); // Fixed email column reference
-            pstmt.setString(4, un.getText());
-            pstmt.setString(5, hashedPassword); // Store hashed password
+            pstmt.setString(1, fn.getText().trim());
+            pstmt.setString(2, ln.getText().trim());
+            pstmt.setString(3, em.getText().trim());
+            pstmt.setString(4, un.getText().trim());
+            pstmt.setString(5, hashedPassword);
             pstmt.setString(6, at.getSelectedItem().toString());
             pstmt.setString(7, "Pending");
 
             int rowsInserted = pstmt.executeUpdate();
             if (rowsInserted > 0) {
-                JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+                JOptionPane.showMessageDialog(null, "Registration Successful!");
                 new loginForm().setVisible(true);
                 this.dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "Insertion failed. Try again!");
+                JOptionPane.showMessageDialog(null, "Registration failed. Try again!");
             }
 
             pstmt.close();
@@ -286,7 +310,7 @@ public class registerForm extends javax.swing.JFrame {
             ex.printStackTrace(); // Print error details for debugging
         }
     } else {
-        JOptionPane.showMessageDialog(null, "Connection Error! Unable to connect to the database.");
+               JOptionPane.showMessageDialog(null, "Database Connection Error!");
     }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -335,6 +359,7 @@ public class registerForm extends javax.swing.JFrame {
     private javax.swing.JTextField fn;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

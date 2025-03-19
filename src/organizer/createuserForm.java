@@ -129,6 +129,7 @@ public class createuserForm extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         add = new javax.swing.JButton();
         update = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         fn2 = new javax.swing.JTextField();
 
@@ -141,7 +142,6 @@ public class createuserForm extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 255));
         jLabel3.setText("Password");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 100, 20));
 
@@ -156,27 +156,22 @@ public class createuserForm extends javax.swing.JFrame {
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 90, 30));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(204, 204, 255));
         jLabel14.setText("Account type :");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 100, 20));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(204, 204, 255));
         jLabel15.setText("Last name");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 70, 20));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(204, 204, 255));
         jLabel16.setText("Email");
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 70, 20));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(204, 204, 255));
         jLabel17.setText("Username");
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 70, 20));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(204, 204, 255));
         jLabel18.setText("First name");
         jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 70, 20));
 
@@ -219,7 +214,6 @@ public class createuserForm extends javax.swing.JFrame {
         jPanel2.add(at2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 290, 30));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(204, 204, 255));
         jLabel19.setText("Users Status :");
         jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 70, 20));
 
@@ -229,7 +223,6 @@ public class createuserForm extends javax.swing.JFrame {
         jPanel2.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 290, 30));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(204, 204, 255));
         jLabel21.setText("User ID :");
         jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 70, 20));
 
@@ -284,6 +277,9 @@ public class createuserForm extends javax.swing.JFrame {
         });
         jPanel2.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 90, 30));
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 590));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 500));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -303,7 +299,7 @@ public class createuserForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -432,6 +428,7 @@ public class createuserForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JTextField ln1;

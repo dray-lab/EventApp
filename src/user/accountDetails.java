@@ -65,6 +65,7 @@ public class accountDetails extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         at = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -228,6 +229,9 @@ public class accountDetails extends javax.swing.JFrame {
         jLabel14.setText("Username");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 70, 20));
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 370, 380));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -245,6 +249,7 @@ public class accountDetails extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
     Session sess = Session.getInstance();
+    acct_fn.setText("" + sess.getFname());    
     id_display.setText("USER ID: "+sess.getUid());
     fn.setText(""+sess.getFname());
     ln.setText(""+sess.getLname());
@@ -257,7 +262,9 @@ public class accountDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_emActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+     userDashboard udb = new userDashboard();
+     udb.setVisible(true);
+     this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -373,6 +380,7 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
