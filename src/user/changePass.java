@@ -31,6 +31,10 @@ public class changePass extends javax.swing.JFrame {
     public changePass() {
         initComponents();
     }
+
+    public changePass(int userId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
  
 
     /**
@@ -53,7 +57,6 @@ public class changePass extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         acct_fn = new javax.swing.JLabel();
-        pass = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         oldpass = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -113,6 +116,11 @@ public class changePass extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel7.setBackground(new java.awt.Color(51, 0, 102));
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(51, 0, 102));
@@ -137,17 +145,6 @@ public class changePass extends javax.swing.JFrame {
         jPanel8.add(acct_fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 120, 30));
 
         jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 140, 30));
-
-        pass.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        pass.setForeground(new java.awt.Color(255, 255, 255));
-        pass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pass.setText("Change Password");
-        pass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passMouseClicked(evt);
-            }
-        });
-        jPanel3.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, 20));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 380));
 
@@ -186,6 +183,11 @@ public class changePass extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(204, 204, 255));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Save");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -229,59 +231,11 @@ public class changePass extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
     Session sess = Session.getInstance();
     id_display.setText("USER ID: "+sess.getUid());
-    oldpass.setText(""+sess.getFname());
-    newpass.setText(""+sess.getLname());
-    conpass.setText(""+sess.getEmail());
+    
     }//GEN-LAST:event_formWindowActivated
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // Check if any field is empty
-        if (oldpass.getText().isEmpty() || newpass.getText().isEmpty() || conpass.getText().isEmpty() || pass.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "All fields are required!");
-            return;
-        }
-
-        if (pass.getText().length() < 8) {
-            JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long.");
-            pass.setText("");
-            return;
-        }
-
-        if (duplicateCheck()) {
-            JOptionPane.showMessageDialog(null, "Duplicate username exists!");
-            return;
-        }
-
-        dbConnector dbc = new dbConnector();
-        Connection conn = (Connection) dbc.getConnection();
-
-        if (conn != null) {
-            try {
-                String sql = "INSERT INTO tbl_registeruser (u_fname, u_lname, u_email, u_username, u_password, u_type, u_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
-                String hashedPassword = passwordHasher.hashPassword(pass.getText());
-
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, oldpass.getText());
-                pstmt.setString(2, newpass.getText());
-                pstmt.setString(3, conpass.getText()); // Fixed email column reference
-
-                int rowsInserted = pstmt.executeUpdate();
-                if (rowsInserted > 0) {
-                    JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-                    new loginForm().setVisible(true);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Insertion failed. Try again!");
-                }
-
-                pstmt.close();
-                conn.close();
-            } catch (SQLException | NoSuchAlgorithmException ex) {
-                ex.printStackTrace(); // Print error details for debugging
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Connection Error! Unable to connect to the database.");
-        }
+     
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void conpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conpassActionPerformed
@@ -297,7 +251,11 @@ public class changePass extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-    try{
+    
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+      try{
         dbConnector dbc = new dbConnector();
         Session sess = Session.getInstance();
         
@@ -321,14 +279,21 @@ public class changePass extends javax.swing.JFrame {
         }
     }catch(SQLException | NoSuchAlgorithmException ex){
         System.out.println(""+ex);
-    }
-    }//GEN-LAST:event_jButton4MouseClicked
+    } 
+    }//GEN-LAST:event_jButton3MouseClicked
 
-    private void passMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passMouseClicked
-     changePass cp = new changePass();
-     cp.setVisible(true);
-     this.dispose();
-    }//GEN-LAST:event_passMouseClicked
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to log out?", "Logout", JOptionPane.YES_NO_OPTION);
+    
+    if (response == JOptionPane.YES_OPTION) {
+        Session sess = Session.getInstance();
+        sess.clearSession();
+
+        loginForm login = new loginForm();
+        login.setVisible(true);
+        this.dispose();
+    }
+    }//GEN-LAST:event_jPanel7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -393,7 +358,6 @@ public class changePass extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTextField newpass;
     private javax.swing.JTextField oldpass;
-    private javax.swing.JLabel pass;
     // End of variables declaration//GEN-END:variables
 
     private boolean duplicateCheck() {

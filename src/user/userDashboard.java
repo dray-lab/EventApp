@@ -277,6 +277,11 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_loMouseEntered
 
     private void loMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loMouseClicked
+    int userId = Session.getInstance().getUid();
+
+    dbConnector db = new dbConnector();
+    db.insertLog(userId, "Logout", "User logged out successfully");
+
     Session.getInstance().setUid(0);
     Session.getInstance().setFname(null);
     Session.getInstance().setLname(null);
@@ -285,11 +290,9 @@ public class userDashboard extends javax.swing.JFrame {
     Session.getInstance().setStatus(null);
     Session.getInstance().setType(null);
 
-    // Open the login form
     loginForm login = new loginForm();
     login.setVisible(true);
 
-    // Close the current form
     this.dispose();
     }//GEN-LAST:event_loMouseClicked
 

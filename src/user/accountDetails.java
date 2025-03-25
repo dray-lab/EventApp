@@ -122,6 +122,11 @@ public class accountDetails extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel7.setBackground(new java.awt.Color(51, 0, 102));
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(51, 0, 102));
@@ -326,6 +331,26 @@ public class accountDetails extends javax.swing.JFrame {
      cp.setVisible(true);
      this.dispose();
     }//GEN-LAST:event_passMouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+      int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to log out?", "Logout", JOptionPane.YES_NO_OPTION);
+    
+    if (confirm == JOptionPane.YES_OPTION) {
+        int userId = Session.getInstance().getUid(); 
+
+        dbConnector db = new dbConnector();
+        db.insertLog(userId, "Logout", "User logged out successfully");
+
+        Session sess = Session.getInstance();
+        sess.clear(); 
+
+        loginForm login = new loginForm();
+        login.setVisible(true);
+
+        this.dispose();
+    
+    }
+    }//GEN-LAST:event_jPanel7MouseClicked
 
     /**
      * @param args the command line arguments

@@ -81,4 +81,12 @@ public class Session {
     public void setType(String type) {
         this.type = type; // Now properly implemented
     }
+
+    public void clear() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void clearSession() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

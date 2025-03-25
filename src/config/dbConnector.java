@@ -83,5 +83,21 @@ public class dbConnector {
             }
         
         }
+        
+    public void insertLog(int userId, String action, String details) {
+        String sql = "INSERT INTO logs (user_id, action, details, timestamp) VALUES (?, ?, ?, NOW())";
+        
+        try (Connection conn = (Connection) getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, userId);
+            stmt.setString(2, action);
+            stmt.setString(3, details);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     
 }
