@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2025 at 06:40 AM
+-- Generation Time: Apr 22, 2025 at 05:33 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,80 +24,174 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bookings`
+--
+
+CREATE TABLE `bookings` (
+  `booking_id` int(11) NOT NULL,
+  `place` varchar(100) DEFAULT NULL,
+  `venue` varchar(100) DEFAULT NULL,
+  `event_type` varchar(50) DEFAULT NULL,
+  `package_type` varchar(50) DEFAULT NULL,
+  `event_date` date DEFAULT NULL,
+  `number_of_guests` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `log_id` int(11) NOT NULL,
+  `u_id` int(11) NOT NULL,
+  `actions` varchar(200) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `packages`
+--
+
+CREATE TABLE `packages` (
+  `package_id` int(11) NOT NULL,
+  `event_type` varchar(50) DEFAULT NULL,
+  `package_name` varchar(50) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `packages`
+--
+
+INSERT INTO `packages` (`package_id`, `event_type`, `package_name`, `price`, `description`) VALUES
+(1, '-- BIRTHDAY PACKAGES INSERT INTO packages (event_t', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_registeruser`
 --
 
 CREATE TABLE `tbl_registeruser` (
-  `u_id` int(20) NOT NULL,
-  `u_fname` varchar(50) NOT NULL,
-  `u_lname` varchar(50) NOT NULL,
-  `i_email` varchar(50) NOT NULL,
-  `u_username` varchar(50) NOT NULL,
-  `u_password` varchar(50) NOT NULL,
-  `u_type` varchar(50) NOT NULL,
-  `u_status` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `u_id` int(11) NOT NULL,
+  `u_fname` varchar(100) NOT NULL,
+  `u_lname` varchar(100) NOT NULL,
+  `u_email` varchar(150) NOT NULL,
+  `u_username` varchar(100) NOT NULL,
+  `u_password` varchar(255) NOT NULL,
+  `u_type` enum('Admin','User') NOT NULL,
+  `u_status` enum('Pending','Active','Inactive') DEFAULT 'Pending',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_registeruser`
 --
 
-INSERT INTO `tbl_registeruser` (`u_id`, `u_fname`, `u_lname`, `i_email`, `u_username`, `u_password`, `u_type`, `u_status`) VALUES
-(1, 'admin', 'admin', 'admin', 'admin', 'admin12345', 'Admin', 'Pending'),
-(2, 'user', 'user', 'user', 'user', 'user12345', 'User', 'Pending');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_user`
---
-
-CREATE TABLE `tbl_user` (
-  `u_id` int(20) NOT NULL,
-  `u_name` varchar(50) NOT NULL,
-  `u_email` varchar(50) NOT NULL,
-  `u_username` varchar(50) NOT NULL,
-  `u_password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_user`
---
-
-INSERT INTO `tbl_user` (`u_id`, `u_name`, `u_email`, `u_username`, `u_password`) VALUES
-(1, 'Dray Misa', 'misadray3@gmail.com', 'Drayins', '123456789');
+INSERT INTO `tbl_registeruser` (`u_id`, `u_fname`, `u_lname`, `u_email`, `u_username`, `u_password`, `u_type`, `u_status`, `created_at`, `updated_at`) VALUES
+(1, 'Mike', 'Bus', 'mike3@gmail.com', 'busta', 'N6CjSaZSWDeo3TPmC9HUnJog8Vg7SxGVGtuJzpkEpnA=', 'Admin', 'Active', '2025-03-18 15:41:03', '2025-03-22 15:37:30'),
+(2, 'Diovely', 'Campo', 'diovely@gmail.com', 'dyubli', 'N6CjSaZSWDeo3TPmC9HUnJog8Vg7SxGVGtuJzpkEpnA=', 'User', 'Active', '2025-03-22 15:24:08', '2025-03-22 15:37:30');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `bookings`
+--
+ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`booking_id`);
+
+--
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `uid` (`u_id`);
+
+--
+-- Indexes for table `packages`
+--
+ALTER TABLE `packages`
+  ADD PRIMARY KEY (`package_id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_registeruser`
 --
 ALTER TABLE `tbl_registeruser`
-  ADD PRIMARY KEY (`u_id`);
-
---
--- Indexes for table `tbl_user`
---
-ALTER TABLE `tbl_user`
-  ADD PRIMARY KEY (`u_id`);
+  ADD PRIMARY KEY (`u_id`),
+  ADD UNIQUE KEY `u_email` (`u_email`),
+  ADD UNIQUE KEY `u_username` (`u_username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `packages`
+--
+ALTER TABLE `packages`
+  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbl_registeruser`
 --
 ALTER TABLE `tbl_registeruser`
-  MODIFY `u_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- Constraints for dumped tables
 --
-ALTER TABLE `tbl_user`
-  MODIFY `u_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for table `logs`
+--
+ALTER TABLE `logs`
+  ADD CONSTRAINT `uid` FOREIGN KEY (`u_id`) REFERENCES `tbl_registeruser` (`u_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

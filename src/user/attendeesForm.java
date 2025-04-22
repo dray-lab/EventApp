@@ -12,6 +12,7 @@ import eventapp.loginForm;
 import java.awt.Color;
 import java.io.File;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -73,15 +74,15 @@ public final class attendeesForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         attendeesTable = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        lname = new javax.swing.JTextField();
         btnUpload = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        fname = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        email = new javax.swing.JTextField();
+        utype = new javax.swing.JComboBox<>();
         p_edit = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         p_delete = new javax.swing.JPanel();
@@ -191,13 +192,12 @@ public final class attendeesForm extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 560, 210));
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        lname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                lnameActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 150, -1));
+        jPanel1.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 150, -1));
 
         btnUpload.setBackground(new java.awt.Color(255, 204, 204));
         btnUpload.setText("Browse");
@@ -226,13 +226,12 @@ public final class attendeesForm extends javax.swing.JFrame {
         jLabel12.setText("First Name");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 150, -1));
 
-        jTextField4.setText("jTextField1");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                fnameActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, -1));
+        jPanel1.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(51, 0, 102));
@@ -240,21 +239,19 @@ public final class attendeesForm extends javax.swing.JFrame {
         jLabel13.setText("Email");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 150, -1));
 
-        jTextField5.setText("jTextField1");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                emailActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 150, -1));
+        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 150, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        utype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                utypeActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 150, -1));
+        jPanel1.add(utype, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 150, -1));
 
         p_edit.setBackground(new java.awt.Color(255, 204, 204));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -441,25 +438,25 @@ public final class attendeesForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowActivated
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void lnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_lnameActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    private void fnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnameActionPerformed
+      
+    }//GEN-LAST:event_fnameActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_emailActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void utypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_utypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_utypeActionPerformed
 
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
       createuserForm crf = new createuserForm();
@@ -589,7 +586,8 @@ public final class attendeesForm extends javax.swing.JFrame {
     private javax.swing.JLabel acc_id;
     private javax.swing.JTable attendeesTable;
     private javax.swing.JButton btnUpload;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField email;
+    private javax.swing.JTextField fname;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -612,14 +610,13 @@ public final class attendeesForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField lname;
     private javax.swing.JPanel p_add;
     private javax.swing.JPanel p_delete;
     private javax.swing.JPanel p_edit;
     private javax.swing.JLabel profileLabel;
+    private javax.swing.JComboBox<String> utype;
     // End of variables declaration//GEN-END:variables
 
     private String getUid() {

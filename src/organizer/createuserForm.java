@@ -220,6 +220,11 @@ public class createuserForm extends javax.swing.JFrame {
         uid.setForeground(new java.awt.Color(102, 0, 102));
         uid.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         uid.setEnabled(false);
+        uid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uidActionPerformed(evt);
+            }
+        });
         jPanel2.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 290, 30));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -372,6 +377,10 @@ public class createuserForm extends javax.swing.JFrame {
         this.dispose();
         }
     }//GEN-LAST:event_updateActionPerformed
+
+    private void uidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_uidActionPerformed
 
     /**
      * @param args the command line arguments

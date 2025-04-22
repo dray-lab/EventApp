@@ -10,7 +10,7 @@ import user.attendeesForm;
 import config.Session;
 import config.dbConnector;
 import eventapp.loginForm;
-import forms.eventForm;
+import eventapp.eventForm;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -54,6 +54,8 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         out = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
+        logs1 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -240,6 +242,40 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jPanel3.add(out, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
 
+        logs1.setBackground(new java.awt.Color(51, 0, 102));
+        logs1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logs1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logs1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logs1MouseExited(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("BOOKS");
+
+        javax.swing.GroupLayout logs1Layout = new javax.swing.GroupLayout(logs1);
+        logs1.setLayout(logs1Layout);
+        logs1Layout.setHorizontalGroup(
+            logs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+        );
+        logs1Layout.setVerticalGroup(
+            logs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logs1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        jPanel3.add(logs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, -1));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 380));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
@@ -343,6 +379,18 @@ public class adminDashboard extends javax.swing.JFrame {
         out.setBackground(navcolor);
     }//GEN-LAST:event_outMouseExited
 
+    private void logs1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logs1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logs1MouseClicked
+
+    private void logs1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logs1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logs1MouseEntered
+
+    private void logs1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logs1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logs1MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -387,6 +435,7 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -394,6 +443,7 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel logs;
+    private javax.swing.JPanel logs1;
     private javax.swing.JPanel out;
     // End of variables declaration//GEN-END:variables
 

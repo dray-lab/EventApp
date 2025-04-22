@@ -123,17 +123,17 @@ public class loginForm extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 420));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel1.setForeground(new java.awt.Color(51, 0, 102));
         jLabel1.setText("Password :");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 70, 20));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel2.setForeground(new java.awt.Color(51, 0, 102));
         jLabel2.setText("Username :");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 70, 20));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel4.setForeground(new java.awt.Color(51, 0, 102));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Login Form");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 310, 60));
@@ -159,7 +159,7 @@ public class loginForm extends javax.swing.JFrame {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 100, 40));
 
         Toregistration.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Toregistration.setForeground(new java.awt.Color(204, 204, 255));
+        Toregistration.setForeground(new java.awt.Color(51, 0, 102));
         Toregistration.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Toregistration.setText("Don't have an accont? Click here to Register!");
         Toregistration.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -167,9 +167,8 @@ public class loginForm extends javax.swing.JFrame {
                 ToregistrationMouseClicked(evt);
             }
         });
-        jPanel1.add(Toregistration, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 270, 20));
+        jPanel1.add(Toregistration, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 270, 20));
 
-        user.setBackground(new java.awt.Color(51, 0, 102));
         user.setForeground(new java.awt.Color(255, 255, 255));
         user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         user.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +178,6 @@ public class loginForm extends javax.swing.JFrame {
         });
         jPanel1.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 290, 40));
 
-        pass.setBackground(new java.awt.Color(51, 0, 102));
         pass.setForeground(new java.awt.Color(204, 204, 255));
         pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pass.addActionListener(new java.awt.event.ActionListener() {
@@ -189,15 +187,17 @@ public class loginForm extends javax.swing.JFrame {
         });
         jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 290, 40));
 
-        fp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        fp.setForeground(new java.awt.Color(204, 204, 255));
+        fp.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        fp.setForeground(new java.awt.Color(51, 0, 102));
         fp.setText("Forgot Password?");
         fp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 fpMouseClicked(evt);
             }
         });
-        jPanel1.add(fp, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, -1, 20));
+        jPanel1.add(fp, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 100, 20));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 380, 420));
 
         jLabel8.setText("jLabel8");
