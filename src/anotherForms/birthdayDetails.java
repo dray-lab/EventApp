@@ -30,7 +30,7 @@ public class birthdayDetails extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
+        birtday_platinum = new javax.swing.JPanel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
@@ -54,7 +54,7 @@ public class birthdayDetails extends javax.swing.JFrame {
         jLabel81 = new javax.swing.JLabel();
         jLabel82 = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        birtday_gold = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -75,7 +75,7 @@ public class birthdayDetails extends javax.swing.JFrame {
         jLabel74 = new javax.swing.JLabel();
         jLabel75 = new javax.swing.JLabel();
         jLabel76 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        birtday_silver = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -95,7 +95,7 @@ public class birthdayDetails extends javax.swing.JFrame {
         jLabel68 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        birtday_bronze = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -123,403 +123,408 @@ public class birthdayDetails extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        birtday_platinum.setBackground(new java.awt.Color(255, 204, 204));
+        birtday_platinum.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        birtday_platinum.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel40.setBackground(new java.awt.Color(255, 255, 255));
         jLabel40.setForeground(new java.awt.Color(51, 0, 102));
         jLabel40.setText("- Photo booth + 360 Video Booth");
-        jPanel5.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 280, -1));
+        birtday_platinum.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 280, -1));
 
         jLabel41.setBackground(new java.awt.Color(255, 255, 255));
         jLabel41.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(51, 0, 102));
         jLabel41.setText("Drayenz Event Management");
-        jPanel5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
+        birtday_platinum.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
 
         jLabel42.setBackground(new java.awt.Color(255, 255, 255));
         jLabel42.setForeground(new java.awt.Color(51, 0, 102));
         jLabel42.setText("Premium Type");
-        jPanel5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 80, -1));
+        birtday_platinum.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 80, -1));
 
         jLabel43.setBackground(new java.awt.Color(255, 255, 255));
         jLabel43.setForeground(new java.awt.Color(51, 0, 102));
         jLabel43.setText("Package Include :");
-        jPanel5.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
+        birtday_platinum.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
         jLabel44.setBackground(new java.awt.Color(255, 255, 255));
         jLabel44.setForeground(new java.awt.Color(51, 0, 102));
         jLabel44.setText("- Full Photo & Video Team + Drone");
-        jPanel5.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
+        birtday_platinum.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
 
         jLabel45.setBackground(new java.awt.Color(255, 255, 255));
         jLabel45.setForeground(new java.awt.Color(51, 0, 102));
         jLabel45.setText("- High-end Sound + Lights system");
-        jPanel5.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
+        birtday_platinum.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
 
         jLabel46.setBackground(new java.awt.Color(255, 255, 255));
         jLabel46.setForeground(new java.awt.Color(51, 0, 102));
         jLabel46.setText("- 4-layer designer cake");
-        jPanel5.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 270, -1));
+        birtday_platinum.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 270, -1));
 
         jLabel47.setBackground(new java.awt.Color(255, 255, 255));
         jLabel47.setForeground(new java.awt.Color(51, 0, 102));
         jLabel47.setText("- Host + Complete Party Entertainment (Magic, Bubble Show, Mascots, etc.)");
-        jPanel5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 370, -1));
+        birtday_platinum.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 370, -1));
 
         jLabel48.setBackground(new java.awt.Color(255, 255, 255));
         jLabel48.setForeground(new java.awt.Color(51, 0, 102));
         jLabel48.setText("- Custom invitation suite (digital and printed)");
-        jPanel5.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 240, -1));
+        birtday_platinum.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 240, -1));
 
         jLabel49.setBackground(new java.awt.Color(255, 255, 255));
         jLabel49.setForeground(new java.awt.Color(51, 0, 102));
         jLabel49.setText("- Live Streaming or SDE presentation");
-        jPanel5.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
+        birtday_platinum.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
 
         jLabel50.setBackground(new java.awt.Color(255, 255, 255));
         jLabel50.setForeground(new java.awt.Color(51, 0, 102));
         jLabel50.setText("- Full Themed Decor (entrance tunnel, stage, ceiling, tables)");
-        jPanel5.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 300, -1));
+        birtday_platinum.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 300, -1));
 
         jLabel51.setBackground(new java.awt.Color(255, 255, 255));
         jLabel51.setForeground(new java.awt.Color(51, 0, 102));
         jLabel51.setText("- Catering for 100–150 pax + Grazing Table + Candy Corner");
-        jPanel5.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 300, -1));
+        birtday_platinum.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 300, -1));
 
         jLabel52.setBackground(new java.awt.Color(255, 255, 255));
         jLabel52.setForeground(new java.awt.Color(51, 0, 102));
         jLabel52.setText("- Full planning, coordination & concept styling");
-        jPanel5.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 240, -1));
+        birtday_platinum.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 240, -1));
 
         jLabel53.setBackground(new java.awt.Color(255, 255, 255));
         jLabel53.setForeground(new java.awt.Color(51, 0, 102));
         jLabel53.setText("- Designer stage with LED backdrop / live screen");
-        jPanel5.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 240, -1));
+        birtday_platinum.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 240, -1));
 
         jLabel57.setBackground(new java.awt.Color(255, 255, 255));
         jLabel57.setForeground(new java.awt.Color(51, 0, 102));
         jLabel57.setText("- Luxury giveaways (customized packaging)");
-        jPanel5.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 220, -1));
+        birtday_platinum.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 220, -1));
 
         jLabel58.setBackground(new java.awt.Color(255, 255, 255));
         jLabel58.setForeground(new java.awt.Color(51, 0, 102));
         jLabel58.setText("- Printed Tarpaulin + Personalized Name Boards");
-        jPanel5.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 240, -1));
+        birtday_platinum.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 240, -1));
 
         jLabel77.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel77.setText("₱");
-        jPanel5.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
+        birtday_platinum.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
 
         jLabel78.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel78.setText("1");
-        jPanel5.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
+        birtday_platinum.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
 
         jLabel79.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel79.setText("0");
-        jPanel5.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
+        birtday_platinum.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
 
         jLabel80.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel80.setText("0");
-        jPanel5.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
+        birtday_platinum.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
 
         jLabel81.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel81.setText("0");
-        jPanel5.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        birtday_platinum.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
 
         jLabel82.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel82.setText("0");
-        jPanel5.add(jLabel82, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
+        birtday_platinum.add(jLabel82, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
 
         jLabel83.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel83.setText("0");
-        jPanel5.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, -1));
+        birtday_platinum.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, -1));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 510, 230));
+        jPanel1.add(birtday_platinum, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 510, 230));
 
-        jPanel4.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        birtday_gold.setBackground(new java.awt.Color(255, 204, 204));
+        birtday_gold.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        birtday_gold.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setForeground(new java.awt.Color(51, 0, 102));
         jLabel25.setText("- Balloon arch, ceiling, & table decors");
-        jPanel4.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 280, -1));
+        birtday_gold.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 280, -1));
 
         jLabel26.setBackground(new java.awt.Color(255, 255, 255));
         jLabel26.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(51, 0, 102));
         jLabel26.setText("Drayenz Event Management");
-        jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
+        birtday_gold.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
 
         jLabel27.setBackground(new java.awt.Color(255, 255, 255));
         jLabel27.setForeground(new java.awt.Color(51, 0, 102));
         jLabel27.setText("Gold Type");
-        jPanel4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 70, -1));
+        birtday_gold.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 70, -1));
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
         jLabel28.setForeground(new java.awt.Color(51, 0, 102));
         jLabel28.setText("Package Include :");
-        jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
+        birtday_gold.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
         jLabel29.setBackground(new java.awt.Color(255, 255, 255));
         jLabel29.setForeground(new java.awt.Color(51, 0, 102));
         jLabel29.setText("- Sound system + DJ/Playlist");
-        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
+        birtday_gold.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
 
         jLabel30.setBackground(new java.awt.Color(255, 255, 255));
         jLabel30.setForeground(new java.awt.Color(51, 0, 102));
         jLabel30.setText("- Full event planning & styling");
-        jPanel4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
+        birtday_gold.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
 
         jLabel31.setBackground(new java.awt.Color(255, 255, 255));
         jLabel31.setForeground(new java.awt.Color(51, 0, 102));
         jLabel31.setText("- Customized themed stage + photo wall");
-        jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 270, -1));
+        birtday_gold.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 270, -1));
 
         jLabel32.setBackground(new java.awt.Color(255, 255, 255));
         jLabel32.setForeground(new java.awt.Color(51, 0, 102));
         jLabel32.setText("- Catering for 75 pax + Dessert Buffet");
-        jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 260, -1));
+        birtday_gold.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 260, -1));
 
         jLabel33.setBackground(new java.awt.Color(255, 255, 255));
         jLabel33.setForeground(new java.awt.Color(51, 0, 102));
         jLabel33.setText("- Program script  ");
-        jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 200, -1));
+        birtday_gold.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 200, -1));
 
         jLabel34.setBackground(new java.awt.Color(255, 255, 255));
         jLabel34.setForeground(new java.awt.Color(51, 0, 102));
         jLabel34.setText("- 3-layer cake");
-        jPanel4.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
+        birtday_gold.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
 
         jLabel35.setBackground(new java.awt.Color(255, 255, 255));
         jLabel35.setForeground(new java.awt.Color(51, 0, 102));
         jLabel35.setText("- Party giveaways (customized, for 50 guests)");
-        jPanel4.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 250, -1));
+        birtday_gold.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 250, -1));
 
         jLabel37.setBackground(new java.awt.Color(255, 255, 255));
         jLabel37.setForeground(new java.awt.Color(51, 0, 102));
         jLabel37.setText("- Professional Host + Party Game Masters + Magician or Clown");
-        jPanel4.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 310, -1));
+        birtday_gold.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 310, -1));
 
         jLabel38.setBackground(new java.awt.Color(255, 255, 255));
         jLabel38.setForeground(new java.awt.Color(51, 0, 102));
         jLabel38.setText("- Photographer + Videographer (6 hours)  ");
-        jPanel4.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 210, -1));
+        birtday_gold.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 210, -1));
 
         jLabel39.setBackground(new java.awt.Color(255, 255, 255));
         jLabel39.setForeground(new java.awt.Color(51, 0, 102));
         jLabel39.setText("- Digital & Printed Invitations");
-        jPanel4.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 200, -1));
+        birtday_gold.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 200, -1));
 
         jLabel71.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel71.setText("₱");
-        jPanel4.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        birtday_gold.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         jLabel72.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel72.setText("4");
-        jPanel4.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
+        birtday_gold.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
 
         jLabel73.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel73.setText("5");
-        jPanel4.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
+        birtday_gold.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
 
         jLabel74.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel74.setText("0");
-        jPanel4.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
+        birtday_gold.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
 
         jLabel75.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel75.setText("0");
-        jPanel4.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
+        birtday_gold.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
 
         jLabel76.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel76.setText("0");
-        jPanel4.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
+        birtday_gold.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 510, 230));
+        jPanel1.add(birtday_gold, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 510, 230));
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        birtday_silver.setBackground(new java.awt.Color(255, 204, 204));
+        birtday_silver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        birtday_silver.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setForeground(new java.awt.Color(51, 0, 102));
         jLabel14.setText("- 2-layer cake with birthday candle");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 280, -1));
+        birtday_silver.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 280, -1));
 
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(51, 0, 102));
         jLabel15.setText("Drayenz Event Management");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
+        birtday_silver.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
 
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
         jLabel16.setForeground(new java.awt.Color(51, 0, 102));
         jLabel16.setText("Silver Type");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 60, -1));
+        birtday_silver.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 60, -1));
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
         jLabel17.setForeground(new java.awt.Color(51, 0, 102));
         jLabel17.setText("Package Include :");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
+        birtday_silver.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
         jLabel18.setBackground(new java.awt.Color(255, 255, 255));
         jLabel18.setForeground(new java.awt.Color(51, 0, 102));
         jLabel18.setText("- Event Host + 1 Party Game Facilitator");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
+        birtday_silver.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
 
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
         jLabel19.setForeground(new java.awt.Color(51, 0, 102));
         jLabel19.setText("- Partial event planning + day-of coordination");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
+        birtday_silver.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
         jLabel20.setForeground(new java.awt.Color(51, 0, 102));
         jLabel20.setText("- Full Themed Styling (backdrop, table decors, entrance)");
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 270, -1));
+        birtday_silver.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 270, -1));
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
         jLabel21.setForeground(new java.awt.Color(51, 0, 102));
         jLabel21.setText("- Balloon decoration (table centerpieces + ceiling)  ");
-        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 250, -1));
+        birtday_silver.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 250, -1));
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
         jLabel22.setForeground(new java.awt.Color(51, 0, 102));
         jLabel22.setText("- Digital Invitation");
-        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 110, 20));
+        birtday_silver.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 110, 20));
 
         jLabel23.setBackground(new java.awt.Color(255, 255, 255));
         jLabel23.setForeground(new java.awt.Color(51, 0, 102));
         jLabel23.setText("- Sound system with operator");
-        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
+        birtday_silver.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setForeground(new java.awt.Color(51, 0, 102));
         jLabel24.setText("- Catering for 50 pax (with kiddie set)");
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, -1));
+        birtday_silver.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, -1));
 
         jLabel55.setBackground(new java.awt.Color(255, 255, 255));
         jLabel55.setForeground(new java.awt.Color(51, 0, 102));
         jLabel55.setText("- Party giveaways (up to 30 guests)");
-        jPanel3.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 230, -1));
+        birtday_silver.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 230, -1));
 
         jLabel56.setBackground(new java.awt.Color(255, 255, 255));
         jLabel56.setForeground(new java.awt.Color(51, 0, 102));
         jLabel56.setText("- Photographer + Instant Photo Prints (4 hours)");
-        jPanel3.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 240, -1));
+        birtday_silver.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 240, -1));
 
         jLabel65.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel65.setText("₱");
-        jPanel3.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        birtday_silver.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         jLabel66.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel66.setText("2");
-        jPanel3.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
+        birtday_silver.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
 
         jLabel67.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel67.setText("2");
-        jPanel3.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
+        birtday_silver.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
 
         jLabel68.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel68.setText("0");
-        jPanel3.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
+        birtday_silver.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
 
         jLabel69.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel69.setText("0");
-        jPanel3.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
+        birtday_silver.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
 
         jLabel70.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel70.setText("0");
-        jPanel3.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
+        birtday_silver.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 510, 240));
+        jPanel1.add(birtday_silver, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 510, 240));
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        birtday_bronze.setBackground(new java.awt.Color(255, 204, 204));
+        birtday_bronze.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        birtday_bronze.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                birtday_bronzeMouseClicked(evt);
+            }
+        });
+        birtday_bronze.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setForeground(new java.awt.Color(51, 0, 102));
         jLabel4.setText("- Basic Balloon Decoration (entrance & stage)  ");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 230, -1));
+        birtday_bronze.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 230, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 0, 102));
         jLabel5.setText("Drayenz Event Management");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
+        birtday_bronze.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setForeground(new java.awt.Color(51, 0, 102));
         jLabel6.setText("Bronze Type ");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
+        birtday_bronze.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setForeground(new java.awt.Color(51, 0, 102));
         jLabel7.setText("Package Include :");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
+        birtday_bronze.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setForeground(new java.awt.Color(51, 0, 102));
         jLabel8.setText("- 1 Event Host (1 hour hosting)");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
+        birtday_bronze.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setForeground(new java.awt.Color(51, 0, 102));
         jLabel9.setText("- Event day coordination (up to 30 guests)");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
+        birtday_bronze.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setForeground(new java.awt.Color(51, 0, 102));
         jLabel10.setText("- Basic themed backdrop & stage design");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 240, -1));
+        birtday_bronze.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 240, -1));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setForeground(new java.awt.Color(51, 0, 102));
         jLabel11.setText("- 1-layer birthday cake");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 230, -1));
+        birtday_bronze.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 230, -1));
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setForeground(new java.awt.Color(51, 0, 102));
         jLabel12.setText("- Photographer (2 hours coverage)");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 230, -1));
+        birtday_bronze.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 230, -1));
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setForeground(new java.awt.Color(51, 0, 102));
         jLabel13.setText("- Background music (USB or playlist)  ");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
+        birtday_bronze.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
 
         jLabel54.setBackground(new java.awt.Color(255, 255, 255));
         jLabel54.setForeground(new java.awt.Color(51, 0, 102));
         jLabel54.setText("- Party hats & name tags");
-        jPanel2.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, -1));
+        birtday_bronze.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, -1));
 
         jLabel59.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel59.setText("0");
-        jPanel2.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
+        birtday_bronze.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
 
         jLabel60.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel60.setText("₱");
-        jPanel2.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        birtday_bronze.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         jLabel61.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel61.setText("0");
-        jPanel2.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
+        birtday_bronze.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
 
         jLabel62.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel62.setText("5");
-        jPanel2.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
+        birtday_bronze.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
 
         jLabel63.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel63.setText("0");
-        jPanel2.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
+        birtday_bronze.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
 
         jLabel64.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel64.setText("1");
-        jPanel2.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
+        birtday_bronze.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 510, 240));
+        jPanel1.add(birtday_bronze, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 510, 240));
 
         jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
@@ -564,6 +569,10 @@ public class birthdayDetails extends javax.swing.JFrame {
      this.dispose();
     }//GEN-LAST:event_jLabel84MouseClicked
 
+    private void birtday_bronzeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_birtday_bronzeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_birtday_bronzeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -603,6 +612,10 @@ public class birthdayDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel birtday_bronze;
+    private javax.swing.JPanel birtday_gold;
+    private javax.swing.JPanel birtday_platinum;
+    private javax.swing.JPanel birtday_silver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -688,9 +701,5 @@ public class birthdayDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }

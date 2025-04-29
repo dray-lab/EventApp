@@ -200,13 +200,13 @@ public final class attendeesForm extends javax.swing.JFrame {
         jPanel1.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 150, -1));
 
         btnUpload.setBackground(new java.awt.Color(255, 204, 204));
-        btnUpload.setText("Browse");
+        btnUpload.setText("Edit Profile");
         btnUpload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUploadActionPerformed(evt);
             }
         });
-        jPanel1.add(btnUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, -1, 30));
+        jPanel1.add(btnUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, -1, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 0, 102));

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2025 at 05:33 PM
+-- Generation Time: Apr 30, 2025 at 12:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,17 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bookings`
+-- Table structure for table `events`
 --
 
-CREATE TABLE `bookings` (
-  `booking_id` int(11) NOT NULL,
-  `place` varchar(100) DEFAULT NULL,
-  `venue` varchar(100) DEFAULT NULL,
-  `event_type` varchar(50) DEFAULT NULL,
-  `package_type` varchar(50) DEFAULT NULL,
-  `event_date` date DEFAULT NULL,
-  `number_of_guests` int(11) DEFAULT NULL,
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL,
+  `event_category` enum('Occasion','Entertainment') NOT NULL,
+  `event_type` enum('Wedding','Birthday','Reunion','Concert','Theater','Comedy Show') NOT NULL,
+  `event_title` varchar(100) NOT NULL,
+  `event_date` date NOT NULL,
+  `event_time` time NOT NULL,
+  `venue_name` varchar(100) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `package_type` enum('Platinum','Gold','Silver','Bronze') DEFAULT NULL,
+  `ticket_type` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -50,27 +53,6 @@ CREATE TABLE `logs` (
   `actions` varchar(200) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `packages`
---
-
-CREATE TABLE `packages` (
-  `package_id` int(11) NOT NULL,
-  `event_type` varchar(50) DEFAULT NULL,
-  `package_name` varchar(50) DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
-  `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `packages`
---
-
-INSERT INTO `packages` (`package_id`, `event_type`, `package_name`, `price`, `description`) VALUES
-(1, '-- BIRTHDAY PACKAGES INSERT INTO packages (event_t', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -117,10 +99,10 @@ INSERT INTO `tbl_registeruser` (`u_id`, `u_fname`, `u_lname`, `u_email`, `u_user
 --
 
 --
--- Indexes for table `bookings`
+-- Indexes for table `events`
 --
-ALTER TABLE `bookings`
-  ADD PRIMARY KEY (`booking_id`);
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `logs`
@@ -128,12 +110,6 @@ ALTER TABLE `bookings`
 ALTER TABLE `logs`
   ADD PRIMARY KEY (`log_id`),
   ADD KEY `uid` (`u_id`);
-
---
--- Indexes for table `packages`
---
-ALTER TABLE `packages`
-  ADD PRIMARY KEY (`package_id`);
 
 --
 -- Indexes for table `password_resets`
@@ -154,22 +130,16 @@ ALTER TABLE `tbl_registeruser`
 --
 
 --
--- AUTO_INCREMENT for table `bookings`
+-- AUTO_INCREMENT for table `events`
 --
-ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `events`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
   MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `packages`
---
-ALTER TABLE `packages`
-  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `password_resets`
