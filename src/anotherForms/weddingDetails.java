@@ -5,7 +5,7 @@
  */
 package anotherForms;
 
-import eventapp.eventForm;
+import organizer.eventFormAdmin;
 
 /**
  *
@@ -83,311 +83,300 @@ public class weddingDetails extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel84 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(0, 51, 204));
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel40.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel40.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("- Bridal Car (3 hours)");
         jPanel5.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 280, -1));
 
         jLabel41.setBackground(new java.awt.Color(255, 255, 255));
         jLabel41.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("Drayenz Event Management");
         jPanel5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
 
         jLabel42.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel42.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
         jLabel42.setText("Premium Type");
         jPanel5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 90, -1));
 
         jLabel43.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel43.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setText("Package Include :");
         jPanel5.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
         jLabel44.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel44.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
         jLabel44.setText("- Prenup video + Same-day edit (SDE)");
         jPanel5.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
 
         jLabel45.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel45.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
         jLabel45.setText("- Full wedding planning & coordination");
         jPanel5.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
 
         jLabel46.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel46.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
         jLabel46.setText("- 2 Photographers + 1 Videographer (8 hours)");
         jPanel5.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 270, -1));
 
         jLabel47.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel47.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
         jLabel47.setText("- Full floral package (bride, groom, entourage, aisle)");
         jPanel5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 260, -1));
 
         jLabel48.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel48.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("- Photo booth (3 hours)");
         jPanel5.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 200, -1));
 
         jLabel49.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel49.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
         jLabel49.setText("- Hair & Makeup for bride + 1 entourage");
         jPanel5.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
 
         jLabel50.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel50.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
         jLabel50.setText("- Ceremony & Reception Styling (elegant theme)  ");
         jPanel5.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 250, -1));
 
         jLabel51.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel51.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("- Host & DJ  ");
         jPanel5.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 230, -1));
 
         jLabel52.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel52.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
         jLabel52.setText("- 3-tier cake");
         jPanel5.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 200, -1));
 
         jLabel53.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel53.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
         jLabel53.setText("- Catering for 100 pax");
         jPanel5.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 200, -1));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 510, 230));
 
-        jPanel4.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(0, 51, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel25.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("- Bridal Car (3 hours)");
         jPanel4.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 280, -1));
 
         jLabel26.setBackground(new java.awt.Color(255, 255, 255));
         jLabel26.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Drayenz Event Management");
         jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
 
         jLabel27.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel27.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Gold Type");
         jPanel4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 70, -1));
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel28.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Package Include :");
         jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
         jLabel29.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel29.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("- Prenup video + Same-day edit (SDE)");
         jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
 
         jLabel30.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel30.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("- Full wedding planning & coordination");
         jPanel4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
 
         jLabel31.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel31.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("- 2 Photographers + 1 Videographer (8 hours)");
         jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 270, -1));
 
         jLabel32.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel32.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("- Full floral package (bride, groom, entourage, aisle)");
         jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 260, -1));
 
         jLabel33.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel33.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("- Photo booth (3 hours)");
         jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 200, -1));
 
         jLabel34.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel34.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setText("- Hair & Makeup for bride + 1 entourage");
         jPanel4.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
 
         jLabel35.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel35.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("- Ceremony & Reception Styling (elegant theme)  ");
         jPanel4.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 250, -1));
 
         jLabel37.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel37.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("- Host & DJ  ");
         jPanel4.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 230, -1));
 
         jLabel38.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel38.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
         jLabel38.setText("- 3-tier cake");
         jPanel4.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 200, -1));
 
         jLabel39.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel39.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
         jLabel39.setText("- Catering for 100 pax");
         jPanel4.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 200, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 510, 230));
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(0, 51, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel14.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("- Ceremony & Reception Venue Styling (moderate design)");
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 280, -1));
 
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Drayenz Event Management");
         jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
 
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Silver Type");
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 60, -1));
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Package Include :");
         jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
         jLabel18.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel18.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("- Pre-nup shoot (1 location, 2 outfits)");
         jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
 
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel19.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("- Wedding day coordination (up to 70 guests)");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("- Full wedding coordination (from planning to execution)");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 270, -1));
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel21.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("- Sound system with operator");
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 230, -1));
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel22.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("- Digital and printed invitations (70 pcs)");
         jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 230, -1));
 
         jLabel23.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel23.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("- Basic Hair & Makeup for bride");
         jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel24.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("- 2-tier wedding cake");
         jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 510, 230));
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(0, 51, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("- Background music (USB playback)");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 230, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Drayenz Event Management");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Bronze Type ");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Package Include :");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("- Basic Bridal Bouquet + Boutonniere");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel9.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("- Wedding day coordination (up to 50 guests)");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("- 1 Professional Photographer (4 hours coverage)");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 240, -1));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("- 1-tier wedding cake");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 230, -1));
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel12.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("- Online wedding invitation");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, -1));
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel13.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("- Ceremony Venue Styling (basic design)");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 510, 230));
 
-        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
-        jLabel84.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel84MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/weddin.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 560, 460));
-
         jLabel3.setFont(new java.awt.Font("Verdana", 3, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel3.setForeground(new java.awt.Color(0, 51, 204));
         jLabel3.setText("WEDDING PACKAGES ");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 450, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 810));
-
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
-        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 810));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-back-40.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -397,17 +386,17 @@ public class weddingDetails extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 643, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel84MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel84MouseClicked
-     eventForm ef = new eventForm();
-     ef.setVisible(true);
-     this.dispose();
-    }//GEN-LAST:event_jLabel84MouseClicked
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    new eventFormAdmin().setVisible(true); // Show the admin form
+    this.dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -457,7 +446,6 @@ public class weddingDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -475,7 +463,6 @@ public class weddingDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -498,7 +485,6 @@ public class weddingDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

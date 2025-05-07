@@ -5,7 +5,7 @@
  */
 package anotherForms;
 
-import eventapp.eventForm;
+import organizer.eventFormAdmin;
 
 /**
  *
@@ -91,6 +91,7 @@ public class theaterDetails extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel105 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel41 = new javax.swing.JPanel();
         jLabel92 = new javax.swing.JLabel();
         jLabel93 = new javax.swing.JLabel();
@@ -152,27 +153,26 @@ public class theaterDetails extends javax.swing.JFrame {
         jLabel149 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel84 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel67.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel67.setBackground(new java.awt.Color(0, 51, 204));
         jPanel67.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel67.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel150.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel150.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel150.setForeground(new java.awt.Color(255, 255, 255));
         jLabel150.setText("TICKET'S PRICE");
         jPanel67.add(jLabel150, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 150, -1));
 
         jLabel151.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel151.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel151.setForeground(new java.awt.Color(255, 255, 255));
         jLabel151.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel151.setText("SHREK - THE MUSICAL");
         jPanel67.add(jLabel151, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
@@ -238,39 +238,47 @@ public class theaterDetails extends javax.swing.JFrame {
         jPanel67.add(jPanel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 610, -1, -1));
 
         jLabel152.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel152.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel152.setForeground(new java.awt.Color(255, 255, 255));
         jLabel152.setText("SEAT MAP");
         jPanel67.add(jLabel152, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 90, 30));
 
         jLabel153.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel153.setForeground(new java.awt.Color(255, 255, 255));
         jLabel153.setText("VIP A");
         jPanel67.add(jLabel153, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 610, -1, 20));
 
         jLabel154.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel154.setForeground(new java.awt.Color(255, 255, 255));
         jLabel154.setText("10,OOO PHP");
         jPanel67.add(jLabel154, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 620, 80, 20));
 
         jLabel155.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel155.setForeground(new java.awt.Color(255, 255, 255));
         jLabel155.setText("VIP STANDING");
         jPanel67.add(jLabel155, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, 20));
 
         jLabel156.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel156.setForeground(new java.awt.Color(255, 255, 255));
         jLabel156.setText("11,OOO PHP");
         jPanel67.add(jLabel156, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 580, 80, 20));
 
         jLabel157.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel157.setForeground(new java.awt.Color(255, 255, 255));
         jLabel157.setText("VIP B - CENTER");
         jPanel67.add(jLabel157, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 570, -1, 20));
 
         jLabel158.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel158.setForeground(new java.awt.Color(255, 255, 255));
         jLabel158.setText("10,OOO PHP");
         jPanel67.add(jLabel158, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 580, 80, 20));
 
         jLabel159.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel159.setForeground(new java.awt.Color(255, 255, 255));
         jLabel159.setText("VIP C - CENTER");
         jPanel67.add(jLabel159, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 610, -1, 20));
 
         jLabel160.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel160.setForeground(new java.awt.Color(255, 255, 255));
         jLabel160.setText("10,OOO PHP");
         jPanel67.add(jLabel160, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 620, 80, 20));
 
@@ -579,9 +587,10 @@ public class theaterDetails extends javax.swing.JFrame {
 
         jPanel67.add(jPanel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 510, 670));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seating_chart.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/seating_chart.jpg"))); // NOI18N
         jPanel67.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 200, 160));
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("SHOWS ON JULY 9 - 12, 2025");
         jPanel67.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
@@ -591,9 +600,12 @@ public class theaterDetails extends javax.swing.JFrame {
         jLabel105.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/SHREK.jpg"))); // NOI18N
         jPanel67.add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, 220));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/SHREK.jpg"))); // NOI18N
+        jPanel67.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 180, 230));
+
         jPanel1.add(jPanel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, 510, 670));
 
-        jPanel41.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel41.setBackground(new java.awt.Color(0, 51, 204));
         jPanel41.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel41.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -603,12 +615,12 @@ public class theaterDetails extends javax.swing.JFrame {
         jPanel41.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, 170));
 
         jLabel93.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel93.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel93.setForeground(new java.awt.Color(255, 255, 255));
         jLabel93.setText("TICKET'S PRICE");
         jPanel41.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 150, -1));
 
         jLabel95.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel95.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel95.setForeground(new java.awt.Color(255, 255, 255));
         jLabel95.setText("LEAH SALONGA'S THEATER");
         jPanel41.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
@@ -673,39 +685,47 @@ public class theaterDetails extends javax.swing.JFrame {
         jPanel41.add(jPanel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 580, -1, -1));
 
         jLabel96.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel96.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel96.setForeground(new java.awt.Color(255, 255, 255));
         jLabel96.setText("SEAT MAP");
         jPanel41.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 90, 30));
 
         jLabel97.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel97.setForeground(new java.awt.Color(255, 255, 255));
         jLabel97.setText("GOLD");
         jPanel41.add(jLabel97, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 580, -1, 20));
 
         jLabel98.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel98.setForeground(new java.awt.Color(255, 255, 255));
         jLabel98.setText("8,OOO PHP");
         jPanel41.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 590, 80, 20));
 
         jLabel99.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel99.setForeground(new java.awt.Color(255, 255, 255));
         jLabel99.setText("PREMIUM ");
         jPanel41.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, -1, 20));
 
         jLabel100.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel100.setForeground(new java.awt.Color(255, 255, 255));
         jLabel100.setText("10,OOO PHP");
         jPanel41.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 80, 20));
 
         jLabel101.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel101.setForeground(new java.awt.Color(255, 255, 255));
         jLabel101.setText("SILVER");
         jPanel41.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, -1, 20));
 
         jLabel102.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel102.setForeground(new java.awt.Color(255, 255, 255));
         jLabel102.setText("6,OOO PHP");
         jPanel41.add(jLabel102, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, 80, 20));
 
         jLabel103.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel103.setForeground(new java.awt.Color(255, 255, 255));
         jLabel103.setText("BRONZE");
         jPanel41.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 580, -1, 20));
 
         jLabel104.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel104.setForeground(new java.awt.Color(255, 255, 255));
         jLabel104.setText("4,OOO PHP");
         jPanel41.add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 80, 20));
 
@@ -1014,37 +1034,32 @@ public class theaterDetails extends javax.swing.JFrame {
 
         jPanel41.add(jPanel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 510, 670));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seating_chart.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/seating_chart.jpg"))); // NOI18N
         jPanel41.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 200, 160));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("SHOWS ON JULY 9 - 12, 2025");
         jPanel41.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Leah.jpg"))); // NOI18N
+        jPanel41.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 220, 180));
+
         jPanel1.add(jPanel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 510, 670));
 
-        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
-        jLabel84.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel84MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
-
         jLabel3.setFont(new java.awt.Font("Verdana", 3, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel3.setForeground(new java.awt.Color(0, 51, 204));
         jLabel3.setText("THEATER DETAILS");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 410, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/THEATERS.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 1230, 560));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 810));
-
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
-        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 810));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-back-40.png"))); // NOI18N
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1058,13 +1073,13 @@ public class theaterDetails extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel84MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel84MouseClicked
-     eventForm ef = new eventForm();
-     ef.setVisible(true);
-     this.dispose();
-    }//GEN-LAST:event_jLabel84MouseClicked
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+    new eventFormAdmin().setVisible(true); // Show the admin form
+    this.dispose();
+    }//GEN-LAST:event_jLabel9MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1185,14 +1200,13 @@ public class theaterDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel187;
     private javax.swing.JLabel jLabel188;
     private javax.swing.JLabel jLabel189;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel95;

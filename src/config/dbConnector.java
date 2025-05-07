@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class dbConnector {
     
-    private Connection connect;
+    public Connection connect;
     private Connection connection;
 
        // constructor to connect to our database
@@ -85,7 +85,7 @@ public class dbConnector {
         }
         
     public void insertLog(int userId, String action, String details) {
-        String sql = "INSERT INTO logs (user_id, action, details, timestamp) VALUES (?, ?, ?, NOW())";
+        String sql = "INSERT INTO logs (u_id, actions, details, timestamp) VALUES (?, ?, ?, NOW())";
         
         try (Connection conn = (Connection) getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {

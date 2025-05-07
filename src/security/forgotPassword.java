@@ -50,16 +50,16 @@ public class forgotPassword extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         idfp = new javax.swing.JTextField();
         emailfp = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("--------------------------------------------------------------------------------------------------------------------------------------------");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 560, -1));
+        jLabel6.setBackground(new java.awt.Color(0, 51, 204));
+        jLabel6.setForeground(new java.awt.Color(0, 51, 204));
+        jLabel6.setText("_____________________________________________________________________________________________");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 560, -1));
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -72,20 +72,20 @@ public class forgotPassword extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 40, 20));
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 51, 204));
         jLabel3.setText("Don't worry - We've got you covered. Enter your email to reset your password.");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 500, -1));
 
         jLabel2.setBackground(new java.awt.Color(51, 0, 102));
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Forgot your Password");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 410, -1));
 
-        jButton2.setBackground(new java.awt.Color(255, 204, 255));
+        jButton2.setBackground(new java.awt.Color(0, 51, 204));
         jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(51, 0, 102));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Login to Acquire");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -99,9 +99,9 @@ public class forgotPassword extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 140, 40));
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 255));
+        jButton1.setBackground(new java.awt.Color(0, 51, 204));
         jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 0, 102));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Send");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -128,12 +128,6 @@ public class forgotPassword extends javax.swing.JFrame {
             }
         });
         jPanel1.add(emailfp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 490, 40));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/69d07f5b4e21ac19a3bdebbbdd6d2cc1-removebg-preview.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 600, 210));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -309,13 +303,11 @@ public class forgotPassword extends javax.swing.JFrame {
     private javax.swing.JTextField idfp;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 

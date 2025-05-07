@@ -5,7 +5,7 @@
  */
 package anotherForms;
 
-import eventapp.eventForm;
+import organizer.eventFormAdmin;
 
 /**
  *
@@ -198,35 +198,34 @@ public class concertDetails extends javax.swing.JFrame {
         jLabel89 = new javax.swing.JLabel();
         jLabel90 = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
-        jLabel150 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel41.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel41.setBackground(new java.awt.Color(0, 51, 204));
         jPanel41.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel41.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel92.setBackground(new java.awt.Color(255, 255, 255));
         jLabel92.setForeground(new java.awt.Color(51, 0, 102));
-        jLabel92.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BINI_1.jpg"))); // NOI18N
+        jLabel92.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/BINI.jpg"))); // NOI18N
         jPanel41.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 200, 190));
 
         jLabel93.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel93.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel93.setForeground(new java.awt.Color(255, 255, 255));
         jLabel93.setText("TICKET'S PRICE");
-        jPanel41.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 150, -1));
+        jPanel41.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 150, -1));
 
-        jLabel94.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ifoto-ai_1745149090020.png"))); // NOI18N
+        jLabel94.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ifoto-ai_1745149090020.png"))); // NOI18N
         jPanel41.add(jLabel94, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 180, 110));
 
         jLabel95.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel95.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel95.setForeground(new java.awt.Color(255, 255, 255));
         jLabel95.setText("BINI CONCERT'S");
         jPanel41.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, -1));
 
@@ -351,7 +350,7 @@ public class concertDetails extends javax.swing.JFrame {
         jPanel41.add(jPanel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 610, -1, -1));
 
         jLabel96.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel96.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel96.setForeground(new java.awt.Color(255, 255, 255));
         jLabel96.setText("SEAT MAP");
         jPanel41.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 90, 30));
 
@@ -416,98 +415,122 @@ public class concertDetails extends javax.swing.JFrame {
         jPanel41.add(jPanel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 610, -1, -1));
 
         jLabel97.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel97.setForeground(new java.awt.Color(255, 255, 255));
         jLabel97.setText("VIP A");
         jPanel41.add(jLabel97, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, -1, 20));
 
         jLabel98.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel98.setForeground(new java.awt.Color(255, 255, 255));
         jLabel98.setText("10,OOO PHP");
         jPanel41.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 80, 20));
 
         jLabel99.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel99.setForeground(new java.awt.Color(255, 255, 255));
         jLabel99.setText("VIP STANDING");
         jPanel41.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, -1, 20));
 
         jLabel100.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel100.setForeground(new java.awt.Color(255, 255, 255));
         jLabel100.setText("11,OOO PHP");
         jPanel41.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 80, 20));
 
         jLabel101.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel101.setForeground(new java.awt.Color(255, 255, 255));
         jLabel101.setText("VIP B - CENTER");
         jPanel41.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, -1, 20));
 
         jLabel102.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel102.setForeground(new java.awt.Color(255, 255, 255));
         jLabel102.setText("10,OOO PHP");
         jPanel41.add(jLabel102, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 80, 20));
 
         jLabel103.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel103.setForeground(new java.awt.Color(255, 255, 255));
         jLabel103.setText("VIP C - CENTER");
         jPanel41.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, -1, 20));
 
         jLabel104.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel104.setForeground(new java.awt.Color(255, 255, 255));
         jLabel104.setText("10,OOO PHP");
         jPanel41.add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 620, 80, 20));
 
         jLabel105.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel105.setForeground(new java.awt.Color(255, 255, 255));
         jLabel105.setText("PATRON A");
         jPanel41.add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, 20));
 
         jLabel106.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel106.setForeground(new java.awt.Color(255, 255, 255));
         jLabel106.setText("8,OOO PHP");
         jPanel41.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 80, 20));
 
         jLabel107.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel107.setForeground(new java.awt.Color(255, 255, 255));
         jLabel107.setText("PATRON B");
         jPanel41.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 530, -1, 20));
 
         jLabel108.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel108.setForeground(new java.awt.Color(255, 255, 255));
         jLabel108.setText("8,OOO PHP");
         jPanel41.add(jLabel108, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, 80, 20));
 
         jLabel109.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel109.setForeground(new java.awt.Color(255, 255, 255));
         jLabel109.setText("PATRON C");
         jPanel41.add(jLabel109, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 570, -1, 20));
 
         jLabel110.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel110.setForeground(new java.awt.Color(255, 255, 255));
         jLabel110.setText("8,OOO PHP");
         jPanel41.add(jLabel110, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 580, 80, 20));
 
         jLabel111.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel111.setForeground(new java.awt.Color(255, 255, 255));
         jLabel111.setText("UPPER BOX A");
         jPanel41.add(jLabel111, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 610, -1, 20));
 
         jLabel112.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel112.setForeground(new java.awt.Color(255, 255, 255));
         jLabel112.setText("4,OOO PHP");
         jPanel41.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 620, 80, 20));
 
         jLabel113.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel113.setForeground(new java.awt.Color(255, 255, 255));
         jLabel113.setText("LOWER BOX B  ");
         jPanel41.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, 20));
 
         jLabel114.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel114.setForeground(new java.awt.Color(255, 255, 255));
         jLabel114.setText("6,OOO PHP");
         jPanel41.add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, 80, 20));
 
         jLabel115.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel115.setForeground(new java.awt.Color(255, 255, 255));
         jLabel115.setText("LOWER BOX B - CENTER");
         jPanel41.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, -1, 20));
 
         jLabel116.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel116.setForeground(new java.awt.Color(255, 255, 255));
         jLabel116.setText("6,OOO PHP");
         jPanel41.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 80, 20));
 
         jLabel117.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel117.setForeground(new java.awt.Color(255, 255, 255));
         jLabel117.setText("UPPER BOX A - CENTER");
         jPanel41.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 570, -1, 20));
 
         jLabel118.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel118.setForeground(new java.awt.Color(255, 255, 255));
         jLabel118.setText("4,OOO PHP");
         jPanel41.add(jLabel118, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 580, 80, 20));
 
         jLabel119.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel119.setForeground(new java.awt.Color(255, 255, 255));
         jLabel119.setText("GEN AD");
         jPanel41.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 610, -1, 20));
 
         jLabel120.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel120.setForeground(new java.awt.Color(255, 255, 255));
         jLabel120.setText("1,7OO PHP");
         jPanel41.add(jLabel120, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 620, 80, 20));
 
@@ -818,25 +841,26 @@ public class concertDetails extends javax.swing.JFrame {
 
         jPanel1.add(jPanel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 510, 670));
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(0, 51, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setForeground(new java.awt.Color(51, 0, 102));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/images.jpg"))); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/SB19.jpg"))); // NOI18N
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 200, 200));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("TICKET'S PRICE");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 150, -1));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 150, -1));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ifoto-ai_1745149090020.png"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ifoto-ai_1745149090020.png"))); // NOI18N
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 180, 110));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("SB19 CONCERT'S");
         jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, -1));
 
@@ -961,7 +985,7 @@ public class concertDetails extends javax.swing.JFrame {
         jPanel3.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 610, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("SEAT MAP");
         jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 90, 30));
 
@@ -1026,98 +1050,122 @@ public class concertDetails extends javax.swing.JFrame {
         jPanel3.add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 610, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("VIP A");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, -1, 20));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("7,OOO PHP");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 80, 20));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("VIP STANDING");
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, -1, 20));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("9,5OO PHP");
         jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 80, 20));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("VIP B - CENTER");
         jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, -1, 20));
 
         jLabel45.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
         jLabel45.setText("9,OOO PHP");
         jPanel3.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 80, 20));
 
         jLabel46.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
         jLabel46.setText("VIP C - CENTER");
         jPanel3.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, -1, 20));
 
         jLabel47.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
         jLabel47.setText("9,OOO PHP");
         jPanel3.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 620, 80, 20));
 
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("PATRON A");
         jPanel3.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, 20));
 
         jLabel49.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
         jLabel49.setText("4,OOO PHP");
         jPanel3.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 80, 20));
 
         jLabel50.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
         jLabel50.setText("PATRON B");
         jPanel3.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 530, -1, 20));
 
         jLabel51.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("4,OOO PHP");
         jPanel3.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, 80, 20));
 
         jLabel52.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
         jLabel52.setText("PATRON C");
         jPanel3.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 570, -1, 20));
 
         jLabel53.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
         jLabel53.setText("4,OOO PHP");
         jPanel3.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 580, 80, 20));
 
         jLabel54.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
         jLabel54.setText("UPPER BOX A");
         jPanel3.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 610, -1, 20));
 
         jLabel55.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(255, 255, 255));
         jLabel55.setText("2,OOO PHP");
         jPanel3.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 620, 80, 20));
 
         jLabel56.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(255, 255, 255));
         jLabel56.setText("LOWER BOX B  ");
         jPanel3.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, 20));
 
         jLabel57.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(255, 255, 255));
         jLabel57.setText("3,OOO PHP");
         jPanel3.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, 80, 20));
 
         jLabel58.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(255, 255, 255));
         jLabel58.setText("LOWER BOX B - CENTER");
         jPanel3.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, -1, 20));
 
         jLabel59.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel59.setForeground(new java.awt.Color(255, 255, 255));
         jLabel59.setText("2,OOO PHP");
         jPanel3.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 80, 20));
 
         jLabel60.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel60.setForeground(new java.awt.Color(255, 255, 255));
         jLabel60.setText("UPPER BOX A - CENTER");
         jPanel3.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 570, -1, 20));
 
         jLabel61.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel61.setForeground(new java.awt.Color(255, 255, 255));
         jLabel61.setText("2,OOO PHP");
         jPanel3.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 580, 80, 20));
 
         jLabel62.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel62.setForeground(new java.awt.Color(255, 255, 255));
         jLabel62.setText("GEN AD");
         jPanel3.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 610, -1, 20));
 
         jLabel63.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(255, 255, 255));
         jLabel63.setText("1,5OO PHP");
         jPanel3.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 620, 80, 20));
 
@@ -1428,48 +1476,39 @@ public class concertDetails extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 510, 670));
 
-        jLabel150.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel150.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
-        jLabel150.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel150MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel150, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
-
         jLabel3.setFont(new java.awt.Font("Verdana", 3, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel3.setForeground(new java.awt.Color(0, 51, 204));
         jLabel3.setText("CONCERT DETAILS");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 380, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ifoto-ai_1745147755829.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -330, 1280, 1140));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 810));
-
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
-        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 810));
+        back.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-back-40.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1230, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel150MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel150MouseClicked
-     eventForm ef = new eventForm();
-     ef.setVisible(true);
-     this.dispose();
-    }//GEN-LAST:event_jLabel150MouseClicked
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+    new eventFormAdmin().setVisible(true); // Show the admin form
+    this.dispose();
+    }//GEN-LAST:event_backMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1510,7 +1549,7 @@ public class concertDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
@@ -1563,19 +1602,16 @@ public class concertDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel148;
     private javax.swing.JLabel jLabel149;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel150;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;

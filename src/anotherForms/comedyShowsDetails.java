@@ -5,7 +5,7 @@
  */
 package anotherForms;
 
-import eventapp.eventForm;
+import organizer.eventFormAdmin;
 
 /**
  *
@@ -152,32 +152,30 @@ public class comedyShowsDetails extends javax.swing.JFrame {
         jLabel149 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel84 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel46.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel46.setBackground(new java.awt.Color(0, 51, 204));
         jPanel46.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel46.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel94.setBackground(new java.awt.Color(255, 255, 255));
         jLabel94.setForeground(new java.awt.Color(51, 0, 102));
-        jLabel94.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AGASTHADONALD.jpg"))); // NOI18N
+        jLabel94.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/AGASTHADONALD.jpg"))); // NOI18N
         jPanel46.add(jLabel94, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 200, 190));
 
         jLabel106.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel106.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel106.setForeground(new java.awt.Color(255, 255, 255));
         jLabel106.setText("TICKET'S PRICE");
         jPanel46.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 150, -1));
 
         jLabel107.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel107.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel107.setForeground(new java.awt.Color(255, 255, 255));
         jLabel107.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel107.setText("AGASTHA DONALD");
         jPanel46.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 200, -1));
@@ -227,7 +225,7 @@ public class comedyShowsDetails extends javax.swing.JFrame {
 
         jPanel46.add(jPanel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, -1, -1));
 
-        jPanel50.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel50.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanel50Layout = new javax.swing.GroupLayout(jPanel50);
         jPanel50.setLayout(jPanel50Layout);
@@ -243,40 +241,48 @@ public class comedyShowsDetails extends javax.swing.JFrame {
         jPanel46.add(jPanel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 580, -1, -1));
 
         jLabel108.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel108.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel108.setForeground(new java.awt.Color(255, 255, 255));
         jLabel108.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel108.setText("SEAT MAP");
         jPanel46.add(jLabel108, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 200, 30));
 
         jLabel109.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel109.setForeground(new java.awt.Color(255, 255, 255));
         jLabel109.setText("GOLD");
         jPanel46.add(jLabel109, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 580, -1, 20));
 
         jLabel110.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel110.setForeground(new java.awt.Color(255, 255, 255));
         jLabel110.setText("3,OOO USD");
         jPanel46.add(jLabel110, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 590, 80, 20));
 
         jLabel111.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel111.setForeground(new java.awt.Color(255, 255, 255));
         jLabel111.setText("PREMIUM ");
         jPanel46.add(jLabel111, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, -1, 20));
 
         jLabel112.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel112.setForeground(new java.awt.Color(255, 255, 255));
         jLabel112.setText("6,000 USD");
         jPanel46.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 80, 20));
 
         jLabel113.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel113.setForeground(new java.awt.Color(255, 255, 255));
         jLabel113.setText("SILVER");
         jPanel46.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, -1, 20));
 
         jLabel114.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel114.setForeground(new java.awt.Color(255, 255, 255));
         jLabel114.setText("2,OOO USD");
         jPanel46.add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, 80, 20));
 
         jLabel115.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel115.setForeground(new java.awt.Color(255, 255, 255));
         jLabel115.setText("BRONZE");
         jPanel46.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 580, -1, 20));
 
         jLabel116.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel116.setForeground(new java.awt.Color(255, 255, 255));
         jLabel116.setText("1,75OO USD");
         jPanel46.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 80, 20));
 
@@ -585,31 +591,33 @@ public class comedyShowsDetails extends javax.swing.JFrame {
 
         jPanel46.add(jPanel85, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 510, 670));
 
+        jLabel9.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("SHOWS ON DECEMBER 23, 2025");
         jPanel46.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 200, -1));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/COMDY SEAT MAPs.jpg"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/COMDY SEAT MAPs.jpg"))); // NOI18N
         jPanel46.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 200, 160));
 
         jPanel1.add(jPanel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, 510, 670));
 
-        jPanel41.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel41.setBackground(new java.awt.Color(0, 51, 204));
         jPanel41.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel41.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel92.setBackground(new java.awt.Color(255, 255, 255));
         jLabel92.setForeground(new java.awt.Color(51, 0, 102));
-        jLabel92.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MATTLOVE2.jpg"))); // NOI18N
+        jLabel92.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/MATTLOVE2.jpg"))); // NOI18N
         jPanel41.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 200, 190));
 
         jLabel93.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel93.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel93.setForeground(new java.awt.Color(255, 255, 255));
         jLabel93.setText("TICKET'S PRICE");
         jPanel41.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 150, -1));
 
         jLabel95.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel95.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel95.setForeground(new java.awt.Color(255, 255, 255));
         jLabel95.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel95.setText("MATT RIFE");
         jPanel41.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 30, 200, -1));
@@ -659,7 +667,7 @@ public class comedyShowsDetails extends javax.swing.JFrame {
 
         jPanel41.add(jPanel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, -1, -1));
 
-        jPanel45.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel45.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanel45Layout = new javax.swing.GroupLayout(jPanel45);
         jPanel45.setLayout(jPanel45Layout);
@@ -675,40 +683,48 @@ public class comedyShowsDetails extends javax.swing.JFrame {
         jPanel41.add(jPanel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 580, -1, -1));
 
         jLabel96.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel96.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel96.setForeground(new java.awt.Color(255, 255, 255));
         jLabel96.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel96.setText("SEAT MAP");
         jPanel41.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 200, 30));
 
         jLabel97.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel97.setForeground(new java.awt.Color(255, 255, 255));
         jLabel97.setText("GOLD");
         jPanel41.add(jLabel97, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 580, -1, 20));
 
         jLabel98.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel98.setForeground(new java.awt.Color(255, 255, 255));
         jLabel98.setText("3,OOO USD");
         jPanel41.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 590, 80, 20));
 
         jLabel99.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel99.setForeground(new java.awt.Color(255, 255, 255));
         jLabel99.setText("PREMIUM ");
         jPanel41.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, -1, 20));
 
         jLabel100.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel100.setForeground(new java.awt.Color(255, 255, 255));
         jLabel100.setText("6,000 USD");
         jPanel41.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 80, 20));
 
         jLabel101.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel101.setForeground(new java.awt.Color(255, 255, 255));
         jLabel101.setText("SILVER");
         jPanel41.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, -1, 20));
 
         jLabel102.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel102.setForeground(new java.awt.Color(255, 255, 255));
         jLabel102.setText("2,OOO USD");
         jPanel41.add(jLabel102, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, 80, 20));
 
         jLabel103.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel103.setForeground(new java.awt.Color(255, 255, 255));
         jLabel103.setText("BRONZE");
         jPanel41.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 580, -1, 20));
 
         jLabel104.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel104.setForeground(new java.awt.Color(255, 255, 255));
         jLabel104.setText("1,75OO USD");
         jPanel41.add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 80, 20));
 
@@ -1017,37 +1033,29 @@ public class comedyShowsDetails extends javax.swing.JFrame {
 
         jPanel41.add(jPanel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 510, 670));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("SHOWS ON JULY 14, 2025");
         jPanel41.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 260, 130, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/COMDY SEAT MAPs.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/COMDY SEAT MAPs.jpg"))); // NOI18N
         jPanel41.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 200, 160));
 
         jPanel1.add(jPanel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 510, 670));
 
-        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
-        jLabel84.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel84MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
-
         jLabel3.setFont(new java.awt.Font("Verdana", 3, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel3.setForeground(new java.awt.Color(0, 51, 204));
         jLabel3.setText("COMEDY SHOWS DETAILS");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 530, 60));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/THEATERS.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 1230, 560));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 810));
-
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
-        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 810));
+        back.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-back-40.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1061,13 +1069,13 @@ public class comedyShowsDetails extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel84MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel84MouseClicked
-     eventForm ef = new eventForm();
-     ef.setVisible(true);
-     this.dispose();
-    }//GEN-LAST:event_jLabel84MouseClicked
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+    new eventFormAdmin().setVisible(true); // Show the admin form
+    this.dispose();
+    }//GEN-LAST:event_backMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1120,7 +1128,7 @@ public class comedyShowsDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
@@ -1177,7 +1185,6 @@ public class comedyShowsDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel197;
     private javax.swing.JLabel jLabel198;
     private javax.swing.JLabel jLabel199;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel200;
     private javax.swing.JLabel jLabel201;
     private javax.swing.JLabel jLabel202;
@@ -1198,10 +1205,8 @@ public class comedyShowsDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel217;
     private javax.swing.JLabel jLabel218;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;

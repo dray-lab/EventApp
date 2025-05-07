@@ -31,6 +31,10 @@ public class changePass extends javax.swing.JFrame {
     public changePass() {
         initComponents();
     }
+    
+    Color navcolor = new Color(240,240,240);
+    Color hovercolor = new Color(255,153,153);
+    
 
     public changePass(int userId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -47,16 +51,18 @@ public class changePass extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         id_display = new javax.swing.JLabel();
         ai = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
         acct_fn = new javax.swing.JLabel();
+        s = new javax.swing.JPanel();
+        out = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         oldpass = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -65,9 +71,11 @@ public class changePass extends javax.swing.JFrame {
         conpass = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -76,100 +84,115 @@ public class changePass extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         id_display.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        id_display.setForeground(new java.awt.Color(51, 0, 102));
+        id_display.setForeground(new java.awt.Color(0, 51, 204));
         id_display.setText("(UID)");
 
         ai.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        ai.setForeground(new java.awt.Color(51, 0, 102));
+        ai.setForeground(new java.awt.Color(0, 51, 204));
         ai.setText("CHANGE PASSWORD");
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-back-40.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ai)
-                .addGap(18, 18, 18)
+                .addGap(2, 2, 2)
                 .addComponent(id_display)
-                .addContainerGap(575, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(id_display, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
-                    .addComponent(ai, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE))
+                    .addComponent(id_display, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 40));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 40));
 
-        jPanel3.setBackground(new java.awt.Color(51, 0, 102));
+        jPanel3.setBackground(new java.awt.Color(0, 51, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel7.setBackground(new java.awt.Color(51, 0, 102));
-        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel7MouseClicked(evt);
-            }
-        });
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setBackground(new java.awt.Color(51, 0, 102));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("LOGOUT");
-        jPanel7.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 140, 20));
-
-        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 140, 40));
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-account-100.png"))); // NOI18N
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 140, 80));
-
-        jPanel8.setBackground(new java.awt.Color(51, 0, 102));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+        acct_fn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         acct_fn.setForeground(new java.awt.Color(255, 255, 255));
         acct_fn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         acct_fn.setText("USER");
-        jPanel8.add(acct_fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 120, 30));
+        jPanel3.add(acct_fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 160, 30));
 
-        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 140, 30));
+        s.setBackground(new java.awt.Color(0, 51, 204));
+        s.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sMouseExited(evt);
+            }
+        });
+        s.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 380));
+        out.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        out.setForeground(new java.awt.Color(255, 255, 255));
+        out.setText("LOGOUT");
+        out.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                outMouseEntered(evt);
+            }
+        });
+        s.add(out, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 39));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
+        s.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
+
+        jPanel3.add(s, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 160, -1));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-account-100.png"))); // NOI18N
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, 80));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 160, 380));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel12.setForeground(new java.awt.Color(0, 51, 204));
         jLabel12.setText("Enter Old Password:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 130, 20));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 130, 20));
 
         oldpass.setForeground(new java.awt.Color(102, 0, 102));
         oldpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 240, 30));
+        jPanel1.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 240, 30));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel9.setForeground(new java.awt.Color(0, 51, 204));
         jLabel9.setText("New Password");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 120, 20));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 120, 20));
 
         newpass.setForeground(new java.awt.Color(102, 0, 102));
         newpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 240, 30));
+        jPanel1.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 240, 30));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel10.setForeground(new java.awt.Color(0, 51, 204));
         jLabel10.setText("Confirm Password");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 140, 20));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 140, 20));
 
         conpass.setForeground(new java.awt.Color(102, 0, 102));
         conpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -178,10 +201,11 @@ public class changePass extends javax.swing.JFrame {
                 conpassActionPerformed(evt);
             }
         });
-        jPanel1.add(conpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 240, 30));
+        jPanel1.add(conpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 240, 30));
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 255));
+        jButton3.setBackground(new java.awt.Color(0, 51, 204));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Save");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -193,10 +217,11 @@ public class changePass extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 100, 40));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 100, 40));
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 255));
+        jButton4.setBackground(new java.awt.Color(0, 51, 204));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Back");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -208,10 +233,7 @@ public class changePass extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 100, 40));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/d6d0bdfdbdb9db439b8033c7681976dc.jpg"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 330, 380));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 100, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -282,18 +304,39 @@ public class changePass extends javax.swing.JFrame {
     } 
     }//GEN-LAST:event_jButton3MouseClicked
 
-    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-        int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to log out?", "Logout", JOptionPane.YES_NO_OPTION);
-    
-    if (response == JOptionPane.YES_OPTION) {
-        Session sess = Session.getInstance();
-        sess.clearSession();
+    private void outMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outMouseEntered
+        out.setBackground(hovercolor);
+    }//GEN-LAST:event_outMouseEntered
+
+    private void sMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseClicked
+        int userId = Session.getInstance().getUid();
+
+        if (userId != 0) {
+            dbConnector db = new dbConnector();
+            db.insertLog(userId, "Logout", "User logged out successfully");
+        }
+
+        Session session = Session.getInstance();
+        session.setUid(0);
+        session.setFname(null);
+        session.setLname(null);
+        session.setEmail(null);
+        session.setUsername(null);
+        session.setStatus(null);
+        session.setType(null);
 
         loginForm login = new loginForm();
         login.setVisible(true);
         this.dispose();
-    }
-    }//GEN-LAST:event_jPanel7MouseClicked
+    }//GEN-LAST:event_sMouseClicked
+
+    private void sMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseEntered
+        s.setBackground(hovercolor);
+    }//GEN-LAST:event_sMouseEntered
+
+    private void sMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseExited
+        s.setBackground(navcolor);
+    }//GEN-LAST:event_sMouseExited
 
     /**
      * @param args the command line arguments
@@ -349,15 +392,16 @@ public class changePass extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JTextField newpass;
     private javax.swing.JTextField oldpass;
+    private javax.swing.JLabel out;
+    private javax.swing.JPanel s;
     // End of variables declaration//GEN-END:variables
 
     private boolean duplicateCheck() {
