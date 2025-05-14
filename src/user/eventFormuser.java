@@ -32,7 +32,7 @@ public class eventFormuser extends javax.swing.JFrame {
         initComponents();
     }
     
-    Color navcolor = new Color(240,240,240);
+     Color navcolor = new Color(0,51,204);
     Color hovercolor = new Color(255,153,153);
 
     /**
@@ -616,25 +616,34 @@ public class eventFormuser extends javax.swing.JFrame {
     }//GEN-LAST:event_outMouseEntered
 
     private void sMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseClicked
-        int userId = Session.getInstance().getUid();
+      int userId = Session.getInstance().getUid();
 
-        if (userId != 0) {
-            dbConnector db = new dbConnector();
-            db.insertLog(userId, "Logout", "User logged out successfully");
-        }
+if (userId != 0) {
+    dbConnector db = new dbConnector();
+    db.insertLog(userId, "Logout", "User logged out successfully");
+}
 
-        Session session = Session.getInstance();
-        session.setUid(0);
-        session.setFname(null);
-        session.setLname(null);
-        session.setEmail(null);
-        session.setUsername(null);
-        session.setStatus(null);
-        session.setType(null);
+// Show confirmation dialog before logging out
+int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logout Confirmation", JOptionPane.YES_NO_OPTION);
 
-        loginForm login = new loginForm();
-        login.setVisible(true);
-        this.dispose();
+if (confirm == JOptionPane.YES_OPTION) {
+    // Proceed with logout actions if user clicked 'Yes'
+    Session session = Session.getInstance();
+    session.setUid(0);
+    session.setFname(null);
+    session.setLname(null);
+    session.setEmail(null);
+    session.setUsername(null);
+    session.setStatus(null);
+    session.setType(null);
+
+    loginForm login = new loginForm();
+    login.setVisible(true);
+    this.dispose();
+} else {
+    // Optionally, you can add logic here if the user chooses 'No' (like keeping the user logged in)
+    System.out.println("Logout cancelled.");
+}
     }//GEN-LAST:event_sMouseClicked
 
     private void sMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseEntered

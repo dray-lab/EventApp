@@ -31,7 +31,7 @@ public class userDashboard extends javax.swing.JFrame {
         loadTotalUsers();
     }
     
-    Color navcolor = new Color(0,51,204);
+     Color navcolor = new Color(0,51,204);
     Color hovercolor = new Color(255,153,153);
 
     
@@ -82,7 +82,7 @@ public class userDashboard extends javax.swing.JFrame {
 
         if (rs.next()) {
             int totalUsers = rs.getInt("total_users"); // Get the count of users
-            loadTotalUsers.setText(String.valueOf(totalUsers)); // Update the label with the total users
+            totalUser.setText(String.valueOf(totalUsers)); // Update the label with the total users
         }
 
         rs.close();
@@ -120,7 +120,7 @@ public class userDashboard extends javax.swing.JFrame {
         acct_name1 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        loadTotalUsers = new javax.swing.JLabel();
+        totalUser = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -280,11 +280,11 @@ public class userDashboard extends javax.swing.JFrame {
         jLabel16.setText("Total Users");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 100, -1));
 
-        loadTotalUsers.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        loadTotalUsers.setForeground(new java.awt.Color(0, 51, 153));
-        loadTotalUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loadTotalUsers.setText("0");
-        jPanel1.add(loadTotalUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 20, 30));
+        totalUser.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        totalUser.setForeground(new java.awt.Color(0, 51, 153));
+        totalUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalUser.setText("0");
+        jPanel1.add(totalUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 20, 30));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 51, 153));
@@ -402,23 +402,34 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_loMouseEntered
 
     private void loMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loMouseClicked
-        int userId = Session.getInstance().getUid();
+       int userId = Session.getInstance().getUid();
 
-        dbConnector db = new dbConnector();
-        db.insertLog(userId, "Logout", "User logged out successfully");
+if (userId != 0) {
+    dbConnector db = new dbConnector();
+    db.insertLog(userId, "Logout", "User logged out successfully");
+}
 
-        Session.getInstance().setUid(0);
-        Session.getInstance().setFname(null);
-        Session.getInstance().setLname(null);
-        Session.getInstance().setEmail(null);
-        Session.getInstance().setUsername(null);
-        Session.getInstance().setStatus(null);
-        Session.getInstance().setType(null);
+// Show confirmation dialog before logging out
+int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logout Confirmation", JOptionPane.YES_NO_OPTION);
 
-        loginForm login = new loginForm();
-        login.setVisible(true);
+if (confirm == JOptionPane.YES_OPTION) {
+    // Proceed with logout actions if user clicked 'Yes'
+    Session session = Session.getInstance();
+    session.setUid(0);
+    session.setFname(null);
+    session.setLname(null);
+    session.setEmail(null);
+    session.setUsername(null);
+    session.setStatus(null);
+    session.setType(null);
 
-        this.dispose();
+    loginForm login = new loginForm();
+    login.setVisible(true);
+    this.dispose();
+} else {
+    // Optionally, you can add logic here if the user chooses 'No' (like keeping the user logged in)
+    System.out.println("Logout cancelled.");
+}
     }//GEN-LAST:event_loMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -508,7 +519,7 @@ public class userDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel lo;
-    private javax.swing.JLabel loadTotalUsers;
     private javax.swing.JPanel sett;
+    private javax.swing.JLabel totalUser;
     // End of variables declaration//GEN-END:variables
 }

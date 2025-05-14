@@ -50,8 +50,8 @@ private double runningTotal = 0.0;
         loadEventsToTable();
     }
 
-    Color navcolor = new Color(240,240,240);
-    Color hovercolor = new Color(255,255,0);
+    Color navcolor = new Color(0,51,204);
+    Color hovercolor = new Color(255,153,153);
     
     private void initCheckoutTable() {
     String[] checkoutCols = { "Event Name", "Type", "Venue", "Amount", "Packages" };
@@ -223,9 +223,6 @@ private void addToCheckoutTable() {
         p = new javax.swing.JPanel();
         evnts = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        l = new javax.swing.JPanel();
-        logs = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         g = new javax.swing.JPanel();
         books = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -313,43 +310,7 @@ private void addToCheckoutTable() {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/eventsadmindash.png"))); // NOI18N
         p.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
 
-        jPanel2.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 190, 40));
-
-        l.setBackground(new java.awt.Color(0, 51, 204));
-        l.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lMouseExited(evt);
-            }
-        });
-        l.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        logs.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        logs.setForeground(new java.awt.Color(255, 255, 255));
-        logs.setText("LOGS");
-        logs.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logsMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logsMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                logsMouseExited(evt);
-            }
-        });
-        l.add(logs, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 8, 120, 20));
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logs.png"))); // NOI18N
-        l.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
-
-        jPanel2.add(l, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 190, 40));
+        jPanel2.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 190, 40));
 
         g.setBackground(new java.awt.Color(0, 51, 204));
         g.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -367,16 +328,16 @@ private void addToCheckoutTable() {
 
         books.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         books.setForeground(new java.awt.Color(255, 255, 255));
-        books.setText("BOOKINGS");
+        books.setText("RESERVATION");
         books.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                booksMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 booksMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 booksMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                booksMouseClicked(evt);
             }
         });
         g.add(books, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 8, 120, 20));
@@ -675,34 +636,6 @@ private void addToCheckoutTable() {
 
     }//GEN-LAST:event_pMouseClicked
 
-    private void logsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseClicked
-        Logs lg = new Logs();
-        lg.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_logsMouseClicked
-
-    private void logsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseEntered
-        l.setBackground(hovercolor);
-    }//GEN-LAST:event_logsMouseEntered
-
-    private void logsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseExited
-        l.setBackground(navcolor);
-    }//GEN-LAST:event_logsMouseExited
-
-    private void lMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseEntered
-
-    }//GEN-LAST:event_lMouseEntered
-
-    private void lMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseExited
-
-    }//GEN-LAST:event_lMouseExited
-
-    private void lMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseClicked
-        Logs lg = new Logs();
-        lg.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_lMouseClicked
-
     private void booksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseEntered
         books.setBackground(hovercolor);
     }//GEN-LAST:event_booksMouseEntered
@@ -758,25 +691,34 @@ private void addToCheckoutTable() {
     }//GEN-LAST:event_outMouseEntered
 
     private void sMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseClicked
-        int userId = Session.getInstance().getUid();
+      int userId = Session.getInstance().getUid();
 
-        if (userId != 0) {
-            dbConnector db = new dbConnector();
-            db.insertLog(userId, "Logout", "User logged out successfully");
-        }
+if (userId != 0) {
+    dbConnector db = new dbConnector();
+    db.insertLog(userId, "Logout", "User logged out successfully");
+}
 
-        Session session = Session.getInstance();
-        session.setUid(0);
-        session.setFname(null);
-        session.setLname(null);
-        session.setEmail(null);
-        session.setUsername(null);
-        session.setStatus(null);
-        session.setType(null);
+// Show confirmation dialog before logging out
+int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logout Confirmation", JOptionPane.YES_NO_OPTION);
 
-        loginForm login = new loginForm();
-        login.setVisible(true);
-        this.dispose();
+if (confirm == JOptionPane.YES_OPTION) {
+    // Proceed with logout actions if user clicked 'Yes'
+    Session session = Session.getInstance();
+    session.setUid(0);
+    session.setFname(null);
+    session.setLname(null);
+    session.setEmail(null);
+    session.setUsername(null);
+    session.setStatus(null);
+    session.setType(null);
+
+    loginForm login = new loginForm();
+    login.setVisible(true);
+    this.dispose();
+} else {
+    // Optionally, you can add logic here if the user chooses 'No' (like keeping the user logged in)
+    System.out.println("Logout cancelled.");
+}
     }//GEN-LAST:event_sMouseClicked
 
     private void sMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseEntered
@@ -990,7 +932,6 @@ private void addToCheckoutTable() {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -999,8 +940,6 @@ private void addToCheckoutTable() {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JPanel l;
-    private javax.swing.JLabel logs;
     private javax.swing.JLabel out;
     private javax.swing.JPanel p;
     private javax.swing.JTextField packageTextField;

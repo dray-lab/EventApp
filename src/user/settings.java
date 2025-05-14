@@ -31,8 +31,8 @@ public class settings extends javax.swing.JFrame {
         initComponents();
     }
     
-    Color navcolor = new Color(51,0,102);
-    Color hovercolor = new Color(153,153,255);
+     Color navcolor = new Color(0,51,204);
+    Color hovercolor = new Color(255,153,153);
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -471,23 +471,34 @@ if (sess.getUid() == 0) {
     }//GEN-LAST:event_loMouseEntered
 
     private void loMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loMouseClicked
-        int userId = Session.getInstance().getUid();
+       int userId = Session.getInstance().getUid();
 
-        dbConnector db = new dbConnector();
-        db.insertLog(userId, "Logout", "User logged out successfully");
+if (userId != 0) {
+    dbConnector db = new dbConnector();
+    db.insertLog(userId, "Logout", "User logged out successfully");
+}
 
-        Session.getInstance().setUid(0);
-        Session.getInstance().setFname(null);
-        Session.getInstance().setLname(null);
-        Session.getInstance().setEmail(null);
-        Session.getInstance().setUsername(null);
-        Session.getInstance().setStatus(null);
-        Session.getInstance().setType(null);
+// Show confirmation dialog before logging out
+int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logout Confirmation", JOptionPane.YES_NO_OPTION);
 
-        loginForm login = new loginForm();
-        login.setVisible(true);
+if (confirm == JOptionPane.YES_OPTION) {
+    // Proceed with logout actions if user clicked 'Yes'
+    Session session = Session.getInstance();
+    session.setUid(0);
+    session.setFname(null);
+    session.setLname(null);
+    session.setEmail(null);
+    session.setUsername(null);
+    session.setStatus(null);
+    session.setType(null);
 
-        this.dispose();
+    loginForm login = new loginForm();
+    login.setVisible(true);
+    this.dispose();
+} else {
+    // Optionally, you can add logic here if the user chooses 'No' (like keeping the user logged in)
+    System.out.println("Logout cancelled.");
+}
     }//GEN-LAST:event_loMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked

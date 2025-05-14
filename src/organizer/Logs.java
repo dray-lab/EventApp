@@ -29,9 +29,8 @@ public class Logs extends javax.swing.JFrame {
         initComponents();
     }
     
-    Color navcolor = new Color(240,240,240);
-    Color hovercolor = new Color(255,153,153);
-    
+      Color navcolor = new Color(0,51,204);
+    Color hovercolor = new Color(255,153,153);    
     
         public void displayData(){
         try{
@@ -57,13 +56,13 @@ public class Logs extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         acc_name = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        atte = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
+        event = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
+        log = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -107,57 +106,77 @@ public class Logs extends javax.swing.JFrame {
         acc_name.setText("ORGANIZER");
         jPanel3.add(acc_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 95, -1));
 
-        jPanel6.setBackground(new java.awt.Color(0, 51, 204));
-        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+        atte.setBackground(new java.awt.Color(0, 51, 204));
+        atte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel6MouseClicked(evt);
+                atteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                atteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                atteMouseExited(evt);
             }
         });
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        atte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("ATTENDEES");
-        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 120, 40));
+        atte.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 120, 40));
 
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/useradmindash.png"))); // NOI18N
-        jPanel6.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
+        atte.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
 
-        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 170, 40));
+        jPanel3.add(atte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 170, 40));
 
-        jPanel7.setBackground(new java.awt.Color(0, 51, 204));
-        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+        event.setBackground(new java.awt.Color(0, 51, 204));
+        event.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel7MouseClicked(evt);
+                eventMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                eventMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                eventMouseExited(evt);
             }
         });
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        event.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("EVENTS");
-        jPanel7.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 120, 40));
+        event.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 120, 40));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/eventsadmindash.png"))); // NOI18N
-        jPanel7.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
+        event.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
 
-        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 170, -1));
+        jPanel3.add(event, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 170, -1));
 
-        jPanel8.setBackground(new java.awt.Color(0, 51, 204));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        log.setBackground(new java.awt.Color(0, 51, 204));
+        log.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logMouseExited(evt);
+            }
+        });
+        log.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("LOGS");
-        jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 0, 119, 40));
+        log.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 0, 119, 40));
 
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logs.png"))); // NOI18N
-        jPanel8.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
+        log.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
 
-        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 170, 40));
+        jPanel3.add(log, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 170, 40));
 
         jPanel9.setBackground(new java.awt.Color(0, 51, 204));
         jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -199,16 +218,16 @@ public class Logs extends javax.swing.JFrame {
 
         books.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         books.setForeground(new java.awt.Color(255, 255, 255));
-        books.setText("BOOKS");
+        books.setText("BOOKINGS");
         books.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                booksMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 booksMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 booksMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                booksMouseClicked(evt);
             }
         });
         g.add(books, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, -2, 120, 40));
@@ -426,26 +445,34 @@ public class Logs extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
-    int userId = Session.getInstance().getUid(); // Get user ID before clearing session
+    int userId = Session.getInstance().getUid();
 
-    // Insert logout log into the database
-    insertLog(userId, "Logout", "User logged out successfully");
+if (userId != 0) {
+    dbConnector db = new dbConnector();
+    db.insertLog(userId, "Logout", "User logged out successfully");
+}
 
-    // Clear session data
-    Session.getInstance().setUid(0);
-    Session.getInstance().setFname(null);
-    Session.getInstance().setLname(null);
-    Session.getInstance().setEmail(null);
-    Session.getInstance().setUsername(null);
-    Session.getInstance().setStatus(null);
-    Session.getInstance().setType(null);
+// Show confirmation dialog before logging out
+int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logout Confirmation", JOptionPane.YES_NO_OPTION);
 
-    // Open the login form
+if (confirm == JOptionPane.YES_OPTION) {
+    // Proceed with logout actions if user clicked 'Yes'
+    Session session = Session.getInstance();
+    session.setUid(0);
+    session.setFname(null);
+    session.setLname(null);
+    session.setEmail(null);
+    session.setUsername(null);
+    session.setStatus(null);
+    session.setType(null);
+
     loginForm login = new loginForm();
     login.setVisible(true);
-
-    // Close the current form
     this.dispose();
+} else {
+    // Optionally, you can add logic here if the user chooses 'No' (like keeping the user logged in)
+    System.out.println("Logout cancelled.");
+}
     }//GEN-LAST:event_jPanel9MouseClicked
 
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
@@ -535,15 +562,15 @@ public class Logs extends javax.swing.JFrame {
          refreshLogsTable();
     }//GEN-LAST:event_refreshMouseClicked
 
-    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+    private void eventMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eventMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel7MouseClicked
+    }//GEN-LAST:event_eventMouseClicked
 
-    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+    private void atteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atteMouseClicked
         attendeesForm atf = new attendeesForm();
         atf.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jPanel6MouseClicked
+    }//GEN-LAST:event_atteMouseClicked
 
     private void booksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseEntered
         books.setBackground(hovercolor);
@@ -560,11 +587,12 @@ public class Logs extends javax.swing.JFrame {
     }//GEN-LAST:event_booksMouseClicked
 
     private void gMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseEntered
-        // TODO add your handling code here:
+        g.setBackground(hovercolor);
     }//GEN-LAST:event_gMouseEntered
 
     private void gMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseExited
-        // TODO add your handling code here:
+         g.setBackground(navcolor);
+
     }//GEN-LAST:event_gMouseExited
 
     private void gMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseClicked
@@ -588,12 +616,38 @@ public class Logs extends javax.swing.JFrame {
     }//GEN-LAST:event_tMouseExited
 
     private void tMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseClicked
-        // TODO add your handling code here:
+       settingsOrg so = settingsOrg();
+        so.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_tMouseClicked
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutMouseClicked
+
+    private void atteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atteMouseEntered
+       atte.setBackground(hovercolor);
+    }//GEN-LAST:event_atteMouseEntered
+
+    private void atteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atteMouseExited
+       atte.setBackground(navcolor);
+    }//GEN-LAST:event_atteMouseExited
+
+    private void eventMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eventMouseEntered
+        event.setBackground(hovercolor);
+    }//GEN-LAST:event_eventMouseEntered
+
+    private void eventMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eventMouseExited
+        event.setBackground(navcolor);
+    }//GEN-LAST:event_eventMouseExited
+
+    private void logMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logMouseEntered
+       log.setBackground(hovercolor);
+    }//GEN-LAST:event_logMouseEntered
+
+    private void logMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logMouseExited
+        log.setBackground(navcolor);
+    }//GEN-LAST:event_logMouseExited
 
     /**
      * @param args the command line arguments
@@ -635,8 +689,10 @@ public class Logs extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel acc_name;
+    private javax.swing.JPanel atte;
     private javax.swing.JLabel books;
     private javax.swing.JPanel delete;
+    private javax.swing.JPanel event;
     private javax.swing.JPanel g;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -654,11 +710,9 @@ public class Logs extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel log;
     private javax.swing.JLabel logout;
     private javax.swing.JTable logsTable;
     private javax.swing.JPanel p_add;
@@ -673,6 +727,10 @@ public class Logs extends javax.swing.JFrame {
     }
 
     private void refreshLogsTable() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private settingsOrg settingsOrg() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

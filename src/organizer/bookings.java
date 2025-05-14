@@ -25,8 +25,8 @@ public class bookings extends javax.swing.JFrame {
         loadBookingsToTable();   
  }
 
-    Color navcolor = new Color(240,240,240);
-    Color hovercolor = new Color(255,255,0);
+     Color navcolor = new Color(0,51,204);
+    Color hovercolor = new Color(255,153,153);
     
     
    private void loadEventsToTable() {
@@ -303,14 +303,14 @@ public class bookings extends javax.swing.JFrame {
 
         t.setBackground(new java.awt.Color(0, 51, 204));
         t.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 tMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 tMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tMouseClicked(evt);
             }
         });
         t.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -538,6 +538,7 @@ public class bookings extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void attorgMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attorgMouseEntered
@@ -667,7 +668,9 @@ public class bookings extends javax.swing.JFrame {
     }//GEN-LAST:event_tMouseExited
 
     private void tMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseClicked
-        // TODO add your handling code here:
+       settingsOrg so = new settingsOrg();
+        so.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_tMouseClicked
 
     private void outMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outMouseEntered
@@ -677,23 +680,32 @@ public class bookings extends javax.swing.JFrame {
     private void sMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseClicked
         int userId = Session.getInstance().getUid();
 
-        if (userId != 0) {
-            dbConnector db = new dbConnector();
-            db.insertLog(userId, "Logout", "User logged out successfully");
-        }
+if (userId != 0) {
+    dbConnector db = new dbConnector();
+    db.insertLog(userId, "Logout", "User logged out successfully");
+}
 
-        Session session = Session.getInstance();
-        session.setUid(0);
-        session.setFname(null);
-        session.setLname(null);
-        session.setEmail(null);
-        session.setUsername(null);
-        session.setStatus(null);
-        session.setType(null);
+// Show confirmation dialog before logging out
+int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logout Confirmation", JOptionPane.YES_NO_OPTION);
 
-        loginForm login = new loginForm();
-        login.setVisible(true);
-        this.dispose();
+if (confirm == JOptionPane.YES_OPTION) {
+    // Proceed with logout actions if user clicked 'Yes'
+    Session session = Session.getInstance();
+    session.setUid(0);
+    session.setFname(null);
+    session.setLname(null);
+    session.setEmail(null);
+    session.setUsername(null);
+    session.setStatus(null);
+    session.setType(null);
+
+    loginForm login = new loginForm();
+    login.setVisible(true);
+    this.dispose();
+} else {
+    // Optionally, you can add logic here if the user chooses 'No' (like keeping the user logged in)
+    System.out.println("Logout cancelled.");
+}
     }//GEN-LAST:event_sMouseClicked
 
     private void sMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseEntered
@@ -813,6 +825,10 @@ public class bookings extends javax.swing.JFrame {
     private javax.swing.JTable tableforEvents;
     private javax.swing.JTextField venueTextField;
     // End of variables declaration//GEN-END:variables
+
+    private settingsOrg settingsOrg() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
 }

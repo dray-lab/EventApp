@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -26,111 +27,43 @@ public class adminDashboard extends javax.swing.JFrame {
     /** Creates new form adminDasboard */
     public adminDashboard() {
         initComponents();
+         displayData();
     }
     
     Color navcolor = new Color(0,51,204);
     Color hovercolor = new Color(255,153,153);
 
-   private void loadBookingsToTable() {
+  public void displayData() {
     try {
         dbConnector dbc = new dbConnector();
-        Connection conn = (Connection) dbc.getConnection();
-        String sql = "SELECT * FROM bookings";
-        PreparedStatement pst = conn.prepareStatement(sql);
-        ResultSet rs = pst.executeQuery();
-
-        // Define table columns to match your bookings table
-        DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(new String[] {
-            "ID", "Event Name", "Event Type", "Amount"
-        });
-
-        while (rs.next()) {
-            model.addRow(new Object[] {
-                rs.getInt("id"),
-                rs.getString("event_name"),
-                rs.getString("event_type"),
-                rs.getDouble("amount")
-            });
-        }
-
-        tableBookings.setModel(model); // Set the model to your JTable
-
+        ResultSet rs = dbc.getData("SELECT id, event_name, event_type, amount FROM bookings");
+        tableBookings.setModel(DbUtils.resultSetToTableModel(rs));
         rs.close();
-        pst.close();
-        conn.close();
-    } catch (Exception e) {
+    } catch (SQLException e) {
         JOptionPane.showMessageDialog(this, "Error loading bookings: " + e.getMessage());
         e.printStackTrace();
     }
 }
+
+
    
-   private void loadTotalUsers() {
+    private void updateDashboardCounts() {
     try {
-        dbConnector dbc = new dbConnector();
-        Connection conn = (Connection) dbc.getConnection();
-        String sql = "SELECT COUNT(*) AS total_users FROM tbl_registeruser"; // COUNT query to get the total number of users
-        PreparedStatement pst = conn.prepareStatement(sql);
-        ResultSet rs = pst.executeQuery();
+        dbConnector db = new dbConnector();
+       
+        // Get counts from database
+        int activeUser = db.getActiveUsersCount();
+        int pendingUser = db.getActiveUsersCount2();
+        int bookings = db.getCount("bookings");
+     
 
-        if (rs.next()) {
-            int totalUsers = rs.getInt("total_users"); // Get the count of users
-            jLabel13.setText(String.valueOf(totalUsers)); // Update the label with the total users
-        }
-
-        rs.close();
-        pst.close();
-        conn.close();
-
+        activeUsers.setText(String.valueOf(activeUser));
+        pendingUsers.setText(String.valueOf(pendingUser));
+        Bookings.setText(String.valueOf(bookings));
+      
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error loading total users: " + e.getMessage());
-        e.printStackTrace();
-    }
-}
-   
-   private void loadPendingUsers() {
-    try {
-        dbConnector dbc = new dbConnector();
-        Connection conn = (Connection) dbc.getConnection();
-        String sql = "SELECT COUNT(*) AS pending_count FROM tbl_registeruser WHERE status = 'Pending'";
-        PreparedStatement pst = conn.prepareStatement(sql);
-        ResultSet rs = pst.executeQuery();
-
-        if (rs.next()) {
-            int pendingCount = rs.getInt("pending_count");
-            pendingUsers.setText(String.valueOf(pendingCount)); // Update your JLabel
-        }
-
-        rs.close();
-        pst.close();
-        conn.close();
-
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error loading pending users: " + e.getMessage());
-        e.printStackTrace();
-    }
-}
-
-   private void loadTotalBookings() {
-    try {
-        dbConnector dbc = new dbConnector();
-        Connection conn = (Connection) dbc.getConnection();
-        String sql = "SELECT COUNT(*) AS total_bookings FROM bookings";
-        PreparedStatement pst = conn.prepareStatement(sql);
-        ResultSet rs = pst.executeQuery();
-
-        if (rs.next()) {
-            int totalBookings = rs.getInt("total_bookings");
-            bookings.setText(String.valueOf(totalBookings)); // Set value to your JLabel
-        }
-
-        rs.close();
-        pst.close();
-        conn.close();
-
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error loading total bookings: " + e.getMessage());
-        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error loading dashboard data: " + e.getMessage(),
+            "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
 
@@ -164,7 +97,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        activeUsers = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -173,7 +106,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        bookings = new javax.swing.JLabel();
+        Bookings = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableBookings = new javax.swing.JTable();
@@ -421,16 +354,16 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("0");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 20, 30));
+        activeUsers.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        activeUsers.setForeground(new java.awt.Color(0, 51, 153));
+        activeUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        activeUsers.setText("0");
+        jPanel2.add(activeUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 20, 30));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 51, 153));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("Total Users");
+        jLabel15.setText("Active Users");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -467,11 +400,11 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/bookings.png"))); // NOI18N
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 50, 50));
 
-        bookings.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        bookings.setForeground(new java.awt.Color(0, 51, 153));
-        bookings.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bookings.setText("0");
-        jPanel5.add(bookings, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 20, 30));
+        Bookings.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Bookings.setForeground(new java.awt.Color(0, 51, 153));
+        Bookings.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Bookings.setText("0");
+        jPanel5.add(Bookings, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 20, 30));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 51, 153));
@@ -483,10 +416,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
         tableBookings.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
 
@@ -523,13 +453,18 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void sMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseClicked
-    int userId = Session.getInstance().getUid(); 
+    int userId = Session.getInstance().getUid();
 
-    if (userId != 0) { 
-        dbConnector db = new dbConnector();
-        db.insertLog(userId, "Logout", "User logged out successfully");
-    }
-    
+if (userId != 0) {
+    dbConnector db = new dbConnector();
+    db.insertLog(userId, "Logout", "User logged out successfully");
+}
+
+// Show confirmation dialog before logging out
+int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logout Confirmation", JOptionPane.YES_NO_OPTION);
+
+if (confirm == JOptionPane.YES_OPTION) {
+    // Proceed with logout actions if user clicked 'Yes'
     Session session = Session.getInstance();
     session.setUid(0);
     session.setFname(null);
@@ -542,6 +477,10 @@ public class adminDashboard extends javax.swing.JFrame {
     loginForm login = new loginForm();
     login.setVisible(true);
     this.dispose();
+} else {
+    // Optionally, you can add logic here if the user chooses 'No' (like keeping the user logged in)
+    System.out.println("Logout cancelled.");
+}
     }//GEN-LAST:event_sMouseClicked
 
     private void sMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseEntered
@@ -725,17 +664,17 @@ public class adminDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Bookings;
     private javax.swing.JLabel acc_name;
+    private javax.swing.JLabel activeUsers;
     private javax.swing.JPanel aot;
     private javax.swing.JLabel attorg;
-    private javax.swing.JLabel bookings;
     private javax.swing.JLabel books;
     private javax.swing.JLabel evnts;
     private javax.swing.JPanel g;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -768,4 +707,5 @@ public class adminDashboard extends javax.swing.JFrame {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+   
 }

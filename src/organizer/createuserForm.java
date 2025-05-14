@@ -32,7 +32,7 @@ public class createuserForm extends javax.swing.JFrame {
     }
     
     
-    Color navcolor = new Color(240,240,240);
+     Color navcolor = new Color(0,51,204);
     Color hovercolor = new Color(255,153,153);
     
     public boolean duplicateCheck(){
@@ -727,25 +727,34 @@ public class createuserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_outMouseEntered
 
     private void sMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseClicked
-        int userId = Session.getInstance().getUid();
+       int userId = Session.getInstance().getUid();
 
-        if (userId != 0) {
-            dbConnector db = new dbConnector();
-            db.insertLog(userId, "Logout", "User logged out successfully");
-        }
+if (userId != 0) {
+    dbConnector db = new dbConnector();
+    db.insertLog(userId, "Logout", "User logged out successfully");
+}
 
-        Session session = Session.getInstance();
-        session.setUid(0);
-        session.setFname(null);
-        session.setLname(null);
-        session.setEmail(null);
-        session.setUsername(null);
-        session.setStatus(null);
-        session.setType(null);
+// Show confirmation dialog before logging out
+int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logout Confirmation", JOptionPane.YES_NO_OPTION);
 
-        loginForm login = new loginForm();
-        login.setVisible(true);
-        this.dispose();
+if (confirm == JOptionPane.YES_OPTION) {
+    // Proceed with logout actions if user clicked 'Yes'
+    Session session = Session.getInstance();
+    session.setUid(0);
+    session.setFname(null);
+    session.setLname(null);
+    session.setEmail(null);
+    session.setUsername(null);
+    session.setStatus(null);
+    session.setType(null);
+
+    loginForm login = new loginForm();
+    login.setVisible(true);
+    this.dispose();
+} else {
+    // Optionally, you can add logic here if the user chooses 'No' (like keeping the user logged in)
+    System.out.println("Logout cancelled.");
+}
     }//GEN-LAST:event_sMouseClicked
 
     private void sMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseEntered
@@ -771,11 +780,11 @@ public class createuserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_booksMouseClicked
 
     private void gMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseEntered
-        // TODO add your handling code here:
+        g.setBackground(hovercolor);
     }//GEN-LAST:event_gMouseEntered
 
     private void gMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseExited
-        // TODO add your handling code here:
+       g.setBackground(navcolor);
     }//GEN-LAST:event_gMouseExited
 
     private void gMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseClicked
@@ -791,15 +800,17 @@ public class createuserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_settMouseExited
 
     private void tMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseEntered
-        // TODO add your handling code here:
+        t.setBackground(hovercolor);
     }//GEN-LAST:event_tMouseEntered
 
     private void tMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseExited
-        // TODO add your handling code here:
+         t.setBackground(navcolor);
     }//GEN-LAST:event_tMouseExited
 
     private void tMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseClicked
-        // TODO add your handling code here:
+       settingsOrg so = new settingsOrg();
+        so.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_tMouseClicked
 
     /**

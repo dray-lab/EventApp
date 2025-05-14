@@ -100,4 +100,45 @@ public class dbConnector {
         }
     }
     
+    public int getCount(String tableName) {
+            try {
+                String sql = "SELECT COUNT(*) FROM " + tableName;
+                PreparedStatement pst = connect.prepareStatement(sql);
+                ResultSet rs = pst.executeQuery();
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Error getting count: " + ex.getMessage());
+            }
+            return 0;
+        }
+
+        public int getActiveUsersCount() {
+            try {
+                String sql = "SELECT COUNT(*) FROM tbl_registeruser WHERE u_status = 'Active'";
+                PreparedStatement pst = connect.prepareStatement(sql);
+                ResultSet rs = pst.executeQuery();
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Error getting active users count: " + ex.getMessage());
+            }
+            return 0;
+        }
+        
+        public int getActiveUsersCount2() {
+            try {
+                String sql = "SELECT COUNT(*) FROM tbl_registeruser WHERE u_status = 'Pending'";
+                PreparedStatement pst = connect.prepareStatement(sql);
+                ResultSet rs = pst.executeQuery();
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Error getting active users count: " + ex.getMessage());
+            }
+            return 0;
+        }
 }
