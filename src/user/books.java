@@ -646,6 +646,7 @@ private void addToCheckoutTable() {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void evntsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evntsMouseClicked

@@ -31,8 +31,8 @@ public class userDashboard extends javax.swing.JFrame {
         loadTotalUsers();
     }
     
-    Color navcolor = new Color(51,0,102);
-    Color hovercolor = new Color(153,153,255);
+    Color navcolor = new Color(0,51,204);
+    Color hovercolor = new Color(255,153,153);
 
     
     private void loadEventsToTable() {
@@ -82,7 +82,7 @@ public class userDashboard extends javax.swing.JFrame {
 
         if (rs.next()) {
             int totalUsers = rs.getInt("total_users"); // Get the count of users
-            jLabel13.setText(String.valueOf(totalUsers)); // Update the label with the total users
+            loadTotalUsers.setText(String.valueOf(totalUsers)); // Update the label with the total users
         }
 
         rs.close();
@@ -94,6 +94,8 @@ public class userDashboard extends javax.swing.JFrame {
         e.printStackTrace();
     }
 }
+    
+   
 
  
     @SuppressWarnings("unchecked")
@@ -118,7 +120,7 @@ public class userDashboard extends javax.swing.JFrame {
         acct_name1 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        loadTotalUsers = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -278,11 +280,11 @@ public class userDashboard extends javax.swing.JFrame {
         jLabel16.setText("Total Users");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 100, -1));
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("0");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 20, 30));
+        loadTotalUsers.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        loadTotalUsers.setForeground(new java.awt.Color(0, 51, 153));
+        loadTotalUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        loadTotalUsers.setText("0");
+        jPanel1.add(loadTotalUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 20, 30));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 51, 153));
@@ -489,7 +491,6 @@ public class userDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -507,6 +508,7 @@ public class userDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel lo;
+    private javax.swing.JLabel loadTotalUsers;
     private javax.swing.JPanel sett;
     // End of variables declaration//GEN-END:variables
 }
