@@ -57,7 +57,7 @@ public class changeInfo extends javax.swing.JFrame {
         ev = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        account = new javax.swing.JPanel();
+        bks = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         sett = new javax.swing.JPanel();
@@ -157,19 +157,19 @@ public class changeInfo extends javax.swing.JFrame {
 
         jPanel3.add(ev, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 160, 40));
 
-        account.setBackground(new java.awt.Color(0, 51, 204));
-        account.addMouseListener(new java.awt.event.MouseAdapter() {
+        bks.setBackground(new java.awt.Color(0, 51, 204));
+        bks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bksMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                accountMouseEntered(evt);
+                bksMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                accountMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                accountMouseClicked(evt);
+                bksMouseExited(evt);
             }
         });
-        account.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        bks.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,13 +179,13 @@ public class changeInfo extends javax.swing.JFrame {
                 jLabel7MouseClicked(evt);
             }
         });
-        account.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
+        bks.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/books.png"))); // NOI18N
-        account.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
+        bks.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
 
-        jPanel3.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 160, 40));
+        jPanel3.add(bks, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 160, 40));
 
         sett.setBackground(new java.awt.Color(0, 51, 204));
         sett.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -429,19 +429,17 @@ if (sess.getUid() == 0) {
        this.dispose();
     }//GEN-LAST:event_settMouseClicked
 
-    private void accountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseExited
-        account.setBackground(navcolor);
-    }//GEN-LAST:event_accountMouseExited
+    private void bksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bksMouseExited
+        bks.setBackground(navcolor);
+    }//GEN-LAST:event_bksMouseExited
 
-    private void accountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseEntered
-        account.setBackground(hovercolor);
-    }//GEN-LAST:event_accountMouseEntered
+    private void bksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bksMouseEntered
+        bks.setBackground(hovercolor);
+    }//GEN-LAST:event_bksMouseEntered
 
-    private void accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseClicked
-        accountDetails accd = new accountDetails();
-        accd.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_accountMouseClicked
+    private void bksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bksMouseClicked
+       
+    }//GEN-LAST:event_bksMouseClicked
 
     private void evMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evMouseExited
         ev.setBackground(navcolor);
@@ -609,7 +607,7 @@ if (confirm == JOptionPane.YES_OPTION) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Uid;
     private javax.swing.JLabel ac;
-    private javax.swing.JPanel account;
+    private javax.swing.JPanel bks;
     private javax.swing.JButton btnUpload1;
     private javax.swing.JPanel changeInfo;
     private javax.swing.JTextField email;

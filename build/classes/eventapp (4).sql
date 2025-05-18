@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2025 at 06:06 AM
+-- Generation Time: May 18, 2025 at 04:44 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,18 +29,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bookings` (
   `id` int(11) NOT NULL,
-  `event_name` text NOT NULL,
-  `event_type` text NOT NULL,
-  `amount` decimal(10,2) NOT NULL,
-  `created_at` datetime DEFAULT current_timestamp()
+  `user_name` varchar(100) NOT NULL,
+  `event_name` varchar(100) NOT NULL,
+  `event_type` varchar(50) NOT NULL,
+  `amount` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `event_name`, `event_type`, `amount`, `created_at`) VALUES
-(1, 'Jazz Night', 'Concert', 45.00, '2025-05-06 07:47:43');
+INSERT INTO `bookings` (`id`, `user_name`, `event_name`, `event_type`, `amount`) VALUES
+(1, 'Jane Dela Cruz', 'Concert of Legends', 'Concert', 1500.00),
+(2, 'Jane Dela Cruz', 'Theater Night Gala', 'Theater', 1200.00),
+(3, 'Jane Dela Cruz', 'Beach Festival 2025', 'Festival', 1000.00),
+(4, 'Jane Dela Cruz', 'New Year Countdown', 'Party', 1800.00);
 
 -- --------------------------------------------------------
 
@@ -63,8 +66,8 @@ CREATE TABLE `events` (
 
 INSERT INTO `events` (`id`, `event_type`, `event_name`, `amount`, `venue`, `packages`) VALUES
 (1, 'Occasion', 'Birthday Party - Bronze', 15000.00, 'TBD', 'Up to 50 Attendees\r\nCatering Services\r\nCake\r\n'),
-(2, 'Occasion', 'Birthday Party - Silver', 22000.00, 'Drayenz Hall', 'Full styling, Host, Sound system, Cake, Catering for 50, Photographer'),
-(3, 'Ocassions', 'Birthday Party - Gold', 45000.00, 'Drayenz Hall', 'Full styling, Sound system, Cake, Catering for 75, Host, Photographer + Videographer'),
+(2, 'Occasion', 'Birthday Party - Silver', 22000.00, 'Drayenz Hall', 'Full styling \nHost \nSound system Cake\nCatering for 50\nPhotographer'),
+(3, 'Ocassions', 'Birthday Party - Gold', 45000.00, 'Drayenz Hall', 'Full styling \nSound system \nCake \nCatering for 75 \nHost \nPhotographer + Videographer'),
 (4, 'Ocassions', 'Birthday Party - Premium', 100000.00, 'Drayenz Grand Venue', 'Full concept styling, LED stage, Video team, Photo booth, Catering 150 pax, Entertainment'),
 (5, 'Occasion', 'Wedding Package', 70000.00, 'Grand Hotel Garden', 'Event coordination, Catering, Music, Decor, Host, Photography'),
 (6, 'Occasion', 'Reunion Package', 50000.00, 'City Convention Hall', 'Event coordination, Catering, Sound System, Host, Games'),
@@ -125,27 +128,26 @@ INSERT INTO `logs` (`log_id`, `u_id`, `actions`, `details`, `timestamp`) VALUES
 (31, 4, 'Login', 'User logged in successfully', '2025-05-06 12:00:26'),
 (32, 4, 'Login', 'User logged in successfully', '2025-05-06 12:15:39'),
 (33, 4, 'Login', 'User logged in successfully', '2025-05-06 12:17:50'),
-(34, 3, 'Login', 'User logged in successfully', '2025-05-06 14:36:32');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `password_resets`
---
-
-CREATE TABLE `password_resets` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `password_resets`
---
-
-INSERT INTO `password_resets` (`id`, `email`, `token`, `created_at`) VALUES
-(1, 'jaylon@gmail.com', 'mPyBJsgXM8', '2025-05-06 09:34:33');
+(34, 3, 'Login', 'User logged in successfully', '2025-05-06 14:36:32'),
+(35, 3, 'Login', 'User logged in successfully', '2025-05-14 03:49:24'),
+(36, 5, 'Login', 'User logged in successfully', '2025-05-14 03:52:38'),
+(37, 5, 'Login', 'User logged in successfully', '2025-05-14 03:58:53'),
+(38, 3, 'Login', 'User logged in successfully', '2025-05-18 02:32:26'),
+(39, 3, 'Logout', 'User logged out successfully', '2025-05-18 02:33:37'),
+(40, 3, 'Login', 'User logged in successfully', '2025-05-18 02:35:47'),
+(41, 5, 'Login', 'User logged in successfully', '2025-05-18 04:49:09'),
+(42, 3, 'Login', 'User logged in successfully', '2025-05-18 05:30:42'),
+(43, 5, 'Login', 'User logged in successfully', '2025-05-18 05:32:08'),
+(44, 3, 'Login', 'User logged in successfully', '2025-05-18 12:45:22'),
+(45, 3, 'Login', 'User logged in successfully', '2025-05-18 12:49:33'),
+(46, 3, 'Login', 'User logged in successfully', '2025-05-18 12:52:32'),
+(47, 3, 'Login', 'User logged in successfully', '2025-05-18 13:14:25'),
+(48, 3, 'Login', 'User logged in successfully', '2025-05-18 13:16:49'),
+(49, 3, 'Login', 'User logged in successfully', '2025-05-18 13:19:22'),
+(50, 3, 'Login', 'User logged in successfully', '2025-05-18 13:27:05'),
+(51, 3, 'Login', 'User logged in successfully', '2025-05-18 13:29:58'),
+(52, 3, 'Login', 'User logged in successfully', '2025-05-18 14:00:53'),
+(53, 3, 'Login', 'User logged in successfully', '2025-05-18 14:05:28');
 
 -- --------------------------------------------------------
 
@@ -173,8 +175,10 @@ CREATE TABLE `tbl_registeruser` (
 INSERT INTO `tbl_registeruser` (`u_id`, `u_fname`, `u_lname`, `u_email`, `u_username`, `u_password`, `u_type`, `u_status`, `created_at`, `updated_at`) VALUES
 (1, 'Mike', 'Bus', 'mike3@gmail.com', 'busta', 'N6CjSaZSWDeo3TPmC9HUnJog8Vg7SxGVGtuJzpkEpnA=', 'Admin', 'Active', '2025-03-18 15:41:03', '2025-03-22 15:37:30'),
 (2, 'Diovely', 'Campo', 'diovely@gmail.com', 'dyubli', 'N6CjSaZSWDeo3TPmC9HUnJog8Vg7SxGVGtuJzpkEpnA=', 'User', 'Active', '2025-03-22 15:24:08', '2025-03-22 15:37:30'),
-(3, 'Jay', 'Cabatuan', 'jay@gmail.con', 'jay', '+DWqqT508rt0Z92IyfDnOW4nJzG53cNQ7N50xGNLNPM=', 'Admin', 'Active', '2025-05-05 02:22:58', '2025-05-05 02:23:39'),
-(4, 'Kris Jaylon', 'Mantillas', 'jaylon@gmail.com', 'jaylon', 'x3Xnt1ft5jDNCqERO9ECZhqziCnKUqZCKreChi8mhkY=', 'User', 'Active', '2025-05-06 09:29:08', '2025-05-06 09:29:45');
+(3, 'Dray', 'Misa', 'jay@gmail.con', 'Dray', '+DWqqT508rt0Z92IyfDnOW4nJzG53cNQ7N50xGNLNPM=', 'Admin', 'Active', '2025-05-05 02:22:58', '2025-05-18 13:14:13'),
+(4, 'Kris Jaylon', 'Mantillas', 'jaylon@gmail.com', 'jaylon', 'x3Xnt1ft5jDNCqERO9ECZhqziCnKUqZCKreChi8mhkY=', 'User', 'Active', '2025-05-06 09:29:08', '2025-05-06 09:29:45'),
+(7, 'Dranreb', 'Misa', 'misadray3@gmail.com', 'Dranreb', '0tLCWgtLLuIq00rr/ysNBLzxA+HvbcVCScJVjXwFKfE=', 'User', 'Active', '2025-05-18 08:26:23', '2025-05-18 13:08:56'),
+(9, 'Draniel', 'Misa', 'misadranreb4@gmail.com', 'Draniel', 'ovwnnU15vOKI/E5ty+0U8/2rJXxg1HsKdD+OBs4Fcqs=', 'Admin', 'Active', '2025-05-18 13:08:08', '2025-05-18 13:08:49');
 
 --
 -- Indexes for dumped tables
@@ -199,12 +203,6 @@ ALTER TABLE `logs`
   ADD PRIMARY KEY (`log_id`);
 
 --
--- Indexes for table `password_resets`
---
-ALTER TABLE `password_resets`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tbl_registeruser`
 --
 ALTER TABLE `tbl_registeruser`
@@ -220,7 +218,7 @@ ALTER TABLE `tbl_registeruser`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -232,19 +230,13 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
--- AUTO_INCREMENT for table `password_resets`
---
-ALTER TABLE `password_resets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `tbl_registeruser`
 --
 ALTER TABLE `tbl_registeruser`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

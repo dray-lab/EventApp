@@ -617,19 +617,19 @@ private void addToCheckoutTable() {
     }//GEN-LAST:event_evntsMouseClicked
 
     private void evntsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evntsMouseEntered
-        p.setBackground(hovercolor);
+        
     }//GEN-LAST:event_evntsMouseEntered
 
     private void evntsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evntsMouseExited
-        p.setBackground(navcolor);
+        
     }//GEN-LAST:event_evntsMouseExited
 
     private void pMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseEntered
-
+        p.setBackground(hovercolor);
     }//GEN-LAST:event_pMouseEntered
 
     private void pMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseExited
-
+        p.setBackground(navcolor);
     }//GEN-LAST:event_pMouseExited
 
     private void pMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseClicked
@@ -637,11 +637,11 @@ private void addToCheckoutTable() {
     }//GEN-LAST:event_pMouseClicked
 
     private void booksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseEntered
-        books.setBackground(hovercolor);
+       
     }//GEN-LAST:event_booksMouseEntered
 
     private void booksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseExited
-        books.setBackground(navcolor);
+        
     }//GEN-LAST:event_booksMouseExited
 
     private void booksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseClicked
@@ -651,11 +651,11 @@ private void addToCheckoutTable() {
     }//GEN-LAST:event_booksMouseClicked
 
     private void gMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseEntered
-        // TODO add your handling code here:
+      g.setBackground(hovercolor);  // TODO add your handling code here:
     }//GEN-LAST:event_gMouseEntered
 
     private void gMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseExited
-        // TODO add your handling code here:
+       g.setBackground(navcolor);
     }//GEN-LAST:event_gMouseExited
 
     private void gMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseClicked
@@ -669,15 +669,15 @@ private void addToCheckoutTable() {
     }//GEN-LAST:event_settMouseEntered
 
     private void settMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settMouseExited
-        out.setBackground(navcolor);
+        
     }//GEN-LAST:event_settMouseExited
 
     private void tMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseEntered
-        // TODO add your handling code here:
+       t.setBackground(hovercolor);
     }//GEN-LAST:event_tMouseEntered
 
     private void tMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseExited
-        // TODO add your handling code here:
+       t.setBackground(navcolor);
     }//GEN-LAST:event_tMouseExited
 
     private void tMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseClicked
@@ -687,7 +687,7 @@ private void addToCheckoutTable() {
     }//GEN-LAST:event_tMouseClicked
 
     private void outMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outMouseEntered
-        out.setBackground(hovercolor);
+        
     }//GEN-LAST:event_outMouseEntered
 
     private void sMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseClicked
@@ -866,7 +866,7 @@ if (confirm == JOptionPane.YES_OPTION) {
         new loginForm().setVisible(true);
         this.dispose();
     }
-    ac  .setText("" + sess.getFname());  
+    ac.setText("" + sess.getFname());  
     }//GEN-LAST:event_formWindowActivated
 
     /**

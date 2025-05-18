@@ -429,14 +429,14 @@ public final class attendeesForm extends javax.swing.JFrame {
 
         g.setBackground(new java.awt.Color(0, 51, 204));
         g.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 gMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 gMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                gMouseClicked(evt);
             }
         });
         g.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -481,6 +481,9 @@ public final class attendeesForm extends javax.swing.JFrame {
         sett.setForeground(new java.awt.Color(255, 255, 255));
         sett.setText("SETTING");
         sett.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 settMouseEntered(evt);
             }
@@ -518,7 +521,14 @@ public final class attendeesForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
+        Session sess = Session.getInstance();
+    if (sess.getUid() == 0) {
+        // If uid == 0, it means the user is not logged in
+        JOptionPane.showMessageDialog(null, "No account, Login First!");
+        new loginForm().setVisible(true);
+        this.dispose();
+    }
+    acc_name.setText("" + sess.getFname());
     }//GEN-LAST:event_formWindowActivated
 
     private void lnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnameActionPerformed
@@ -620,11 +630,11 @@ public final class attendeesForm extends javax.swing.JFrame {
     }//GEN-LAST:event_attorgMouseClicked
 
     private void attorgMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attorgMouseEntered
-        aot.setBackground(hovercolor);
+       
     }//GEN-LAST:event_attorgMouseEntered
 
     private void attorgMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attorgMouseExited
-        aot.setBackground(navcolor);
+     
     }//GEN-LAST:event_attorgMouseExited
 
     private void aotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aotMouseClicked
@@ -634,11 +644,11 @@ public final class attendeesForm extends javax.swing.JFrame {
     }//GEN-LAST:event_aotMouseClicked
 
     private void aotMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aotMouseEntered
-
+         aot.setBackground(hovercolor);
     }//GEN-LAST:event_aotMouseEntered
 
     private void aotMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aotMouseExited
-
+         aot.setBackground(navcolor);
     }//GEN-LAST:event_aotMouseExited
 
     private void evntsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evntsMouseClicked
@@ -648,11 +658,11 @@ public final class attendeesForm extends javax.swing.JFrame {
     }//GEN-LAST:event_evntsMouseClicked
 
     private void evntsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evntsMouseEntered
-        p.setBackground(hovercolor);
+      
     }//GEN-LAST:event_evntsMouseEntered
 
     private void evntsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evntsMouseExited
-        p.setBackground(navcolor);
+        
     }//GEN-LAST:event_evntsMouseExited
 
     private void pMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseClicked
@@ -660,11 +670,11 @@ public final class attendeesForm extends javax.swing.JFrame {
     }//GEN-LAST:event_pMouseClicked
 
     private void pMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseEntered
-
+        p.setBackground(hovercolor);
     }//GEN-LAST:event_pMouseEntered
 
     private void pMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseExited
-
+        p.setBackground(navcolor);
     }//GEN-LAST:event_pMouseExited
 
     private void logsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseClicked
@@ -674,11 +684,11 @@ public final class attendeesForm extends javax.swing.JFrame {
     }//GEN-LAST:event_logsMouseClicked
 
     private void logsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseEntered
-        l.setBackground(hovercolor);
+       
     }//GEN-LAST:event_logsMouseEntered
 
     private void logsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseExited
-        l.setBackground(navcolor);
+        
     }//GEN-LAST:event_logsMouseExited
 
     private void lMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseClicked
@@ -686,11 +696,11 @@ public final class attendeesForm extends javax.swing.JFrame {
     }//GEN-LAST:event_lMouseClicked
 
     private void lMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseEntered
-
+        l.setBackground(hovercolor);
     }//GEN-LAST:event_lMouseEntered
 
     private void lMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseExited
-
+        l.setBackground(navcolor);
     }//GEN-LAST:event_lMouseExited
 
     private void outMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outMouseEntered
@@ -737,11 +747,11 @@ if (confirm == JOptionPane.YES_OPTION) {
     }//GEN-LAST:event_sMouseExited
 
     private void booksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseEntered
-        books.setBackground(hovercolor);
+      
     }//GEN-LAST:event_booksMouseEntered
 
     private void booksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseExited
-        books.setBackground(navcolor);
+       
     }//GEN-LAST:event_booksMouseExited
 
     private void booksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseClicked
@@ -751,11 +761,11 @@ if (confirm == JOptionPane.YES_OPTION) {
     }//GEN-LAST:event_booksMouseClicked
 
     private void gMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseEntered
-        // TODO add your handling code here:
+        g.setBackground(hovercolor);
     }//GEN-LAST:event_gMouseEntered
 
     private void gMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseExited
-        // TODO add your handling code here:
+       g.setBackground(navcolor);
     }//GEN-LAST:event_gMouseExited
 
     private void gMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseClicked
@@ -763,11 +773,11 @@ if (confirm == JOptionPane.YES_OPTION) {
     }//GEN-LAST:event_gMouseClicked
 
     private void tMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseExited
-        // TODO add your handling code here:
+        t.setBackground(navcolor);
     }//GEN-LAST:event_tMouseExited
 
     private void tMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseEntered
-        // TODO add your handling code here:
+        t.setBackground(hovercolor);
     }//GEN-LAST:event_tMouseEntered
 
     private void tMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseClicked
@@ -777,12 +787,16 @@ if (confirm == JOptionPane.YES_OPTION) {
     }//GEN-LAST:event_tMouseClicked
 
     private void settMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settMouseExited
-        out.setBackground(navcolor);
+        
     }//GEN-LAST:event_settMouseExited
 
     private void settMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settMouseEntered
-        sett.setBackground(hovercolor);
+        
     }//GEN-LAST:event_settMouseEntered
+
+    private void settMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_settMouseClicked
 
     /**
      * @param args the command line arguments

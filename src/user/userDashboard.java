@@ -111,7 +111,7 @@ public class userDashboard extends javax.swing.JFrame {
         ev = new javax.swing.JPanel();
         events = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        account = new javax.swing.JPanel();
+        rsv = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         sett = new javax.swing.JPanel();
@@ -207,19 +207,19 @@ public class userDashboard extends javax.swing.JFrame {
 
         jPanel3.add(ev, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 170, 40));
 
-        account.setBackground(new java.awt.Color(0, 51, 204));
-        account.addMouseListener(new java.awt.event.MouseAdapter() {
+        rsv.setBackground(new java.awt.Color(0, 51, 204));
+        rsv.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                accountMouseClicked(evt);
+                rsvMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                accountMouseEntered(evt);
+                rsvMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                accountMouseExited(evt);
+                rsvMouseExited(evt);
             }
         });
-        account.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        rsv.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -229,13 +229,13 @@ public class userDashboard extends javax.swing.JFrame {
                 jLabel7MouseClicked(evt);
             }
         });
-        account.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
+        rsv.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/books.png"))); // NOI18N
-        account.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
+        rsv.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
 
-        jPanel3.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 170, 40));
+        jPanel3.add(rsv, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 170, 40));
 
         sett.setBackground(new java.awt.Color(0, 51, 204));
         sett.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -370,19 +370,19 @@ public class userDashboard extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_settMouseClicked
 
-    private void accountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseExited
-        account.setBackground(navcolor);
-    }//GEN-LAST:event_accountMouseExited
+    private void rsvMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rsvMouseExited
+        rsv.setBackground(navcolor);
+    }//GEN-LAST:event_rsvMouseExited
 
-    private void accountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseEntered
-        account.setBackground(hovercolor);
-    }//GEN-LAST:event_accountMouseEntered
+    private void rsvMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rsvMouseEntered
+        rsv.setBackground(hovercolor);
+    }//GEN-LAST:event_rsvMouseEntered
 
-    private void accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseClicked
+    private void rsvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rsvMouseClicked
        books bs = new books();
        bs.setVisible(true);
        this.dispose();
-    }//GEN-LAST:event_accountMouseClicked
+    }//GEN-LAST:event_rsvMouseClicked
 
     private void evMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evMouseExited
         ev.setBackground(navcolor);
@@ -493,7 +493,6 @@ if (confirm == JOptionPane.YES_OPTION) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel account;
     private javax.swing.JLabel acct_name1;
     private javax.swing.JPanel ev;
     private javax.swing.JLabel events;
@@ -519,6 +518,7 @@ if (confirm == JOptionPane.YES_OPTION) {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel lo;
+    private javax.swing.JPanel rsv;
     private javax.swing.JPanel sett;
     private javax.swing.JLabel totalUser;
     // End of variables declaration//GEN-END:variables

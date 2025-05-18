@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 import organizer.attendeesForm;
+import security.ForgotPassword;
 import user.userDashboard;
 
 
@@ -298,50 +299,9 @@ public void insertLog(Connection conn, int userId, String action, String descrip
     }//GEN-LAST:event_passActionPerformed
        
     private void fpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fpMouseClicked
-       String email = JOptionPane.showInputDialog(null, "Enter your registered email:", "Forgot Password", JOptionPane.QUESTION_MESSAGE);
-    
-    if (email != null && !email.trim().isEmpty()) {
-        try {
-            // Establish database connection
-            dbConnector db = new dbConnector();
-            Connection conn = (Connection) db.getConnection();
-            
-            // Check if email exists in the user table
-            String query = "SELECT * FROM tbl_registeruser WHERE u_email = ?";
-            PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, email);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                String resetToken = generateResetToken();
-                
-                // Store reset token in database
-                String insertQuery = "INSERT INTO password_resets (email, token) VALUES (?, ?)";
-                PreparedStatement insertStmt = conn.prepareStatement(insertQuery);
-                insertStmt.setString(1, email);
-                insertStmt.setString(2, resetToken);
-                insertStmt.executeUpdate();
-                insertStmt.close();
-
-                // ✅ Log password reset request (since insertLog is already in your code)
-              insertLog(conn, rs.getInt("u_id"), "Password Reset Request", "User requested a password reset");
-
-
-                JOptionPane.showMessageDialog(null, "A password reset token has been sent to your email: " + resetToken, "Password Reset", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "Email not found!", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-
-            // Close connections
-            rs.close();
-            stmt.close();
-            conn.close();
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+    ForgotPassword forgotPasswordFrame = new ForgotPassword(); // Replace with correct constructor if needed
+    forgotPasswordFrame.setVisible(true);
+    this.dispose(); // Closes the current Login JFrame
 }
 
 // ✅ Generate Reset Token Method

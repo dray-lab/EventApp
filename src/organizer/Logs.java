@@ -183,6 +183,12 @@ public class Logs extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel9MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel9MouseExited(evt);
+            }
         });
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -204,14 +210,14 @@ public class Logs extends javax.swing.JFrame {
 
         g.setBackground(new java.awt.Color(0, 51, 204));
         g.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 gMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 gMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                gMouseClicked(evt);
             }
         });
         g.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -240,14 +246,14 @@ public class Logs extends javax.swing.JFrame {
 
         t.setBackground(new java.awt.Color(0, 51, 204));
         t.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 tMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 tMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tMouseClicked(evt);
             }
         });
         t.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -608,11 +614,11 @@ if (confirm == JOptionPane.YES_OPTION) {
     }//GEN-LAST:event_settMouseExited
 
     private void tMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseEntered
-        // TODO add your handling code here:
+        t.setBackground(hovercolor);
     }//GEN-LAST:event_tMouseEntered
 
     private void tMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseExited
-        // TODO add your handling code here:
+       t.setBackground(navcolor);
     }//GEN-LAST:event_tMouseExited
 
     private void tMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseClicked
@@ -648,6 +654,14 @@ if (confirm == JOptionPane.YES_OPTION) {
     private void logMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logMouseExited
         log.setBackground(navcolor);
     }//GEN-LAST:event_logMouseExited
+
+    private void jPanel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseEntered
+        jPanel9.setBackground(hovercolor);
+    }//GEN-LAST:event_jPanel9MouseEntered
+
+    private void jPanel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseExited
+       jPanel9.setBackground(navcolor);
+    }//GEN-LAST:event_jPanel9MouseExited
 
     /**
      * @param args the command line arguments

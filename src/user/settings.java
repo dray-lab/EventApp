@@ -9,6 +9,7 @@ import config.Session;
 import config.dbConnector;
 import eventapp.loginForm;
 import java.awt.Color;
+import java.awt.Image;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +17,7 @@ import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import organizer.bookings;
 
 /**
@@ -48,21 +50,18 @@ public class settings extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         lo = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         ev = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         account = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         sett = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         ac = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -127,10 +126,6 @@ public class settings extends javax.swing.JFrame {
         });
         lo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
 
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout.png"))); // NOI18N
-        lo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
-
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
         lo.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
@@ -153,10 +148,6 @@ public class settings extends javax.swing.JFrame {
         jLabel3.setText("EVENTS");
         ev.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/eventsadmindash.png"))); // NOI18N
-        ev.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
-
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/useradmindash.png"))); // NOI18N
         ev.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
@@ -165,14 +156,14 @@ public class settings extends javax.swing.JFrame {
 
         account.setBackground(new java.awt.Color(0, 51, 204));
         account.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accountMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 accountMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 accountMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                accountMouseClicked(evt);
             }
         });
         account.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -212,10 +203,6 @@ public class settings extends javax.swing.JFrame {
         jLabel5.setText("SETTINGS");
         sett.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
 
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/settings.png"))); // NOI18N
-        sett.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
-
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/settings.png"))); // NOI18N
         sett.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
@@ -228,9 +215,9 @@ public class settings extends javax.swing.JFrame {
         ac.setText("USER");
         jPanel3.add(ac, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 160, 30));
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-account-100.png"))); // NOI18N
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 80));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-account-100_1.png"))); // NOI18N
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 160, 90));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 470));
 
@@ -396,24 +383,20 @@ if (sess.getUid() == 0) {
 
     try {
         dbConnector dbc = new dbConnector();
-        String query = "SELECT * FROM users WHERE user_id = ?";
+        String query = "SELECT * FROM tbl_registeruser WHERE u_id = ?";
         
         try (PreparedStatement pst = ((Connection) dbc.getConnection()).prepareStatement(query)) {
             pst.setInt(1, sess.getUid());
             ResultSet rs = pst.executeQuery();
             
             if (rs.next()) {
-                uID.setText(String.valueOf(rs.getInt("user_id")));
-                firstName.setText(rs.getString("first_name"));
-                lastName.setText(rs.getString("last_name"));
-                userName.setText(rs.getString("username"));
-                email.setText(rs.getString("email"));
-                password.setText(rs.getString("password"));
+                uID.setText(String.valueOf(rs.getInt("u_id")));
+                firstName.setText(rs.getString("u_fname"));
+                lastName.setText(rs.getString("u_lname"));
+                userName.setText(rs.getString("u_username"));
+                email.setText(rs.getString("u_email"));
+                password.setText(rs.getString("u_password"));
                 
-                String imagePath = rs.getString("image");
-                if (imagePath != null && !imagePath.isEmpty()) {
-                    profileLabel.setIcon(new ImageIcon(imagePath));
-                }
             }
             rs.close();
         }
@@ -448,9 +431,7 @@ if (sess.getUid() == 0) {
     }//GEN-LAST:event_accountMouseEntered
 
     private void accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseClicked
-        accountDetails accd = new accountDetails();
-        accd.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_accountMouseClicked
 
     private void evMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evMouseExited
@@ -519,13 +500,19 @@ if (confirm == JOptionPane.YES_OPTION) {
     }//GEN-LAST:event_uIDActionPerformed
 
     private void btnUpload1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpload1ActionPerformed
-        JFileChooser fileChooser = new JFileChooser();
-        int option = fileChooser.showOpenDialog(this);
+        JFileChooser chooser = new JFileChooser();
+FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "jpeg", "png");
+chooser.setFileFilter(filter);
 
-        if (option == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
-            profileLabel.setIcon(new ImageIcon(file.getAbsolutePath())); // Set image in JLabel
-        }
+int result = chooser.showOpenDialog(this);
+if (result == JFileChooser.APPROVE_OPTION) {
+    File selectedFile = chooser.getSelectedFile();
+    String imagePath = selectedFile.getAbsolutePath();
+    ImageIcon imageIcon = new ImageIcon(imagePath);
+    Image image = imageIcon.getImage().getScaledInstance(profileLabel.getWidth(), profileLabel.getHeight(), Image.SCALE_SMOOTH);
+    profileLabel.setIcon(new ImageIcon(image));
+}
+
     }//GEN-LAST:event_btnUpload1ActionPerformed
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
@@ -578,13 +565,13 @@ if (confirm == JOptionPane.YES_OPTION) {
     private javax.swing.JPanel ev;
     private javax.swing.JTextField firstName;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -596,12 +583,9 @@ if (confirm == JOptionPane.YES_OPTION) {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

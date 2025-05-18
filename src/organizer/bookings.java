@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class bookings extends javax.swing.JFrame {
     
+     private int selectedEventId = -1; 
     
     public bookings() {
         initComponents();
@@ -28,6 +29,24 @@ public class bookings extends javax.swing.JFrame {
      Color navcolor = new Color(0,51,204);
     Color hovercolor = new Color(255,153,153);
     
+    
+    private void addTableMouseListener() {
+        tableforEvents.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int selectedRow = tableforEvents.getSelectedRow();
+                if (selectedRow >= 0) {
+                    // Assuming first column is event ID
+                    Object eventIdObj = tableforEvents.getValueAt(selectedRow, 0);
+                    if (eventIdObj != null) {
+                        int selectedEventId = Integer.parseInt(eventIdObj.toString());
+                        System.out.println("Selected Event ID: " + selectedEventId);
+                        // You can store selectedEventId in a class field if needed
+                    }
+                }
+            }
+        });
+    }
     
    private void loadEventsToTable() {
     String[] columns = {"ID", "Event Type", "Event Name", "Amount", "Venue", "Packages"};
@@ -60,8 +79,10 @@ public class bookings extends javax.swing.JFrame {
     }
 }
    
-   private void loadBookingsToTable() {
-    String[] columns = {"ID", "Event Name", "Event Type", "Amount", "Created At"};
+  
+   
+  private void loadBookingsToTable() {
+    String[] columns = {"ID", "Customer Name", "Event Name", "Event Type", "Amount"};
     DefaultTableModel model = new DefaultTableModel(null, columns);
 
     dbConnector dbc = new dbConnector();
@@ -75,10 +96,10 @@ public class bookings extends javax.swing.JFrame {
         while (rs.next()) {
             Object[] row = {
                 rs.getInt("id"),
+                rs.getString("user_name"),
                 rs.getString("event_name"),
-                rs.getString("event_type"),
-                rs.getDouble("amount"),
-                rs.getString("created_at")
+                rs.getString("event_type"),  // Changed from getDouble to getString
+                rs.getDouble("amount")
             };
             model.addRow(row);
         }
@@ -89,6 +110,7 @@ public class bookings extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Error loading bookings: " + ex.getMessage());
     }
 }
+
 
         /**
      * This method is called from within the constructor to initialize the form.
@@ -120,7 +142,7 @@ public class bookings extends javax.swing.JFrame {
         out = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        acc = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         eventNameTextField = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -130,7 +152,7 @@ public class bookings extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         eventIDTextField = new javax.swing.JTextField();
         edit = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        editEvent = new javax.swing.JLabel();
         add = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -138,9 +160,9 @@ public class bookings extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         AmountTextField = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
+        Print = new javax.swing.JLabel();
         delete = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
+        deleteEvents = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -149,6 +171,11 @@ public class bookings extends javax.swing.JFrame {
         tableforBookings = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -195,14 +222,14 @@ public class bookings extends javax.swing.JFrame {
 
         p.setBackground(new java.awt.Color(0, 51, 204));
         p.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pMouseClicked(evt);
             }
         });
         p.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -329,7 +356,7 @@ public class bookings extends javax.swing.JFrame {
         t.add(sett, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 8, 120, 20));
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/settings.png"))); // NOI18N
         t.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
 
         jPanel2.add(t, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 190, 40));
@@ -362,17 +389,17 @@ public class bookings extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
         s.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
 
-        jPanel2.add(s, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 190, 40));
+        jPanel2.add(s, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 190, 40));
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-account-100.png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 100));
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("ORGANIZER");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        acc.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        acc.setForeground(new java.awt.Color(255, 255, 255));
+        acc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        acc.setText("ORGANIZER");
+        jPanel2.add(acc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 600));
 
@@ -417,11 +444,16 @@ public class bookings extends javax.swing.JFrame {
         });
         edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("EDIT");
-        edit.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, 64, 24));
+        editEvent.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        editEvent.setForeground(new java.awt.Color(255, 255, 255));
+        editEvent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        editEvent.setText("EDIT");
+        editEvent.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editEventMouseClicked(evt);
+            }
+        });
+        edit.add(editEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, 64, 24));
 
         jPanel1.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 70, 30));
 
@@ -454,16 +486,16 @@ public class bookings extends javax.swing.JFrame {
         jPanel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("CHECKOUT");
-        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+        Print.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Print.setForeground(new java.awt.Color(255, 255, 255));
+        Print.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Print.setText("PRINT");
+        Print.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel19MouseClicked(evt);
+                PrintMouseClicked(evt);
             }
         });
-        jPanel8.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 30));
+        jPanel8.add(Print, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 30));
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 220, 80, 30));
 
@@ -476,11 +508,16 @@ public class bookings extends javax.swing.JFrame {
         });
         delete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("DELETE");
-        delete.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 3, 62, 24));
+        deleteEvents.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        deleteEvents.setForeground(new java.awt.Color(255, 255, 255));
+        deleteEvents.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        deleteEvents.setText("DELETE");
+        deleteEvents.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteEventsMouseClicked(evt);
+            }
+        });
+        delete.add(deleteEvents, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 3, 62, 24));
 
         jPanel1.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 70, 30));
 
@@ -542,11 +579,11 @@ public class bookings extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void attorgMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attorgMouseEntered
-        attorg.setBackground(hovercolor);
+       
     }//GEN-LAST:event_attorgMouseEntered
 
     private void attorgMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attorgMouseExited
-        attorg.setBackground(navcolor);
+       
     }//GEN-LAST:event_attorgMouseExited
 
     private void attorgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attorgMouseClicked
@@ -556,11 +593,11 @@ public class bookings extends javax.swing.JFrame {
     }//GEN-LAST:event_attorgMouseClicked
 
     private void aotMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aotMouseEntered
-
+        aot.setBackground(hovercolor);
     }//GEN-LAST:event_aotMouseEntered
 
     private void aotMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aotMouseExited
-
+        aot.setBackground(navcolor);
     }//GEN-LAST:event_aotMouseExited
 
     private void aotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aotMouseClicked
@@ -576,19 +613,19 @@ public class bookings extends javax.swing.JFrame {
     }//GEN-LAST:event_evntsMouseClicked
 
     private void evntsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evntsMouseEntered
-        p.setBackground(hovercolor);
+       
     }//GEN-LAST:event_evntsMouseEntered
 
     private void evntsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evntsMouseExited
-        p.setBackground(navcolor);
+       
     }//GEN-LAST:event_evntsMouseExited
 
     private void pMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseEntered
-
+        p.setBackground(hovercolor);
     }//GEN-LAST:event_pMouseEntered
 
     private void pMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseExited
-
+        p.setBackground(navcolor);
     }//GEN-LAST:event_pMouseExited
 
     private void pMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseClicked
@@ -602,19 +639,19 @@ public class bookings extends javax.swing.JFrame {
     }//GEN-LAST:event_logsMouseClicked
 
     private void logsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseEntered
-        l.setBackground(hovercolor);
+        
     }//GEN-LAST:event_logsMouseEntered
 
     private void logsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseExited
-        l.setBackground(navcolor);
+       
     }//GEN-LAST:event_logsMouseExited
 
     private void lMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseEntered
-
+        l.setBackground(hovercolor);
     }//GEN-LAST:event_lMouseEntered
 
     private void lMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseExited
-
+        l.setBackground(navcolor);
     }//GEN-LAST:event_lMouseExited
 
     private void lMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseClicked
@@ -624,11 +661,11 @@ public class bookings extends javax.swing.JFrame {
     }//GEN-LAST:event_lMouseClicked
 
     private void booksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseEntered
-        books.setBackground(hovercolor);
+        
     }//GEN-LAST:event_booksMouseEntered
 
     private void booksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseExited
-        books.setBackground(navcolor);
+       
     }//GEN-LAST:event_booksMouseExited
 
     private void booksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseClicked
@@ -638,11 +675,11 @@ public class bookings extends javax.swing.JFrame {
     }//GEN-LAST:event_booksMouseClicked
 
     private void gMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseEntered
-        // TODO add your handling code here:
+        g.setBackground(hovercolor);
     }//GEN-LAST:event_gMouseEntered
 
     private void gMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseExited
-        // TODO add your handling code here:
+        g.setBackground(navcolor);
     }//GEN-LAST:event_gMouseExited
 
     private void gMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseClicked
@@ -652,19 +689,19 @@ public class bookings extends javax.swing.JFrame {
     }//GEN-LAST:event_gMouseClicked
 
     private void settMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settMouseEntered
-        sett.setBackground(hovercolor);
+        
     }//GEN-LAST:event_settMouseEntered
 
     private void settMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settMouseExited
-        out.setBackground(navcolor);
+       
     }//GEN-LAST:event_settMouseExited
 
     private void tMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseEntered
-        // TODO add your handling code here:
+       t.setBackground(hovercolor);
     }//GEN-LAST:event_tMouseEntered
 
     private void tMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseExited
-        // TODO add your handling code here:
+        t.setBackground(navcolor);
     }//GEN-LAST:event_tMouseExited
 
     private void tMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMouseClicked
@@ -674,7 +711,7 @@ public class bookings extends javax.swing.JFrame {
     }//GEN-LAST:event_tMouseClicked
 
     private void outMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outMouseEntered
-        out.setBackground(hovercolor);
+        
     }//GEN-LAST:event_outMouseEntered
 
     private void sMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sMouseClicked
@@ -725,7 +762,47 @@ if (confirm == JOptionPane.YES_OPTION) {
     }//GEN-LAST:event_eventIDTextFieldActionPerformed
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-     
+      // Get data from input fields (make sure you have declared these components)
+    String eventName = eventNameTextField.getText();
+    String eventType = eventTypeComboBox.getSelectedItem().toString();
+    String venue = venueTextField.getText();
+    String amountText = AmountTextField.getText();
+    String packages = packageTextField.getText();
+
+    // Basic input validation
+    if (eventName.isEmpty() || eventType.isEmpty() || venue.isEmpty() || amountText.isEmpty() || packages.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please fill in all fields.");
+        return;
+    }
+
+    try {
+        double amount = Double.parseDouble(amountText); // validate amount is numeric
+
+        String sql = "INSERT INTO events (event_name, event_type, venue, amount, packages) VALUES (?, ?, ?, ?, ?)";
+        Connection conn = dbConnector.connect(); // assume you have a dbConnector with a connect() method
+        PreparedStatement pst = conn.prepareStatement(sql);
+        pst.setString(2, eventName);
+        pst.setString(1, eventType);
+        pst.setString(4, venue);
+        pst.setDouble(3, amount);
+        pst.setString(5, packages);
+
+        int rowsAffected = pst.executeUpdate();
+
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Event added successfully!");
+            clearFields(); // Optional: reset form after success
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to add event.");
+        }
+
+        pst.close();
+        conn.close();
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Amount must be a valid number.");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Database error: " + e.getMessage());
+    }
     }//GEN-LAST:event_addMouseClicked
 
     private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
@@ -736,9 +813,129 @@ if (confirm == JOptionPane.YES_OPTION) {
    
     }//GEN-LAST:event_deleteMouseClicked
 
-    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-     
-    }//GEN-LAST:event_jLabel19MouseClicked
+    private void PrintMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintMouseClicked
+    int selectedRow = tableforBookings.getSelectedRow(); // Make sure bookingsTable is your JTable name
+
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "Please select a booking to print.");
+        return;
+    }
+
+    // Assuming the booking ID is in column 0
+    int bookingId = Integer.parseInt(tableforBookings.getValueAt(selectedRow, 0).toString());
+
+    // Open the receiptPrint JFrame with bookingId
+    receiptPrint receipt = new receiptPrint(bookingId);
+    receipt.setVisible(true);
+    
+    }//GEN-LAST:event_PrintMouseClicked
+
+    private void editEventMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editEventMouseClicked
+        // Get data from input fields (ensure all these components are declared)
+    String eventName = eventNameTextField.getText();
+    String eventType = eventTypeComboBox.getSelectedItem().toString();
+    String venue = venueTextField.getText();
+    String amountText = AmountTextField.getText();
+    String packages = packageTextField.getText();
+
+    // Basic input validation
+    if (eventName.isEmpty() || eventType.isEmpty() || venue.isEmpty() || amountText.isEmpty() || packages.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please fill in all fields.");
+        return;
+    }
+
+    try {
+        double amount = Double.parseDouble(amountText); // validate amount is numeric
+
+        if (selectedEventId == -1) {
+            JOptionPane.showMessageDialog(null, "Please select an event to edit.");
+            return;
+        }
+
+        String sql = "UPDATE events SET event_name = ?, event_type = ?, venue = ?, amount = ?, packages = ? WHERE id = ?";
+        Connection conn = dbConnector.connect(); // your dbConnector's method
+        PreparedStatement pst = conn.prepareStatement(sql);
+        pst.setString(1, eventName);
+        pst.setString(2, eventType);
+        pst.setString(3, venue);
+        pst.setDouble(4, amount);
+        pst.setString(5, packages);
+        pst.setInt(6, selectedEventId); // make sure this is set when a row is clicked
+
+        int rowsAffected = pst.executeUpdate();
+
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Event updated successfully!");
+            clearFields(); // Optional: reset form
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to update event.");
+        }
+
+        pst.close();
+        conn.close();
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Amount must be a valid number.");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Database error: " + e.getMessage());
+    }
+    }//GEN-LAST:event_editEventMouseClicked
+
+    private void deleteEventsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteEventsMouseClicked
+        int selectedRow = tableforEvents.getSelectedRow();
+
+    if (selectedRow < 0) {
+        JOptionPane.showMessageDialog(null, "Please select an event to delete.");
+        return;
+    }
+
+    // Get the event ID from the first column of the selected row
+    Object eventIdObj = tableforEvents.getValueAt(selectedRow, 0);
+    if (eventIdObj == null) {
+        JOptionPane.showMessageDialog(null, "Selected event ID not found.");
+        return;
+    }
+
+    int eventId = Integer.parseInt(eventIdObj.toString());
+
+    int confirm = JOptionPane.showConfirmDialog(null, 
+        "Are you sure you want to delete this event?", 
+        "Confirm Delete", 
+        JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
+        try {
+            String sql = "DELETE FROM events WHERE id = ?";
+            Connection conn = dbConnector.connect();
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, eventId);
+
+            int rowsAffected = pst.executeUpdate();
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Event deleted successfully.");
+                loadEventsToTable();  // Refresh table after delete
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to delete event.");
+            }
+
+            pst.close();
+            conn.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error deleting event: " + e.getMessage());
+        }
+    }
+    }//GEN-LAST:event_deleteEventsMouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        Session sess = Session.getInstance();
+    if (sess.getUid() == 0) {
+        // If uid == 0, it means the user is not logged in
+        JOptionPane.showMessageDialog(null, "No account, Login First!");
+        new loginForm().setVisible(true);
+        this.dispose();
+    }
+    acc.setText("" + sess.getFname());
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -777,12 +974,16 @@ if (confirm == JOptionPane.YES_OPTION) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AmountTextField;
+    private javax.swing.JLabel Print;
+    private javax.swing.JLabel acc;
     private javax.swing.JPanel add;
     private javax.swing.JPanel aot;
     private javax.swing.JLabel attorg;
     private javax.swing.JLabel books;
     private javax.swing.JPanel delete;
+    private javax.swing.JLabel deleteEvents;
     private javax.swing.JPanel edit;
+    private javax.swing.JLabel editEvent;
     private javax.swing.JTextField eventIDTextField;
     private javax.swing.JTextField eventNameTextField;
     private javax.swing.JComboBox<String> eventTypeComboBox;
@@ -791,15 +992,11 @@ if (confirm == JOptionPane.YES_OPTION) {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -827,6 +1024,10 @@ if (confirm == JOptionPane.YES_OPTION) {
     // End of variables declaration//GEN-END:variables
 
     private settingsOrg settingsOrg() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void clearFields() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

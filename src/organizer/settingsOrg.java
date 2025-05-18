@@ -10,6 +10,7 @@ import config.Session;
 import config.dbConnector;
 import eventapp.loginForm;
 import java.awt.Color;
+import java.awt.Image;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,6 +18,7 @@ import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import organizer.bookings;
 
 /**
@@ -49,21 +51,24 @@ public class settingsOrg extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         lo = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         ev = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         account = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         sett = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         ac = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        p = new javax.swing.JPanel();
+        evnts = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        l = new javax.swing.JPanel();
+        logs = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -128,13 +133,9 @@ public class settingsOrg extends javax.swing.JFrame {
         });
         lo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
 
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout.png"))); // NOI18N
-        lo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
-
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
-        lo.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
+        lo.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
 
         jPanel3.add(lo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 160, 40));
 
@@ -151,29 +152,25 @@ public class settingsOrg extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("EVENTS");
+        jLabel3.setText("ATTENDEES");
         ev.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/eventsadmindash.png"))); // NOI18N
-        ev.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/useradmindash.png"))); // NOI18N
-        ev.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
+        ev.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
 
-        jPanel3.add(ev, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 160, 40));
+        jPanel3.add(ev, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 160, 40));
 
         account.setBackground(new java.awt.Color(0, 51, 204));
         account.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accountMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 accountMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 accountMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                accountMouseClicked(evt);
             }
         });
         account.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -190,9 +187,9 @@ public class settingsOrg extends javax.swing.JFrame {
 
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/books.png"))); // NOI18N
-        account.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
+        account.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
 
-        jPanel3.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 160, 40));
+        jPanel3.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 160, 40));
 
         sett.setBackground(new java.awt.Color(0, 51, 204));
         sett.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -213,15 +210,11 @@ public class settingsOrg extends javax.swing.JFrame {
         jLabel5.setText("SETTINGS");
         sett.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
 
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/settings.png"))); // NOI18N
-        sett.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/settings.png"))); // NOI18N
+        sett.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
 
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/settings.png"))); // NOI18N
-        sett.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
-
-        jPanel3.add(sett, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 160, 40));
+        jPanel3.add(sett, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 160, 40));
 
         ac.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ac.setForeground(new java.awt.Color(255, 255, 255));
@@ -229,9 +222,81 @@ public class settingsOrg extends javax.swing.JFrame {
         ac.setText("ORGANIZER");
         jPanel3.add(ac, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 160, 30));
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-account-100.png"))); // NOI18N
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 80));
+        p.setBackground(new java.awt.Color(0, 51, 204));
+        p.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pMouseExited(evt);
+            }
+        });
+        p.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        evnts.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        evnts.setForeground(new java.awt.Color(255, 255, 255));
+        evnts.setText("EVENTS");
+        evnts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                evntsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                evntsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                evntsMouseExited(evt);
+            }
+        });
+        p.add(evnts, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 120, 40));
+
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/eventsadmindash.png"))); // NOI18N
+        p.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 40));
+
+        jPanel3.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 160, 40));
+
+        l.setBackground(new java.awt.Color(0, 51, 204));
+        l.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lMouseExited(evt);
+            }
+        });
+        l.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logs.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        logs.setForeground(new java.awt.Color(255, 255, 255));
+        logs.setText("LOGS");
+        logs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logsMouseExited(evt);
+            }
+        });
+        l.add(logs, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, -2, 110, 40));
+
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logs.png"))); // NOI18N
+        l.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 34, 39));
+
+        jPanel3.add(l, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 160, 40));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-account-100_1.png"))); // NOI18N
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, 100));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 470));
 
@@ -399,22 +464,20 @@ if (sess.getUid() == 0) {
         dbConnector dbc = new dbConnector();
         String query = "SELECT * FROM tbl_registeruser WHERE u_id = ?";
         
+        
         try (PreparedStatement pst = ((Connection) dbc.getConnection()).prepareStatement(query)) {
             pst.setInt(1, sess.getUid());
             ResultSet rs = pst.executeQuery();
             
             if (rs.next()) {
                 uID.setText(String.valueOf(rs.getInt("u_id")));
-                firstName.setText(rs.getString("f_name"));
-                lastName.setText(rs.getString("l_name"));
+                firstName.setText(rs.getString("u_fname"));
+                lastName.setText(rs.getString("u_fname"));
                 userName.setText(rs.getString("u_username"));
                 email.setText(rs.getString("u_email"));
                 password.setText(rs.getString("u_password"));
                 
-                String imagePath = rs.getString("image");
-                if (imagePath != null && !imagePath.isEmpty()) {
-                    profileLabel.setIcon(new ImageIcon(imagePath));
-                }
+                
             }
             rs.close();
         }
@@ -520,13 +583,19 @@ if (confirm == JOptionPane.YES_OPTION) {
     }//GEN-LAST:event_uIDActionPerformed
 
     private void btnUpload1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpload1ActionPerformed
-        JFileChooser fileChooser = new JFileChooser();
-        int option = fileChooser.showOpenDialog(this);
+        JFileChooser chooser = new JFileChooser();
+FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "jpeg", "png");
+chooser.setFileFilter(filter);
 
-        if (option == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
-            profileLabel.setIcon(new ImageIcon(file.getAbsolutePath())); // Set image in JLabel
-        }
+int result = chooser.showOpenDialog(this);
+if (result == JFileChooser.APPROVE_OPTION) {
+    File selectedFile = chooser.getSelectedFile();
+    String imagePath = selectedFile.getAbsolutePath();
+    ImageIcon imageIcon = new ImageIcon(imagePath);
+    Image image = imageIcon.getImage().getScaledInstance(profileLabel.getWidth(), profileLabel.getHeight(), Image.SCALE_SMOOTH);
+    profileLabel.setIcon(new ImageIcon(image));
+}
+
     }//GEN-LAST:event_btnUpload1ActionPerformed
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
@@ -534,6 +603,60 @@ if (confirm == JOptionPane.YES_OPTION) {
        ci.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void evntsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evntsMouseClicked
+        eventFormAdmin ef = new eventFormAdmin();
+        ef.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_evntsMouseClicked
+
+    private void evntsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evntsMouseEntered
+        p.setBackground(hovercolor);
+    }//GEN-LAST:event_evntsMouseEntered
+
+    private void evntsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_evntsMouseExited
+        p.setBackground(navcolor);
+    }//GEN-LAST:event_evntsMouseExited
+
+    private void pMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseClicked
+        eventFormAdmin ef = new eventFormAdmin();
+        ef.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_pMouseClicked
+
+    private void pMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseEntered
+
+    }//GEN-LAST:event_pMouseEntered
+
+    private void pMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseExited
+
+    }//GEN-LAST:event_pMouseExited
+
+    private void logsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseClicked
+        Logs lg = new Logs();
+        lg.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logsMouseClicked
+
+    private void logsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseEntered
+
+    }//GEN-LAST:event_logsMouseEntered
+
+    private void logsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseExited
+
+    }//GEN-LAST:event_logsMouseExited
+
+    private void lMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseClicked
+
+    }//GEN-LAST:event_lMouseClicked
+
+    private void lMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseEntered
+        l.setBackground(hovercolor);
+    }//GEN-LAST:event_lMouseEntered
+
+    private void lMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseExited
+        l.setBackground(navcolor);
+    }//GEN-LAST:event_lMouseExited
 
     /**
      * @param args the command line arguments
@@ -579,15 +702,16 @@ if (confirm == JOptionPane.YES_OPTION) {
     private javax.swing.JButton btnUpload1;
     private javax.swing.JTextField email;
     private javax.swing.JPanel ev;
+    private javax.swing.JLabel evnts;
     private javax.swing.JTextField firstName;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -598,20 +722,22 @@ if (confirm == JOptionPane.YES_OPTION) {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel l;
     private javax.swing.JTextField lastName;
     private javax.swing.JPanel lo;
+    private javax.swing.JLabel logs;
+    private javax.swing.JPanel p;
     private javax.swing.JTextField password;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JPanel sett;

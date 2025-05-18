@@ -18,6 +18,10 @@ import javax.swing.JOptionPane;
  * @author user
  */
 public class dbConnector {
+
+    public static Connection connect() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public Connection connect;
     private Connection connection;
