@@ -28,6 +28,9 @@ public class adminDashboard extends javax.swing.JFrame {
     public adminDashboard() {
         initComponents();
          displayData();
+         loadTotalUsers();
+         loadTotalEvents();
+         loadTotalBookings();
     }
     
     Color navcolor = new Color(0,51,204);
@@ -36,7 +39,7 @@ public class adminDashboard extends javax.swing.JFrame {
   public void displayData() {
     try {
         dbConnector dbc = new dbConnector();
-        ResultSet rs = dbc.getData("SELECT id, event_name, event_type, amount FROM bookings");
+        ResultSet rs = dbc.getData("SELECT *FROM bookings");
         tableBookings.setModel(DbUtils.resultSetToTableModel(rs));
         rs.close();
     } catch (SQLException e) {
@@ -44,30 +47,76 @@ public class adminDashboard extends javax.swing.JFrame {
         e.printStackTrace();
     }
 }
-
-
-   
-    private void updateDashboardCounts() {
+    
+    private void loadTotalUsers() {
     try {
-        dbConnector db = new dbConnector();
-       
-        // Get counts from database
-        int activeUser = db.getActiveUsersCount();
-        int pendingUser = db.getActiveUsersCount2();
-        int bookings = db.getCount("bookings");
-     
+        dbConnector dbc = new dbConnector();
+        Connection conn = (Connection) dbc.getConnection();
+        String sql = "SELECT COUNT(*) AS total_users FROM tbl_registeruser"; // COUNT query to get the total number of users
+        PreparedStatement pst = conn.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
 
-        activeUsers.setText(String.valueOf(activeUser));
-        pendingUsers.setText(String.valueOf(pendingUser));
-        Bookings.setText(String.valueOf(bookings));
-      
+        if (rs.next()) {
+            int totalUsers = rs.getInt("total_users"); // Get the count of users
+            totalUser.setText(String.valueOf(totalUsers)); // Update the label with the total users
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error loading dashboard data: " + e.getMessage(),
-            "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Error loading total users: " + e.getMessage());
+        e.printStackTrace();
+    }
+}
+    
+     private void loadTotalEvents() {
+    try {
+        dbConnector dbc = new dbConnector();
+        Connection conn = (Connection) dbc.getConnection();
+        String sql = "SELECT COUNT(*) AS total_events FROM events"; // COUNT query to get the total number of users
+        PreparedStatement pst = conn.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+            int totalUsers = rs.getInt("total_events"); // Get the count of users
+            events.setText(String.valueOf(totalUsers)); // Update the label with the total users
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error loading total users: " + e.getMessage());
+        e.printStackTrace();
     }
 }
 
    
+     private void loadTotalBookings() {
+    try {
+        dbConnector dbc = new dbConnector();
+        Connection conn = (Connection) dbc.getConnection();
+        String sql = "SELECT COUNT(*) AS total_booking FROM bookings"; // COUNT query to get the total number of users
+        PreparedStatement pst = conn.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+            int totalUsers = rs.getInt("total_booking"); // Get the count of users
+            Bookings.setText(String.valueOf(totalUsers)); // Update the label with the total users
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error loading total users: " + e.getMessage());
+        e.printStackTrace();
+    }
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -97,11 +146,11 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        activeUsers = new javax.swing.JLabel();
+        totalUser = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        pendingUsers = new javax.swing.JLabel();
+        events = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -354,16 +403,16 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        activeUsers.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        activeUsers.setForeground(new java.awt.Color(0, 51, 153));
-        activeUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        activeUsers.setText("0");
-        jPanel2.add(activeUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 20, 30));
+        totalUser.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        totalUser.setForeground(new java.awt.Color(0, 51, 153));
+        totalUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalUser.setText("0");
+        jPanel2.add(totalUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 20, 30));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 51, 153));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("Active Users");
+        jLabel15.setText("Total Users");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -375,16 +424,16 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(153, 204, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pendingUsers.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        pendingUsers.setForeground(new java.awt.Color(0, 51, 153));
-        pendingUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pendingUsers.setText("0");
-        jPanel4.add(pendingUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 20, 30));
+        events.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        events.setForeground(new java.awt.Color(0, 51, 153));
+        events.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        events.setText("0");
+        jPanel4.add(events, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 50, 30));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 51, 153));
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("Pending Users");
+        jLabel21.setText(" Events");
         jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 30, 140, -1));
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -404,7 +453,7 @@ public class adminDashboard extends javax.swing.JFrame {
         Bookings.setForeground(new java.awt.Color(0, 51, 153));
         Bookings.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Bookings.setText("0");
-        jPanel5.add(Bookings, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 20, 30));
+        jPanel5.add(Bookings, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 50, 30));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 51, 153));
@@ -419,7 +468,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
             },
             new String [] {
-
+                "id", "event_name", "event_type", "amount"
             }
         ));
         jScrollPane1.setViewportView(tableBookings);
@@ -666,10 +715,10 @@ if (confirm == JOptionPane.YES_OPTION) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Bookings;
     private javax.swing.JLabel acc_name;
-    private javax.swing.JLabel activeUsers;
     private javax.swing.JPanel aot;
     private javax.swing.JLabel attorg;
     private javax.swing.JLabel books;
+    private javax.swing.JLabel events;
     private javax.swing.JLabel evnts;
     private javax.swing.JPanel g;
     private javax.swing.JLabel jLabel1;
@@ -696,16 +745,13 @@ if (confirm == JOptionPane.YES_OPTION) {
     private javax.swing.JLabel logs;
     private javax.swing.JLabel out;
     private javax.swing.JPanel p;
-    private javax.swing.JLabel pendingUsers;
     private javax.swing.JPanel s;
     private javax.swing.JLabel sett;
     private javax.swing.JPanel t;
     private javax.swing.JTable tableBookings;
+    private javax.swing.JLabel totalUser;
     // End of variables declaration//GEN-END:variables
 
-    private void insertLog(int userId, String logout, String user_logged_out_successfully) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
    
 }

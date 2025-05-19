@@ -41,19 +41,27 @@ public class loginForm extends javax.swing.JFrame {
     
     public static boolean loginAcc(String username, String password){
         dbConnector connector = new dbConnector();
+    
+    try {
+        // Query to fetch the stored password
+        String query = "SELECT u_password, u_status, u_type, u_id, u_fname, u_lname, u_email, u_username FROM tbl_registeruser WHERE u_username = ?";
+        PreparedStatement stmt = connector.getConnection().prepareStatement(query);
+        stmt.setString(1, username);
         
-        try{
-           String query = "SELECT * FROM tbl_registeruser WHERE u_username = '" + username + "'";
-            ResultSet resultSet = connector.getData(query);
-            if(resultSet.next()){
-                
-                
-                String hashedPass = resultSet.getString("u_password");
-                String rehashedPass = passwordHasher.hashPassword(password);
+        ResultSet resultSet = stmt.executeQuery();
+        
+        if (resultSet.next()) {
+            // Fetch stored password and hash the entered password
+            String storedPassword = resultSet.getString("u_password");
+            String hashedEnteredPassword = passwordHasher.hashPassword(password);
 
-                if(hashedPass.equals(rehashedPass)){
+            // Compare hashed password
+            if (storedPassword.equals(hashedEnteredPassword)) {
+                // If passwords match, proceed
                 status = resultSet.getString("u_status");
                 type = resultSet.getString("u_type");
+
+                // Store session details
                 Session sess = Session.getInstance();
                 sess.setUid(resultSet.getInt("u_id"));
                 sess.setFname(resultSet.getString("u_fname"));
@@ -62,23 +70,22 @@ public class loginForm extends javax.swing.JFrame {
                 sess.setUsername(resultSet.getString("u_username"));
                 sess.setType(resultSet.getString("u_type"));
                 sess.setStatus(resultSet.getString("u_status"));
-                return true;
-            
-            }else{
-                return false;
-                }
-               
-            }else{
-                return false;
+                
+                return true; // Successful login
+            } else {
+                return false; // Password doesn't match
             }
-        }catch (SQLException | NoSuchAlgorithmException ex) {
-            return false;
-            
+        } else {
+            return false; // Username doesn't exist
         }
+    } catch (SQLException | NoSuchAlgorithmException e) {
+        e.printStackTrace();
+        return false; // Error occurred
+    }
     }
 public void insertLog(Connection conn, int userId, String action, String description) {
     
-    String logQuery = "INSERT INTO logs (u_id, actions, details, timestamp) VALUES (?, ?, ?, NOW())";
+    String logQuery = "INSERT INTO logs_2 (log_id, u_id, actions, details, timestamp) VALUES (?, ?, ?, ?, NOW())";
     
     try (PreparedStatement logStmt = conn.prepareStatement(logQuery)) {
         logStmt.setInt(1, userId);
