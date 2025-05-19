@@ -35,7 +35,7 @@ public class Logs extends javax.swing.JFrame {
         public void displayData(){
         try{
             dbConnector dbc = new dbConnector();
-            ResultSet rs = dbc.getData("SELECT u_id, u_fname, u_lname, u_email, u_status FROM logs"); 
+            ResultSet rs = dbc.getData("SELECT u_id, u_fname, u_lname, u_email, u_status FROM logs_2"); 
             logsTable.setModel(DbUtils.resultSetToTableModel(rs));
             rs.close();
         }catch(SQLException ex){
@@ -499,7 +499,7 @@ if (confirm == JOptionPane.YES_OPTION) {
     int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this log?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
     if (confirm == JOptionPane.YES_OPTION) {
         try (Connection conn = (Connection) new dbConnector().getConnection();
-             PreparedStatement stmt = conn.prepareStatement("DELETE FROM logs WHERE log_id = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("DELETE FROM logs_2 WHERE log_id = ?")) {
 
             stmt.setInt(1, logId);
             int rowsDeleted = stmt.executeUpdate();
@@ -536,7 +536,7 @@ if (confirm == JOptionPane.YES_OPTION) {
 
     if (newAction != null && newDetails != null && !newAction.trim().isEmpty() && !newDetails.trim().isEmpty()) {
         try (Connection conn = (Connection) new dbConnector().getConnection();
-             PreparedStatement stmt = conn.prepareStatement("UPDATE logs SET actions = ? WHERE log_id = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("UPDATE logs_2 SET actions = ? WHERE log_id = ?")) {
 
             stmt.setString(1, newAction);
             stmt.setString(2, newDetails);

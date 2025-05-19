@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2025 at 08:25 AM
+-- Generation Time: May 19, 2025 at 08:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -107,7 +107,7 @@ INSERT INTO `tbl_registeruser` (`u_id`, `u_fname`, `u_lname`, `u_email`, `u_user
 (1, 'Mike', 'Bus', 'mike3@gmail.com', 'busta', 'N6CjSaZSWDeo3TPmC9HUnJog8Vg7SxGVGtuJzpkEpnA=', 'Admin', 'Active', '2025-03-18 15:41:03', '2025-03-22 15:37:30'),
 (2, 'Diovely', 'Campo', 'diovely@gmail.com', 'dyubli', 'N6CjSaZSWDeo3TPmC9HUnJog8Vg7SxGVGtuJzpkEpnA=', 'User', 'Active', '2025-03-22 15:24:08', '2025-03-22 15:37:30'),
 (3, 'Dray', 'Misa', 'jay@gmail.con', 'Dray', '+DWqqT508rt0Z92IyfDnOW4nJzG53cNQ7N50xGNLNPM=', 'Admin', 'Active', '2025-05-05 02:22:58', '2025-05-18 13:14:13'),
-(4, 'Kris Jaylon', 'Mantillas', 'jaylon@gmail.com', 'jaylon', 'x3Xnt1ft5jDNCqERO9ECZhqziCnKUqZCKreChi8mhkY=', 'User', 'Active', '2025-05-06 09:29:08', '2025-05-06 09:29:45'),
+(4, 'Jaymaica', 'Narvasa', 'njaymaica@gmail.com', 'Maica', 'x3Xnt1ft5jDNCqERO9ECZhqziCnKUqZCKreChi8mhkY=', 'User', 'Active', '2025-05-06 09:29:08', '2025-05-19 06:37:14'),
 (7, 'Dranreb', 'Misa', 'misadray3@gmail.com', 'Dranreb', '0tLCWgtLLuIq00rr/ysNBLzxA+HvbcVCScJVjXwFKfE=', 'User', 'Active', '2025-05-18 08:26:23', '2025-05-18 13:08:56'),
 (9, 'Draniel', 'Misa', 'misadranreb4@gmail.com', 'Draniel', 'ovwnnU15vOKI/E5ty+0U8/2rJXxg1HsKdD+OBs4Fcqs=', 'Admin', 'Active', '2025-05-18 13:08:08', '2025-05-18 13:08:49');
 

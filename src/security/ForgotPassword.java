@@ -99,7 +99,7 @@ public class ForgotPassword extends JFrame {
     private void sendVerificationCode(String userEmail, String verificationCode) {
         final String senderEmail = "misadray3@gmail.com";  // Your Gmail
         final String senderPassword = "szphbqfzfyxudneh";   // App password
-
+        
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");

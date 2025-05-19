@@ -51,7 +51,7 @@ public class VerifyCode extends JFrame {
 
         if (enteredCode.equals(sentCode)) {
             JOptionPane.showMessageDialog(this, "Verification successful.");
-            new ForgotPassword(userEmail).setVisible(true);
+            new ChangePassword(userEmail).setVisible(true);
             dispose();
         } else {
             if (attempts >= 3) {
