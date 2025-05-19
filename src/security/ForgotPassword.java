@@ -11,7 +11,9 @@ public class ForgotPassword extends JFrame {
 
     private JTextField txtEmail;
     private JButton btnSendCode;
+    private String userEmail;
 
+    // Default constructor (normal usage)
     public ForgotPassword() {
         setTitle("Forgot Password");
         setSize(500, 320);
@@ -83,6 +85,17 @@ public class ForgotPassword extends JFrame {
         add(panel, BorderLayout.CENTER);
     }
 
+    // Constructor for post-verification (prefill email)
+    public ForgotPassword(String userEmail) {
+        this(); // reuse UI setup from default constructor
+        this.userEmail = userEmail;
+
+        // Pre-fill the email field and optionally lock it
+        txtEmail.setText(userEmail);
+        txtEmail.setEditable(false); // lock email if you want
+    }
+
+    // Send email with verification code
     private void sendVerificationCode(String userEmail, String verificationCode) {
         final String senderEmail = "misadray3@gmail.com";  // Your Gmail
         final String senderPassword = "szphbqfzfyxudneh";   // App password
@@ -115,6 +128,7 @@ public class ForgotPassword extends JFrame {
         }
     }
 
+    // When "Send" is clicked
     private void sendVerificationCode() {
         String userEmail = txtEmail.getText().trim();
         if (userEmail.isEmpty()) {
@@ -122,17 +136,18 @@ public class ForgotPassword extends JFrame {
             return;
         }
 
-        // TODO: Check if email exists in DB
+        // TODO: Check if email exists in database before sending
 
         String verificationCode = String.format("%06d", (int) (Math.random() * 1000000));
         sendVerificationCode(userEmail, verificationCode);
 
-        // ⬇️ Open VerifyCode frame and pass both code and email
+        // Open VerifyCode JFrame
         VerifyCode verifyFrame = new VerifyCode(verificationCode, userEmail);
         verifyFrame.setVisible(true);
         this.dispose();
     }
 
+   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -172,6 +187,10 @@ public class ForgotPassword extends JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new ForgotPassword().setVisible(true);
         });
+    }
+
+    private void initUI() {
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

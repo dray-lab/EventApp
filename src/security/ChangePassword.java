@@ -7,6 +7,7 @@ public class ChangePassword extends JFrame {
 
     private JPasswordField txtNewPassword;
     private JPasswordField txtConfirmPassword;
+    private String userEmail;
 
     public ChangePassword() {
         setTitle("Change Password");
@@ -19,12 +20,13 @@ public class ChangePassword extends JFrame {
         initUI();
     }
 
-    ChangePassword(String userEmail) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ChangePassword(String userEmail) {
+        this(); // Call default constructor
+        this.userEmail = userEmail;
     }
 
     private void initUI() {
-        Color darkBlue = new Color(13, 71, 161); // same as title
+        Color darkBlue = new Color(13, 71, 161);
 
         // Header
         JPanel headerPanel = new JPanel(new BorderLayout());
@@ -50,10 +52,9 @@ public class ChangePassword extends JFrame {
 
         JLabel lblSub = new JLabel("Please enter your new password below.");
         lblSub.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        lblSub.setForeground(new Color(100, 181, 246)); // Light blue
+        lblSub.setForeground(new Color(100, 181, 246));
         lblSub.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Field Panel
         JPanel fieldPanel = new JPanel();
         fieldPanel.setLayout(new GridLayout(4, 1, 0, 10));
         fieldPanel.setBackground(Color.WHITE);
@@ -79,7 +80,6 @@ public class ChangePassword extends JFrame {
         fieldPanel.add(lblConfirmPass);
         fieldPanel.add(txtConfirmPassword);
 
-        // Button Panel (to keep it fixed size)
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.WHITE);
         JButton btnChange = new JButton("Update Password");
@@ -90,6 +90,7 @@ public class ChangePassword extends JFrame {
         btnChange.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnChange.setPreferredSize(new Dimension(180, 40));
         btnChange.addActionListener(e -> changePassword());
+
         buttonPanel.add(btnChange);
 
         centerPanel.add(lblHeading);
@@ -117,12 +118,16 @@ public class ChangePassword extends JFrame {
             return;
         }
 
-        // TODO: Save to database
+        if (newPassword.length() < 8) {
+            JOptionPane.showMessageDialog(this, "Password must be at least 8 characters.");
+            return;
+        }
+
+        // TODO: Update password in database using userEmail
         JOptionPane.showMessageDialog(this, "Password successfully changed.");
         dispose();
     }
-
-    
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -147,12 +152,7 @@ public class ChangePassword extends JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception ignored) {
-        }
-
-        SwingUtilities.invokeLater(() -> new ChangePassword().setVisible(true));
+         SwingUtilities.invokeLater(() -> new ChangePassword("user@example.com").setVisible(true));
     }
     }
     

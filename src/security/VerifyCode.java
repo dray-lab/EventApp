@@ -8,6 +8,7 @@ public class VerifyCode extends JFrame {
     private final String sentCode;
     private final String userEmail;
     private JTextField txtCode;
+    private int attempts = 0;
 
     public VerifyCode(String sentCode, String userEmail) {
         this.sentCode = sentCode;
@@ -17,7 +18,6 @@ public class VerifyCode extends JFrame {
         setSize(400, 200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         initUI();
     }
 
@@ -47,15 +47,23 @@ public class VerifyCode extends JFrame {
 
     private void verifyCode() {
         String enteredCode = txtCode.getText().trim();
+        attempts++;
+
         if (enteredCode.equals(sentCode)) {
             JOptionPane.showMessageDialog(this, "Verification successful.");
-            new ChangePassword(userEmail).setVisible(true);
+            new ForgotPassword(userEmail).setVisible(true);
             dispose();
         } else {
-            JOptionPane.showMessageDialog(this, "Incorrect verification code!");
+            if (attempts >= 3) {
+                JOptionPane.showMessageDialog(this, "Too many failed attempts. Try again later.");
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Incorrect verification code! Attempt " + attempts + "/3");
+            }
         }
     }
 
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -80,9 +88,7 @@ public class VerifyCode extends JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        SwingUtilities.invokeLater(() -> {
-            new VerifyCode("123456", "user@example.com").setVisible(true);
-        });
+       SwingUtilities.invokeLater(() -> new VerifyCode("123456", "user@example.com").setVisible(true));
     }
     }
 
