@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2025 at 04:44 PM
+-- Generation Time: May 19, 2025 at 08:25 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,16 +34,6 @@ CREATE TABLE `bookings` (
   `event_type` varchar(50) NOT NULL,
   `amount` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `bookings`
---
-
-INSERT INTO `bookings` (`id`, `user_name`, `event_name`, `event_type`, `amount`) VALUES
-(1, 'Jane Dela Cruz', 'Concert of Legends', 'Concert', 1500.00),
-(2, 'Jane Dela Cruz', 'Theater Night Gala', 'Theater', 1200.00),
-(3, 'Jane Dela Cruz', 'Beach Festival 2025', 'Festival', 1000.00),
-(4, 'Jane Dela Cruz', 'New Year Countdown', 'Party', 1800.00);
 
 -- --------------------------------------------------------
 
@@ -79,75 +69,16 @@ INSERT INTO `events` (`id`, `event_type`, `event_name`, `amount`, `venue`, `pack
 -- --------------------------------------------------------
 
 --
--- Table structure for table `logs`
+-- Table structure for table `logs_2`
 --
 
-CREATE TABLE `logs` (
+CREATE TABLE `logs_2` (
   `log_id` int(11) NOT NULL,
-  `u_id` int(11) NOT NULL,
-  `actions` varchar(255) NOT NULL,
-  `details` text NOT NULL,
+  `u_id` int(11) DEFAULT NULL,
+  `actions` varchar(255) DEFAULT NULL,
+  `details` text DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `logs`
---
-
-INSERT INTO `logs` (`log_id`, `u_id`, `actions`, `details`, `timestamp`) VALUES
-(1, 1, 'Create Event', 'Created a new event called Summer Beach Volleyball 2025.', '2025-05-05 02:57:41'),
-(2, 2, 'Update Event', 'Updated the event details for Volleyball Tournament 2025.', '2025-05-05 02:57:41'),
-(3, 1, 'Delete Event', 'Deleted event \"Beach Volleyball Showdown\".', '2025-05-05 02:57:41'),
-(4, 3, 'Login', 'User logged in successfully', '2025-05-05 02:58:02'),
-(5, 3, 'Login', 'User logged in successfully', '2025-05-05 03:02:18'),
-(6, 3, 'Login', 'User logged in successfully', '2025-05-05 03:04:40'),
-(7, 3, 'Login', 'User logged in successfully', '2025-05-05 03:51:46'),
-(8, 3, 'Login', 'User logged in successfully', '2025-05-05 03:52:58'),
-(9, 3, 'Login', 'User logged in successfully', '2025-05-05 03:55:35'),
-(10, 3, 'Login', 'User logged in successfully', '2025-05-05 03:58:59'),
-(11, 3, 'Login', 'User logged in successfully', '2025-05-05 04:01:23'),
-(12, 3, 'Login', 'User logged in successfully', '2025-05-06 08:58:40'),
-(13, 3, 'Login', 'User logged in successfully', '2025-05-06 09:00:21'),
-(14, 3, 'Login', 'User logged in successfully', '2025-05-06 09:16:29'),
-(15, 3, 'Login', 'User logged in successfully', '2025-05-06 09:18:12'),
-(16, 3, 'Login', 'User logged in successfully', '2025-05-06 09:23:12'),
-(17, 4, 'Login', 'User logged in successfully', '2025-05-06 09:29:49'),
-(18, 4, 'Password Reset Request', 'User requested a password reset', '2025-05-06 09:34:33'),
-(19, 4, 'Login', 'User logged in successfully', '2025-05-06 09:36:23'),
-(20, 4, 'Login', 'User logged in successfully', '2025-05-06 09:42:41'),
-(21, 4, 'Login', 'User logged in successfully', '2025-05-06 09:47:30'),
-(22, 4, 'Login', 'User logged in successfully', '2025-05-06 09:57:00'),
-(23, 4, 'Login', 'User logged in successfully', '2025-05-06 10:02:32'),
-(24, 4, 'Login', 'User logged in successfully', '2025-05-06 10:04:36'),
-(25, 4, 'Login', 'User logged in successfully', '2025-05-06 10:08:15'),
-(26, 4, 'Login', 'User logged in successfully', '2025-05-06 10:10:11'),
-(27, 4, 'Login', 'User logged in successfully', '2025-05-06 11:40:57'),
-(28, 4, 'Login', 'User logged in successfully', '2025-05-06 11:41:44'),
-(29, 4, 'Login', 'User logged in successfully', '2025-05-06 11:42:47'),
-(30, 4, 'Login', 'User logged in successfully', '2025-05-06 11:45:21'),
-(31, 4, 'Login', 'User logged in successfully', '2025-05-06 12:00:26'),
-(32, 4, 'Login', 'User logged in successfully', '2025-05-06 12:15:39'),
-(33, 4, 'Login', 'User logged in successfully', '2025-05-06 12:17:50'),
-(34, 3, 'Login', 'User logged in successfully', '2025-05-06 14:36:32'),
-(35, 3, 'Login', 'User logged in successfully', '2025-05-14 03:49:24'),
-(36, 5, 'Login', 'User logged in successfully', '2025-05-14 03:52:38'),
-(37, 5, 'Login', 'User logged in successfully', '2025-05-14 03:58:53'),
-(38, 3, 'Login', 'User logged in successfully', '2025-05-18 02:32:26'),
-(39, 3, 'Logout', 'User logged out successfully', '2025-05-18 02:33:37'),
-(40, 3, 'Login', 'User logged in successfully', '2025-05-18 02:35:47'),
-(41, 5, 'Login', 'User logged in successfully', '2025-05-18 04:49:09'),
-(42, 3, 'Login', 'User logged in successfully', '2025-05-18 05:30:42'),
-(43, 5, 'Login', 'User logged in successfully', '2025-05-18 05:32:08'),
-(44, 3, 'Login', 'User logged in successfully', '2025-05-18 12:45:22'),
-(45, 3, 'Login', 'User logged in successfully', '2025-05-18 12:49:33'),
-(46, 3, 'Login', 'User logged in successfully', '2025-05-18 12:52:32'),
-(47, 3, 'Login', 'User logged in successfully', '2025-05-18 13:14:25'),
-(48, 3, 'Login', 'User logged in successfully', '2025-05-18 13:16:49'),
-(49, 3, 'Login', 'User logged in successfully', '2025-05-18 13:19:22'),
-(50, 3, 'Login', 'User logged in successfully', '2025-05-18 13:27:05'),
-(51, 3, 'Login', 'User logged in successfully', '2025-05-18 13:29:58'),
-(52, 3, 'Login', 'User logged in successfully', '2025-05-18 14:00:53'),
-(53, 3, 'Login', 'User logged in successfully', '2025-05-18 14:05:28');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -188,7 +119,8 @@ INSERT INTO `tbl_registeruser` (`u_id`, `u_fname`, `u_lname`, `u_email`, `u_user
 -- Indexes for table `bookings`
 --
 ALTER TABLE `bookings`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_bookings_user` (`user_name`);
 
 --
 -- Indexes for table `events`
@@ -197,10 +129,11 @@ ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `logs`
+-- Indexes for table `logs_2`
 --
-ALTER TABLE `logs`
-  ADD PRIMARY KEY (`log_id`);
+ALTER TABLE `logs_2`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `u_id` (`u_id`);
 
 --
 -- Indexes for table `tbl_registeruser`
@@ -227,16 +160,38 @@ ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `logs`
+-- AUTO_INCREMENT for table `logs_2`
 --
-ALTER TABLE `logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+ALTER TABLE `logs_2`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_registeruser`
 --
 ALTER TABLE `tbl_registeruser`
   MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `bookings`
+--
+ALTER TABLE `bookings`
+  ADD CONSTRAINT `fk_bookings_user` FOREIGN KEY (`user_name`) REFERENCES `tbl_registeruser` (`u_username`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `logs_2`
+--
+ALTER TABLE `logs_2`
+  ADD CONSTRAINT `logs_2_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `tbl_registeruser` (`u_id`);
+
+--
+-- Constraints for table `tbl_registeruser`
+--
+ALTER TABLE `tbl_registeruser`
+  ADD CONSTRAINT `fk_tbl_registeruser_id` FOREIGN KEY (`u_id`) REFERENCES `events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
