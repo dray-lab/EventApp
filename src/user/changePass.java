@@ -300,7 +300,7 @@ public class changePass extends javax.swing.JFrame {
          }
         
         }
-    }catch(SQLException | NoSuchAlgorithmException ex){
+    }catch(SQLException ex){
         System.out.println(""+ex);
     } 
     }//GEN-LAST:event_jButton3MouseClicked

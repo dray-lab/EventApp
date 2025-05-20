@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -36,7 +37,7 @@ public class registerForm extends javax.swing.JFrame {
         dbConnector dbc = new dbConnector();
         
         try{
-        String query = "SELECT * FROM tbl_user WHERE u_username = '"+ un.getText() +"'OR u_email ='"+ em.getText()+"";
+        String query = "SELECT * FROM tbl_registeruser WHERE u_username = '"+ un.getText() +"'OR u_email ='"+ em.getText()+"";
             ResultSet resultSet = dbc.getData(query);
             
             if(resultSet.next()){
@@ -240,79 +241,75 @@ public class registerForm extends javax.swing.JFrame {
 
     //changed
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-// Check if any field is empty
-    if (fn.getText().trim().isEmpty() || ln.getText().trim().isEmpty() || 
-        em.getText().trim().isEmpty() || un.getText().trim().isEmpty() || 
-        pass.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "All fields are required!");
-        return;
-    }
+if (fn.getText().trim().isEmpty() || ln.getText().trim().isEmpty() || 
+    em.getText().trim().isEmpty() || un.getText().trim().isEmpty() || 
+    pass.getText().trim().isEmpty()) {
+    JOptionPane.showMessageDialog(null, "All fields are required!");
+    return;
+}
 
-    // Validate first name and last name (only letters allowed)
-    if (!fn.getText().matches("[a-zA-Z ]+") || !ln.getText().matches("[a-zA-Z ]+")) {
-        JOptionPane.showMessageDialog(null, "First Name and Last Name should contain only letters.");
-        return;
-    }
+if (!fn.getText().matches("[a-zA-Z ]+") || !ln.getText().matches("[a-zA-Z ]+")) {
+    JOptionPane.showMessageDialog(null, "First Name and Last Name should contain only letters.");
+    return;
+}
 
-    // Validate email format
-    String emailPattern = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
-    if (!em.getText().matches(emailPattern)) {
-        JOptionPane.showMessageDialog(null, "Enter a valid email address!");
-        return;
-    }
+String emailPattern = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+if (!em.getText().matches(emailPattern)) {
+    JOptionPane.showMessageDialog(null, "Enter a valid email address!");
+    return;
+}
 
-    // Validate username (no spaces allowed)
-    if (un.getText().contains(" ")) {
-        JOptionPane.showMessageDialog(null, "Username must not contain spaces.");
-        return;
-    }
+if (un.getText().contains(" ")) {
+    JOptionPane.showMessageDialog(null, "Username must not contain spaces.");
+    return;
+}
 
-    // Validate password length
-    if (pass.getText().length() < 8) {
-        JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long.");
-        pass.setText("");
-        return;
-    }
+if (pass.getText().length() < 8) {
+    JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long.");
+    pass.setText("");
+    return;
+}
 
-    // Check for duplicate email or username
-    if (duplicateCheck()) {
-        return; // Error message is already shown in duplicateCheck()
-    }
+if (duplicateCheck()) {
+    return;
+}
 
-    dbConnector dbc = new dbConnector();
-    Connection conn = (Connection) dbc.getConnection();
+dbConnector dbc = new dbConnector();
+Connection conn = dbc.getConnection();
 
-    if (conn != null) {
-        try {
-            String sql = "INSERT INTO tbl_registeruser (u_fname, u_lname, u_email, u_username, u_password, u_type, u_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            String hashedPassword = passwordHasher.hashPassword(pass.getText());
+if (conn != null) {
+    try {
+        String sql = "INSERT INTO tbl_registeruser (u_fname, u_lname, u_email, u_username, u_password, u_type, u_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, fn.getText().trim());
-            pstmt.setString(2, ln.getText().trim());
-            pstmt.setString(3, em.getText().trim());
-            pstmt.setString(4, un.getText().trim());
-            pstmt.setString(5, hashedPassword);
-            pstmt.setString(6, at.getSelectedItem().toString());
-            pstmt.setString(7, "Pending");
+        // Hash the password using BCrypt
+        String hashedPassword = BCrypt.hashpw(pass.getText(), BCrypt.gensalt());
 
-            int rowsInserted = pstmt.executeUpdate();
-            if (rowsInserted > 0) {
-                JOptionPane.showMessageDialog(null, "Registration Successful!");
-                new loginForm().setVisible(true);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Registration failed. Try again!");
-            }
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, fn.getText().trim());
+        pstmt.setString(2, ln.getText().trim());
+        pstmt.setString(3, em.getText().trim());
+        pstmt.setString(4, un.getText().trim());
+        pstmt.setString(5, hashedPassword);
+        pstmt.setString(6, at.getSelectedItem().toString());
+        pstmt.setString(7, "Pending");
 
-            pstmt.close();
-            conn.close();
-        } catch (SQLException | NoSuchAlgorithmException ex) {
-            ex.printStackTrace(); // Print error details for debugging
+        int rowsInserted = pstmt.executeUpdate();
+        if (rowsInserted > 0) {
+            JOptionPane.showMessageDialog(null, "Registration Successful!");
+            new loginForm().setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Registration failed. Try again!");
         }
-    } else {
-               JOptionPane.showMessageDialog(null, "Database Connection Error!");
+
+        pstmt.close();
+        conn.close();
+    } catch (SQLException ex) {
+        ex.printStackTrace();
     }
+} else {
+    JOptionPane.showMessageDialog(null, "Database Connection Error!");
+}
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed

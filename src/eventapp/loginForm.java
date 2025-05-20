@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import org.mindrot.jbcrypt.BCrypt;
 import organizer.attendeesForm;
 import security.ForgotPassword;
 import user.userDashboard;
@@ -38,30 +39,29 @@ public class loginForm extends javax.swing.JFrame {
     
     static String status;
     static String type;
+ 
+
     
-    public static boolean loginAcc(String username, String password){
-        dbConnector connector = new dbConnector();
+   public static boolean loginAcc(String username, String password) {
+    dbConnector connector = new dbConnector();
     
+
     try {
-        // Query to fetch the stored password
         String query = "SELECT u_password, u_status, u_type, u_id, u_fname, u_lname, u_email, u_username FROM tbl_registeruser WHERE u_username = ?";
         PreparedStatement stmt = connector.getConnection().prepareStatement(query);
         stmt.setString(1, username);
-        
-        ResultSet resultSet = stmt.executeQuery();
-        
-        if (resultSet.next()) {
-            // Fetch stored password and hash the entered password
-            String storedPassword = resultSet.getString("u_password");
-            String hashedEnteredPassword = passwordHasher.hashPassword(password);
 
-            // Compare hashed password
-            if (storedPassword.equals(hashedEnteredPassword)) {
-                // If passwords match, proceed
+        ResultSet resultSet = stmt.executeQuery();
+
+        if (resultSet.next()) {
+            String storedPassword = resultSet.getString("u_password");
+
+            // Use passwordHasher.verifyPassword for verification
+            if (passwordHasher.verifyPassword(password, storedPassword)) {
+                // Password matches, populate session and return true
                 status = resultSet.getString("u_status");
                 type = resultSet.getString("u_type");
 
-                // Store session details
                 Session sess = Session.getInstance();
                 sess.setUid(resultSet.getInt("u_id"));
                 sess.setFname(resultSet.getString("u_fname"));
@@ -70,33 +70,20 @@ public class loginForm extends javax.swing.JFrame {
                 sess.setUsername(resultSet.getString("u_username"));
                 sess.setType(resultSet.getString("u_type"));
                 sess.setStatus(resultSet.getString("u_status"));
-                
-                return true; // Successful login
+
+                return true;
             } else {
                 return false; // Password doesn't match
             }
         } else {
             return false; // Username doesn't exist
         }
-    } catch (SQLException | NoSuchAlgorithmException e) {
-        e.printStackTrace();
-        return false; // Error occurred
-    }
-    }
-public void insertLog(Connection conn, int userId, String action, String description) {
-    
-    String logQuery = "INSERT INTO logs_2 (log_id, u_id, actions, details, timestamp) VALUES (?, ?, ?, ?, NOW())";
-    
-    try (PreparedStatement logStmt = conn.prepareStatement(logQuery)) {
-        logStmt.setInt(1, userId);
-        logStmt.setString(2, action);
-        logStmt.setString(3, description);
-        logStmt.executeUpdate();
     } catch (SQLException e) {
         e.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Failed to log activity: " + e.getMessage(), "Logging Error", JOptionPane.ERROR_MESSAGE);
+        return false;
     }
 }
+
 
 
     /**
@@ -243,7 +230,7 @@ public void insertLog(Connection conn, int userId, String action, String descrip
     //changed
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      String username = user.getText();
-    String password = new String(pass.getPassword()); // Corrected for JPasswordField
+    String password = new String(pass.getPassword()); // pass is JPasswordField
 
     if (loginAcc(username, password)) {
         try (Connection conn = (Connection) new dbConnector().getConnection();

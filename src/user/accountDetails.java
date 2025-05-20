@@ -341,7 +341,7 @@ public class accountDetails extends javax.swing.JFrame {
 
                 pstmt.close();
                 conn.close();
-            } catch (SQLException | NoSuchAlgorithmException ex) {
+            } catch (SQLException ex) {
                 ex.printStackTrace(); // Print error details for debugging
             }
         } else {

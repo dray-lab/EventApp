@@ -55,7 +55,7 @@ public class dbConnector {
 
     // Insert Log Method
     public void insertLog(int userId, String action, String details) {
-        String sql = "INSERT INTO logs_2 (u_id, actions, details, timestamp) VALUES (?, ?, ?, NOW())";
+        String sql = "INSERT INTO logs (u_id, actions, details, timestamp) VALUES (?, ?, ?, NOW())";
 
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {

@@ -1,13 +1,19 @@
 package config;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class passwordHasher {
-    public static String hashPassword(String password) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-        byte[] hashBytes = md.digest(password.getBytes());
-        return Base64.getEncoder().encodeToString(hashBytes);
+    // Hash a password using BCrypt
+    public static String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
+    // Verify a plaintext password against a hashed password
+    public static boolean verifyPassword(String password, String hashed) {
+        if (hashed == null || !hashed.startsWith("$2")) {
+            // Not a BCrypt hash, handle accordingly or return false
+            return false;
+        }
+        return BCrypt.checkpw(password, hashed);
     }
 }

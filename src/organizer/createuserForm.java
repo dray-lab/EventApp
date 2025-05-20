@@ -40,7 +40,7 @@ public class createuserForm extends javax.swing.JFrame {
         dbConnector dbc = new dbConnector();
         
         try{
-        String query = "SELECT * FROM tbl_user WHERE u_username = '"+ un1.getText() +"'OR u_email ='"+ em1.getText()+"";
+        String query = "SELECT * FROM tbl_registeruser WHERE u_username = '"+ un1.getText() +"'OR u_email ='"+ em1.getText()+"";
             ResultSet resultSet = dbc.getData(query);
             
             if(resultSet.next()){
@@ -72,7 +72,7 @@ public class createuserForm extends javax.swing.JFrame {
         dbConnector dbc = new dbConnector();
         
         try{
-        String query = "SELECT * FROM tbl_user WHERE( u_username = '"+ un1.getText() +"'OR u_email ='"+ em1.getText()+"') AND u_id != '"+uid.getText()+"'";
+        String query = "SELECT * FROM tbl_registeruser WHERE( u_username = '"+ un1.getText() +"'OR u_email ='"+ em1.getText()+"') AND u_id != '"+uid.getText()+"'";
             ResultSet resultSet = dbc.getData(query);
             
             if(resultSet.next()){
