@@ -526,6 +526,9 @@ private void addToCheckoutTable() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel19MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel19MouseEntered(evt);
+            }
         });
         jPanel8.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 30));
 
@@ -823,39 +826,46 @@ if (confirm == JOptionPane.YES_OPTION) {
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         DefaultTableModel model = (DefaultTableModel) tableforCheckout.getModel();
 
-    dbConnector dbc = new dbConnector();
-    Connection conn = (Connection) dbc.getConnection();
+dbConnector dbc = new dbConnector();
+Connection conn = (Connection) dbc.getConnection();
 
-    for (int i = 0; i < model.getRowCount(); i++) {
-        String eventName = (String) model.getValueAt(i, 0);
-        String eventType = (String) model.getValueAt(i, 1);
-        String amountStr = (String) model.getValueAt(i, 3);
+// ✅ Replace with actual logged-in user's ID and name
+int userId = 1; // Replace with the actual logged-in user ID
+String username = "johndoe"; // Replace with the actual logged-in username
 
-        try {
-            double amount = Double.parseDouble(amountStr);
+for (int i = 0; i < model.getRowCount(); i++) {
+    String eventName = (String) model.getValueAt(i, 0);
+    String eventType = (String) model.getValueAt(i, 1);
+    String amountStr = (String) model.getValueAt(i, 3);
 
-            String sql = "INSERT INTO bookings (event_name, event_type, amount) VALUES (?, ?, ?)";
-            try (PreparedStatement pst = conn.prepareStatement(sql)) {
-                pst.setString(1, eventName);
-                pst.setString(2, eventType);
-                pst.setDouble(3, amount);
+    try {
+        double amount = Double.parseDouble(amountStr);
 
-                pst.executeUpdate();
-            }
+        String sql = "INSERT INTO bookings (u_id, user_name, event_name, event_type, amount, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())";
+        try (PreparedStatement pst = conn.prepareStatement(sql)) {
+            pst.setInt(1, userId);
+            pst.setString(2, username);
+            pst.setString(3, eventName);
+            pst.setString(4, eventType);
+            pst.setDouble(5, amount);
 
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Database Error: " + ex.getMessage());
-            ex.printStackTrace();
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Invalid amount format: " + amountStr);
+            pst.executeUpdate();
         }
+
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(this, "Database Error: " + ex.getMessage());
+        ex.printStackTrace();
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Invalid amount format: " + amountStr);
     }
+}
 
-    JOptionPane.showMessageDialog(this, "Checkout completed and saved to bookings.");
+JOptionPane.showMessageDialog(this, "Checkout completed and saved to bookings.");
 
-    // Optional: clear the checkout table and total field
-    model.setRowCount(0); // Clear table
-    totalAmountField.setText("0.00"); // Reset amount field
+// Optional: clear the checkout table and total field
+model.setRowCount(0); // Clear table
+totalAmountField.setText("0.00"); // Reset amount field
+
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -868,6 +878,10 @@ if (confirm == JOptionPane.YES_OPTION) {
     }
     ac.setText("" + sess.getFname());  
     }//GEN-LAST:event_formWindowActivated
+
+    private void jLabel19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel19MouseEntered
 
     /**
      * @param args the command line arguments

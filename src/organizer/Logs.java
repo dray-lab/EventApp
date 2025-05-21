@@ -16,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -27,6 +28,7 @@ public class Logs extends javax.swing.JFrame {
     /** Creates new form adminDasboard */
     public Logs() {
         initComponents();
+        loadLogsToTable();
     }
     
       Color navcolor = new Color(0,51,204);
@@ -44,6 +46,40 @@ public class Logs extends javax.swing.JFrame {
         }
 
     }
+        
+        public void loadLogsToTable() {
+    // Define your table columns
+    String[] columns = {"Log ID", "User ID", "Action", "Details", "Timestamp"};
+    
+    // Create table model and set it to the JTable
+    DefaultTableModel model = new DefaultTableModel(null, columns);
+    logsTable.setModel(model);
+    
+    // Create your dbConnector instance
+    dbConnector db = new dbConnector();
+    Connection conn = db.getConnection();
+    
+    String sql = "SELECT log_id, u_id, actions, details, timestamp FROM logs ORDER BY timestamp DESC";
+    
+    try (PreparedStatement pst = conn.prepareStatement(sql);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            String logId = String.valueOf(rs.getInt("log_id"));
+            String userId = String.valueOf(rs.getInt("u_id"));
+            String action = rs.getString("actions");
+            String details = rs.getString("details");
+            String timestamp = rs.getString("timestamp");
+            
+            // Add row to the table model
+            model.addRow(new Object[] {logId, userId, action, details, timestamp});
+        }
+        
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -417,7 +453,7 @@ public class Logs extends javax.swing.JFrame {
 
             },
             new String [] {
-
+                "Log ID", "User ID", "Action", "Details", "Timestamp"
             }
         ));
         jScrollPane1.setViewportView(logsTable);

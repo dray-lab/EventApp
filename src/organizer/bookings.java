@@ -18,7 +18,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class bookings extends javax.swing.JFrame {
     
-     private int selectedEventId = -1; 
+    private int selectedEventId = -1;
+
     
     public bookings() {
         initComponents();
@@ -29,6 +30,9 @@ public class bookings extends javax.swing.JFrame {
      Color navcolor = new Color(0,51,204);
     Color hovercolor = new Color(255,153,153);
     
+    dbConnector db = new dbConnector();
+Connection conn = db.getConnection();
+
     
     private void addTableMouseListener() {
         tableforEvents.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -48,25 +52,21 @@ public class bookings extends javax.swing.JFrame {
         });
     }
     
-   private void loadEventsToTable() {
-    String[] columns = {"ID", "Event Type", "Event Name", "Amount", "Venue", "Packages"};
+  private void loadEventsToTable() {
+    String[] columns = {"ID", "Event Name", "Event Type", "Venue", "Amount", "Packages"};
     DefaultTableModel model = new DefaultTableModel(null, columns);
 
-    dbConnector dbc = new dbConnector();
-    Connection conn = (Connection) dbc.getConnection();
-
-    String sql = "SELECT * FROM events";
-
-    try (PreparedStatement pst = conn.prepareStatement(sql);
+      try (Connection conn = db.getConnection();
+         PreparedStatement pst = conn.prepareStatement("SELECT * FROM events");
          ResultSet rs = pst.executeQuery()) {
 
         while (rs.next()) {
             Object[] row = {
                 rs.getInt("id"),
-                rs.getString("event_type"),
                 rs.getString("event_name"),
-                rs.getDouble("amount"),
+                rs.getString("event_type"),
                 rs.getString("venue"),
+                rs.getDouble("amount"),
                 rs.getString("packages")
             };
             model.addRow(row);
@@ -78,6 +78,8 @@ public class bookings extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Error loading events: " + ex.getMessage());
     }
 }
+
+
    
   
    
@@ -110,6 +112,47 @@ public class bookings extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Error loading bookings: " + ex.getMessage());
     }
 }
+  
+    private void loadEvents() {
+    String query = "SELECT * FROM events ORDER BY created_at DESC"; // or whatever order you want
+
+    // Create instance of dbConnector
+    dbConnector db = new dbConnector();
+
+    try (Connection conn = db.getConnection()) {
+        if (conn == null) {
+            JOptionPane.showMessageDialog(null, "Failed to connect to the database.");
+            return;
+        }
+
+        try (PreparedStatement pst = conn.prepareStatement(query);
+             ResultSet rs = pst.executeQuery()) {
+
+            // Use a DefaultTableModel to populate the JTable
+            DefaultTableModel model = (DefaultTableModel) tableforEvents.getModel();
+            model.setRowCount(0);  // Clear existing rows
+
+            while (rs.next()) {
+                Object[] row = {
+                    rs.getInt("id"),  // or event_id or your PK column
+                    rs.getInt("u_id"),
+                    rs.getString("event_name"),
+                    rs.getString("event_type"),
+                    rs.getString("venue"),
+                    rs.getDouble("amount"),
+                    rs.getString("packages"),
+                    rs.getTimestamp("created_at"),
+                    rs.getTimestamp("updated_at")
+                };
+                model.addRow(row);
+            }
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error loading events: " + e.getMessage());
+        e.printStackTrace();
+    }
+}
+
 
 
         /**
@@ -535,15 +578,20 @@ public class bookings extends javax.swing.JFrame {
 
         tableforEvents.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-
+                "ID", "Event Name ", "Event Type ", "Venue", "Amount", "Packages"
             }
         ));
+        tableforEvents.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableforEventsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableforEvents);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, -1, 280));
@@ -762,7 +810,8 @@ if (confirm == JOptionPane.YES_OPTION) {
     }//GEN-LAST:event_eventIDTextFieldActionPerformed
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-      // Get data from input fields (make sure you have declared these components)
+                              
+    // Get data from input fields
     String eventName = eventNameTextField.getText();
     String eventType = eventTypeComboBox.getSelectedItem().toString();
     String venue = venueTextField.getText();
@@ -778,31 +827,60 @@ if (confirm == JOptionPane.YES_OPTION) {
     try {
         double amount = Double.parseDouble(amountText); // validate amount is numeric
 
-        String sql = "INSERT INTO events (event_name, event_type, venue, amount, packages) VALUES (?, ?, ?, ?, ?)";
-        Connection conn = dbConnector.connect(); // assume you have a dbConnector with a connect() method
-        PreparedStatement pst = conn.prepareStatement(sql);
-        pst.setString(2, eventName);
-        pst.setString(1, eventType);
-        pst.setString(4, venue);
-        pst.setDouble(3, amount);
-        pst.setString(5, packages);
+        // Assuming you have the logged-in user's ID somewhere accessible
+        int userId = 1; // Replace with actual logged-in user's ID
 
-        int rowsAffected = pst.executeUpdate();
+        String sql = "INSERT INTO events (u_id, event_name, event_type, venue, amount, packages, created_at, updated_at) "
+                   + "VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW())";
 
-        if (rowsAffected > 0) {
-            JOptionPane.showMessageDialog(null, "Event added successfully!");
-            clearFields(); // Optional: reset form after success
-        } else {
-            JOptionPane.showMessageDialog(null, "Failed to add event.");
+        // Create an instance of dbConnector
+        dbConnector db = new dbConnector();
+
+        try (Connection conn = db.getConnection()) {
+            if (conn == null) {
+                JOptionPane.showMessageDialog(null, "Failed to connect to the database.");
+                return;
+            }
+
+            try (PreparedStatement pst = conn.prepareStatement(sql)) {
+                // Set parameters - order matters!
+                pst.setInt(1, userId);
+                pst.setString(2, eventName);
+                pst.setString(3, eventType);
+                pst.setString(4, venue);
+                pst.setDouble(5, amount);
+                pst.setString(6, packages);
+
+                int rowsAffected = pst.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(null, "Event added successfully!");
+                    clearFields(); // reset form after success
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to add event.");
+                }
+            }
         }
-
-        pst.close();
-        conn.close();
     } catch (NumberFormatException e) {
         JOptionPane.showMessageDialog(null, "Amount must be a valid number.");
-    } catch (Exception e) {
+    } catch (SQLException e) {
         JOptionPane.showMessageDialog(null, "Database error: " + e.getMessage());
+        e.printStackTrace();
     }
+}
+
+// Add this method in your class, outside the above method
+private void clearFields() {
+    eventNameTextField.setText("");
+    eventTypeComboBox.setSelectedIndex(0);
+    venueTextField.setText("");
+    AmountTextField.setText("");
+    packageTextField.setText("");
+
+    
+
+
+
     }//GEN-LAST:event_addMouseClicked
 
     private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
@@ -853,7 +931,9 @@ if (confirm == JOptionPane.YES_OPTION) {
         }
 
         String sql = "UPDATE events SET event_name = ?, event_type = ?, venue = ?, amount = ?, packages = ? WHERE id = ?";
-        Connection conn = dbConnector.connect(); // your dbConnector's method
+       dbConnector db = new dbConnector();
+       Connection conn = db.getConnection();
+
         PreparedStatement pst = conn.prepareStatement(sql);
         pst.setString(1, eventName);
         pst.setString(2, eventType);
@@ -881,14 +961,14 @@ if (confirm == JOptionPane.YES_OPTION) {
     }//GEN-LAST:event_editEventMouseClicked
 
     private void deleteEventsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteEventsMouseClicked
-        int selectedRow = tableforEvents.getSelectedRow();
+         int selectedRow = tableforEvents.getSelectedRow();
 
     if (selectedRow < 0) {
         JOptionPane.showMessageDialog(null, "Please select an event to delete.");
         return;
     }
 
-    // Get the event ID from the first column of the selected row
+    // Get the event ID from the first column
     Object eventIdObj = tableforEvents.getValueAt(selectedRow, 0);
     if (eventIdObj == null) {
         JOptionPane.showMessageDialog(null, "Selected event ID not found.");
@@ -897,15 +977,25 @@ if (confirm == JOptionPane.YES_OPTION) {
 
     int eventId = Integer.parseInt(eventIdObj.toString());
 
-    int confirm = JOptionPane.showConfirmDialog(null, 
-        "Are you sure you want to delete this event?", 
-        "Confirm Delete", 
-        JOptionPane.YES_NO_OPTION);
+    int confirm = JOptionPane.showConfirmDialog(
+        null,
+        "Are you sure you want to delete this event?",
+        "Confirm Delete",
+        JOptionPane.YES_NO_OPTION
+    );
 
     if (confirm == JOptionPane.YES_OPTION) {
         try {
+            // Create dbConnector instance
+            dbConnector db = new dbConnector();
+            Connection conn = db.getConnection(); // Assuming this method returns a valid connection
+
+            if (conn == null) {
+                JOptionPane.showMessageDialog(null, "Failed to connect to the database.");
+                return;
+            }
+
             String sql = "DELETE FROM events WHERE id = ?";
-            Connection conn = dbConnector.connect();
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setInt(1, eventId);
 
@@ -913,17 +1003,21 @@ if (confirm == JOptionPane.YES_OPTION) {
 
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Event deleted successfully.");
-                loadEventsToTable();  // Refresh table after delete
+                loadEvents();       // Refresh table
+                clearFields();      // Clear input fields
+                selectedEventId = -1; // Reset selection
             } else {
                 JOptionPane.showMessageDialog(null, "Failed to delete event.");
             }
 
             pst.close();
             conn.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error deleting event: " + e.getMessage());
+            e.printStackTrace();
         }
     }
+
     }//GEN-LAST:event_deleteEventsMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -936,6 +1030,25 @@ if (confirm == JOptionPane.YES_OPTION) {
     }
     acc.setText("" + sess.getFname());
     }//GEN-LAST:event_formWindowActivated
+
+    private void tableforEventsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableforEventsMouseClicked
+       
+       
+    int selectedRow = tableforEvents.getSelectedRow();
+
+    if (selectedRow >= 0) {
+        selectedEventId = Integer.parseInt(tableforEvents.getValueAt(selectedRow, 0).toString());
+        eventNameTextField.setText(tableforEvents.getValueAt(selectedRow, 1).toString());
+        eventTypeComboBox.setSelectedItem(tableforEvents.getValueAt(selectedRow, 2).toString());
+        venueTextField.setText(tableforEvents.getValueAt(selectedRow, 3).toString());
+        AmountTextField.setText(tableforEvents.getValueAt(selectedRow, 4).toString());
+        packageTextField.setText(tableforEvents.getValueAt(selectedRow, 5).toString());
+
+        System.out.println("Selected Event ID: " + selectedEventId); // for debug
+    }
+
+
+    }//GEN-LAST:event_tableforEventsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1027,9 +1140,4 @@ if (confirm == JOptionPane.YES_OPTION) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void clearFields() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
 }

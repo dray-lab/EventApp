@@ -31,7 +31,7 @@ public class receiptPrint extends JFrame {
 
         try {
             dbConnector db = new dbConnector();
-            Connection con = db.connect;
+            Connection con = db.getConnection();
 
             // SQL query to retrieve booking and user info
             String query =

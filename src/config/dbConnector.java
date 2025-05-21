@@ -10,6 +10,8 @@ public class dbConnector {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    
     public Connection connect;
 
     // constructor to connect to our database
@@ -20,6 +22,7 @@ public class dbConnector {
             System.out.println("Can't connect to database: " + ex.getMessage());
         }
     }
+
 
     // Function to retrieve data
     public ResultSet getData(String sql) throws SQLException {
